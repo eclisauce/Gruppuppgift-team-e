@@ -1,5 +1,5 @@
 {
-  "name": "oop-cats-and-slaves",
+  "name": "tisdag-su-17",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "compression": "^1.7.1",
-    "express": "^4.16.2",
-    "jsonflex": "^1.0.9"
+    "express": "^4.15.4"
   }
 }
