@@ -1,5 +1,5 @@
-let express = require('express');
-let app = express();
+const express = require('express');
+const app = express();
 
 app.use(express.static('www'));
 
