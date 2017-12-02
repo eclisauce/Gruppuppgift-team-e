@@ -17,3 +17,15 @@ footer {
 height: 150px;
 width: 200px;
 }
+
+rect.btn {
+  stroke:#fff;
+  fill:#fff;
+  fill-opacity:0;
+  stroke-opacity:0;
+}
+
+svg {
+  width: 700px;
+  height: 600px;
+}
