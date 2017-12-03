@@ -1,105 +1,79 @@
 <!DOCTYPE html>
 <html lang="sv">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <!-- My own CSS -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/css/main.css">
   </head>
+
   <body>
-    <header class="col-12">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">Navbar</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link current" href="/">Start</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/spela.html">Spela</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/spelregler.html">Spelregler</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/highscore.html">High Score</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+
     <main>
-      <div class="container">
-        <div class="row">
-          <div class="jumbotron col-12 col-lg-8">
-            <h1 class="display-3">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
-          </div>
-          <div class="card col-12 col-lg-3 ml-2">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- Här valde jag buttons som Navbar. Kan ändras senare ifall vi skulle vilja det. -->
+          <div class="container buttons pt-5">
+                  <a class="btn btn-danger btn-lg" href="index.html" role="button">Start</a>
+                  <a class="btn btn-success btn-lg" href="spela.html" role="button">Börja Spela</a>
+                  <a class="btn btn-warning btn-lg" href="spelregler.html" role="button">Spelregler</a>
+                  <a class="btn btn-warning btn-lg" href="highscore.html" role="button">Highscore</a>
             </div>
-          </div>
-        </div>
-        <h2>Andra spel online</h2>
-        <div class="row">
-          <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="..." alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
 
+            <div class="container pt-2">
+                  <div class="jumbotron">
+                  <h1 class="display-3">Spela 4 i Rad!</h1>
+                  <p class="lead">Utmana datorn eller spela mot en vän, Online!</p>
+                        <p class="lead">
+                              <a class="btn btn-success btn-lg" href="spela.html" role="button">Ta mig till spelet</a>
+                        </p>
+                  </div>
+            </div>
+
+            <!-- DENNA SKA LÄNKAS TILL MINICLIP ELLER dyl. -->
+            <div class="container">
+                  <h1>Populärast just nu</h1>
+                  <div class="row p-3 align-middle">
+                  <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="/imgs/space-invader.png" alt="space-invaders">
+                              <div class="card-body">
+                                    <h4 class="card-title">Space Invaders</h4>
+                                    <p class="card-text">Ett av de mest berömda arkadspelen. </p>
+                                    <a href="#" class="btn btn-warning">Spela nu!</a>
+                              </div>
+                  </div>
+                  <div class="card ml-4" style="width: 20rem;">
+                        <img class="card-img-top" src="/imgs/pac-man.png" alt="pac-man">
+                              <div class="card-body">
+                                    <h4 class="card-title">Pac-Man</h4>
+                                    <p class="card-text">Ett labyrintspel där spelaren styr titelkaraktären</p>
+                                    <a href="#" class="btn btn-warning">Spela nu!</a>
+                              </div>
+                  </div>
+                  <div class="card ml-4" style="width: 20rem;">
+                        <img class="card-img-top" src="/imgs/street-fighter.png" alt="street-fighter">
+                              <div class="card-body">
+                                    <h4 class="card-title">Street Fighter</h4>
+                                    <p class="card-text">Spela som Ryu och res runt i världen och kämpa mot olika slagskämpar och bossar.</p>
+                                    <a href="#" class="btn btn-warning">Spela nu!</a>
+                              </div>
+                  </div>
+                                    <!-- DENNA SKA LÄNKAS TILL MINICLIP ELLER dyl. -->
+                                    <a class="btn btn-warning btn-lg btn-block mt-2" href="#" role="button">Mer spel</a>
+
+
+            </div>
       </div>
+
+
+
+
     </main>
-    <footer class="mt-5">
-      <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
-        <span class="text-muted ml-5">Place sticky footer content here.</span>
-        <span class="text-muted ml-5">Place sticky footer content here.</span>
-      </div>
-    </footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-    <!-- My own JavaScript -->
+    <script src="/js/jsonflex.js"></script>
+    <script src="/js/libs/jquery-3.2.1.js"></script>
+    <script src="/js/libs/popper-1.11.0.js"></script>
+    <script src="/js/libs/bootstrap-4-beta.js"></script>
+
     <script src="/js/main.js"></script>
+
   </body>
 </html>
