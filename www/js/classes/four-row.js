@@ -52,4 +52,12 @@ class FourInALow {
   getCurrentTurn() {
     return this.turn;
   }
+
+  isClickable(element) {
+    if($(element).hasClass('put-yellow') || $(element).hasClass('put-red')) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
