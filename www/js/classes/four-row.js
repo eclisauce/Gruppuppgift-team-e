@@ -1,6 +1,7 @@
 class FourInALow {
   constructor() {
-    this.render()
+    this.render();
+    this.turn = 'yellow';
   }
 
   render(el) {
@@ -38,5 +39,17 @@ class FourInALow {
 
   putDisc(element, color) {
     $(element).addClass(`put-${color}`);
+  }
+
+  changeTurn() {
+    if(this.turn === 'yellow') {
+      this.turn = 'red';
+    } else {
+      this.turn = 'yellow';
+    }
+  }
+
+  getCurrentTurn() {
+    return this.turn;
   }
 }

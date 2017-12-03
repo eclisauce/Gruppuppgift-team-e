@@ -38,3 +38,6 @@ circle.put-yellow {
   fill: rgb(241, 228, 32);
 }
 
+circle.put-red {
+  fill: rgb(250, 95, 57);
+}
