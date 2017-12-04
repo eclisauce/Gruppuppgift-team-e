@@ -39,7 +39,7 @@ class FourInALow {
   }
 
   putDisc(element, color) {
-    $(element).addClass(`put-${color}`);
+    $(element).addClass(`${color}`);
   }
 
   changeTurn() {
@@ -51,7 +51,7 @@ class FourInALow {
   }
 
   isClickable(element) {
-    if($(element).hasClass('put-yellow') || $(element).hasClass('put-red')) {
+    if($(element).hasClass('yellow') || $(element).hasClass('red')) {
       return false;
     } else {
       return true;
