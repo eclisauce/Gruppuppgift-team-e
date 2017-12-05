@@ -1,3 +1,7 @@
+p:nth-child(even) {
+  background-color: #dc3545;
+  color: white;
+}
 .btn {
   border-radius: 0px;
 }

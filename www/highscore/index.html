@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <!-- My own CSS -->
-    <link rel="stylesheet" href="/css/css/main.css">
-  </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- My own CSS -->
+  <link rel="stylesheet" href="/css/css/main.css">
+</head>
 
-  <body>
-    <nav>
-      <div class="container buttons pt-5">
-        <a class="btn btn-danger btn-lg" href="/index.html" role="button">Start</a>
-        <a class="btn btn-success btn-lg" href="/play" role="button">Börja Spela</a>
-        <a class="btn btn-warning btn-lg" href="/gamerules" role="button">Spelregler</a>
-        <a class="btn btn-warning btn-lg" href="/highscore" role="button">Highscore</a>
+<body>
+  <nav>
+    <div class="container buttons pt-5">
+      <a class="btn btn-danger btn-lg" href="/index.html" role="button">Start</a>
+      <a class="btn btn-success btn-lg" href="/play" role="button">Börja Spela</a>
+      <a class="btn btn-warning btn-lg" href="/gamerules" role="button">Spelregler</a>
+      <a class="btn btn-warning btn-lg" href="/highscore" role="button">Highscore</a>
+    </div>
+  </nav>
+  <header>
+  </header>
+
+  <main>
+    <section class="container pt-2">
+      <div id="highscore" class="row">
+        <div class="col-2 p-0">
+          <p class="text-right m-0">Position</p>
+          <p class="text-right m-0">1</p>
+          <p class="text-right m-0">2</p>
+          <p class="text-right m-0">3</p>
+          <p class="text-right m-0">4</p>
+          <p class="text-right m-0">5</p>
+          <p class="text-right m-0">6</p>
+          <p class="text-right m-0">7</p>
+          <p class="text-right m-0">8</p>
+          <p class="text-right m-0">9</p>
+          <p class="text-right m-0">10</p>
+        </div>
+        <div class="col-1 p-0">
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+            <p class="m-0">&nbsp;</p>
+        </div>
+        <div id="hsNames" class="col-6 p-0">
+          <p class="m-0">Name</p>
+        </div>
+        <div id="hsScores" class="col-3 p-0">
+          <p class="m-0">Score</p>
+        </div>
       </div>
-    </nav>
-    <header>
-    </header>
+    </section>
+  </main>
 
-    <main>
-      <div class="container pt-2">
+  <footer>
+  </footer>
 
-        HIGSCORE SIDA
-      </div>
-    </main>
+  <!-- JavaScript libraries -->
+  <script src="/js/jsonflex.js"></script>
+  <script src="/js/libs/jquery-3.2.1.js"></script>
+  <script src="/js/libs/popper-1.11.0.js"></script>
+  <script src="/js/libs/bootstrap-4-beta.js"></script>
 
-    <footer>
-    </footer>
+  <script src="/js/classes/highscore.js"></script>
 
-    <!-- JavaScript libraries -->
-    <script src="/js/jsonflex.js"></script>
-    <script src="/js/libs/jquery-3.2.1.js"></script>
-    <script src="/js/libs/popper-1.11.0.js"></script>
-    <script src="/js/libs/bootstrap-4-beta.js"></script>
-
-    <script src="/js/main.js"></script>
-
-  </body>
+</body>
 </html>
