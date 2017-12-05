@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/css/main.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="container buttons pt-5">
+        <a class="btn btn-danger btn-lg" href="/index.html" role="button">Start</a>
+        <a class="btn btn-success btn-lg" href="/play" role="button">Börja Spela</a>
+        <a class="btn btn-warning btn-lg" href="/gamerules" role="button">Spelregler</a>
+        <a class="btn btn-warning btn-lg" href="/highscore" role="button">Highscore</a>
+      </div>
+    </nav>
+    <header>
+    </header>
+    <main>
+
+      SPELA SIDA, JavaScript ligger i js/classes/four-row.js
+      <!-- Show/Hide på denna. -->
+      <div class="row">
+        <div class="col-12">
+            <a class="btn btn-danger btn-lg btn-block mt-2" href="#" role="button">Avbryt spel</a>
+        </div>
+      </div>
+
+      <!-- Dessa input-fields kommer ju absolut ändras men for now så kan vi mata js på den. -->
+      <div class="row playerone pt-5">
+        <div class="col-12">
+            <p>Ange Spelare 1</p>
+            <div class="form-group">
+                  <label for="usr">Name:</label>
+                  <input type="text" class="form-control" id="usr">
+            </div>
+
+            <!-- ifall vi vill utöka funktioner / JavaScript -->
+
+            <!-- <div class="form-group">
+                  <label for="pwd">Password:</label>
+                  <input type="password" class="form-control" id="pwd">
+          </div>     -->
+        </div>
+      </div>
+
+      <div class="row playertwo">
+        <div class="col-12">
+          <p>Ange Spelare 2</p>
+          <div class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr">
+          </div>
+          <label class="checkbox-inline"><input type="checkbox" value="">Dator</label>
+          <!-- <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+          </div>     -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+            <a class="btn btn-success btn-lg" href="#l" role="button">Starta spel</a>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+          <div id="board"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="/js/jsonflex.js"></script>
+    <script src="/js/libs/jquery-3.2.1.js"></script>
+    <script src="/js/libs/popper-1.11.0.js"></script>
+    <script src="/js/libs/bootstrap-4-beta.js"></script>
+    <script src="/js/classes/four-row.js"></script>
+    <script src="/js/main.js"></script>
+
+  </body>
+</html>
