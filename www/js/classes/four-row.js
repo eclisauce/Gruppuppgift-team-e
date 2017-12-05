@@ -52,7 +52,7 @@ class FourInALow {
   }
 
   changeTurn() {
-    this.turn === 'yellow' ? this.turn = 'red' : this.turn = 'yellow';
+    this.turn = (this.turn === 'yellow') ? 'red' : 'yellow';
   }
 
   getCurrentTurn() {
