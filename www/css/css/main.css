@@ -51,3 +51,6 @@ circle.yellow {
 circle.red {
   fill: #fa5f39;
 }
+main.game-rule img {
+  width: 250px;
+}
