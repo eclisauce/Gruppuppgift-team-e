@@ -1,4 +1,4 @@
-p:nth-child(even) {
+#highscore p:nth-child(even) {
   background-color: #dc3545;
   color: white;
 }
