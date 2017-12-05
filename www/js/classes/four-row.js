@@ -26,24 +26,33 @@ class FourInALow {
     $('#board').html(board);
   }
 
-  placeTemplate(cx, cy){
+  placeTemplate(cx, cy) {
     const r = 40;
     const x = cx - r;
     const y = cy - r;
     return `
     <g>
-      <circle cx="${cx}" cy="${cy}" r="${r}" stroke="grey" stroke-width="3"  />
+      <circle cx="${cx}" cy="${cy}" r="${r}" stroke="grey" stroke-width="3" />
       <rect class="btn" x="${x}" y="${y}" width="${r * 2}" height="${r * 2}" />
     </g>
     `
   }
 
   putDisc(element, color) {
-    $(element).addClass(`${color}`);
+    let playColumn = $("[cx=" + element[0].cx.baseVal.value + "]");
+    for (let i = 0; i < 6; i++) {
+      if (playColumn[i].className.baseVal != "") {
+        $($("[cx=" + element[0].cx.baseVal.value + "][cy=" + (50 + (100 * (i - 1))) + "]")).addClass(`${color}`);
+        break;
+      } else if (i == 5) {
+        $($("[cx=" + element[0].cx.baseVal.value + "][cy=" + (50 + (100 * (i))) + "]")).addClass(`${color}`);
+        break;
+      }
+    }
   }
 
   changeTurn() {
-    this.turn === 'yellow'?  this.turn = 'red' : this.turn = 'yellow';
+    this.turn === 'yellow' ? this.turn = 'red' : this.turn = 'yellow';
   }
 
   getCurrentTurn() {
@@ -51,7 +60,7 @@ class FourInALow {
   }
 
   isClickable(element) {
-    if($(element).hasClass('yellow') || $(element).hasClass('red')) {
+    if ($(element).hasClass('yellow') || $(element).hasClass('red')) {
       return false;
     } else {
       return true;
