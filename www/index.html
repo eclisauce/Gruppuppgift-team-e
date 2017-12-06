@@ -8,33 +8,50 @@
   </head>
 
   <body>
-    <nav>
+
+    <!-- <nav>
       <div class="container buttons pt-5">
         <a class="btn btn-danger btn-lg" href="/index.html" role="button">Start</a>
         <a class="btn btn-success btn-lg" href="/play" role="button">Börja Spela</a>
         <a class="btn btn-warning btn-lg" href="/gamerules" role="button">Spelregler</a>
         <a class="btn btn-warning btn-lg" href="/highscore" role="button">Highscore</a>
       </div>
-    </nav>
+    </nav> -->
     <header>
+      <nav class=" container navbar navbar-expand-lg navbar-light bg-light">
+        <img class="logoimg img-fluid navbar-brand" src="/imgs/In-progress/logo-straight.png" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Start <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/play">Spela</a>
+            <a class="nav-item nav-link" href="/gamerules">Spelregler</a>
+            <a class="nav-item nav-link" href="/highscore">Highscore</a>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-
       <div class="container pt-2">
-        <div class="jumbotron">
-          <h1 class="display-3">Spela 4 i Rad!</h1>
-          <p class="lead">Utmana datorn eller spela mot en vän, Online!</p>
-          <p class="lead">
-            <a class="btn btn-success btn-lg" href="spela.html" role="button">Ta mig till spelet</a>
-          </p>
-        </div>
-      </div>
+        <div class="row">
+          <div class="jumbotron col-m-12 col-lg-8">
+            <h1 class="display-3">Spela 4 i Rad!</h1>
+            <p class="lead">Utmana datorn eller spela mot en vän, Online!</p>
+            <p class="lead">
+              <a class="btn btn-success btn-lg" href="spela.html" role="button">Ta mig till spelet</a>
+            </p>
+          </div>
+
+          <div class="card col-sm-12 col-lg-4">
+            <img class="card-img-top" src="/imgs/space-invader.png" alt="space-invaders">
+          </div>
+
 
             <!-- DENNA SKA LÄNKAS TILL MINICLIP ELLER dyl. -->
-      <div class="container">
-        <h1>Populärast just nu</h1>
         <div class="row p-3 align-middle">
-          <div class="card" style="width: 20rem;">
+          <div class="card col-sm-12 col-lg-4">
             <img class="card-img-top" src="/imgs/space-invader.png" alt="space-invaders">
             <div class="card-body">
               <h4 class="card-title">Space Invaders</h4>
@@ -42,7 +59,7 @@
               <a href="#" class="btn btn-warning">Spela nu!</a>
             </div>
           </div>
-          <div class="card ml-4" style="width: 20rem;">
+          <div class="card col-sm-12 col-lg-4">
             <img class="card-img-top" src="/imgs/pac-man.png" alt="pac-man">
             <div class="card-body">
               <h4 class="card-title">Pac-Man</h4>
@@ -50,7 +67,7 @@
               <a href="#" class="btn btn-warning">Spela nu!</a>
             </div>
           </div>
-          <div class="card ml-4" style="width: 20rem;">
+          <div class="card col-sm-12 col-lg-4">
             <img class="card-img-top" src="/imgs/street-fighter.png" alt="street-fighter">
               <div class="card-body">
                 <h4 class="card-title">Street Fighter</h4>
@@ -61,7 +78,9 @@
           <!-- DENNA SKA LÄNKAS TILL MINICLIP ELLER dyl. -->
           <a class="btn btn-warning btn-lg btn-block mt-2" href="#" role="button">Mer spel</a>
         </div>
+
       </div>
+    </div>
     </main>
 
     <script src="/js/jsonflex.js"></script>
