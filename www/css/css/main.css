@@ -2,6 +2,10 @@
   background-color: #dc3545;
   color: white;
 }
+.logoimg {
+  height: 20%;
+  width: 30%;
+}
 .btn {
   border-radius: 0px;
 }
