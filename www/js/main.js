@@ -10,6 +10,6 @@ $(document).on('click', 'rect', function(){
 });
 
 // Footerfix
-var height = $('footer').height() + 30;
+var height = $('footer').height();
 $('body').css({marginBottom: height});
 $(window).on('resize',function(){location.reload();});
