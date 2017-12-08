@@ -54,16 +54,15 @@ class FourInALow {
     let w = $(window).width();
     let h = $(window).height();
     w -= 20 * 2;
+    h -= 20 * 2;
     const wScale = w / orgW;
     const hScale = h / orgH;
     let scaling = Math.min(wScale, hScale);
     scaling = (scaling >= 1) ? 1 : scaling;
-    $('#board').width(orgW * scaling);
-    $('#board').height(orgH * scaling);
-    $('svg').width(orgW * scaling);
-    $('svg').height(orgH * scaling);
-    $('rect').css('transform', `scale(${scaling})`);
-    $('circle').css('transform', `scale(${scaling})`);
+
+    $('#board').css('transform', `scale(${scaling})`);
+    $('#board-holder').width(orgW * scaling);
+    $('#board-holder').height(orgH * scaling);
   }
 
   changeTurn() {
