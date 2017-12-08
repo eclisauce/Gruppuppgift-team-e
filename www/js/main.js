@@ -7,12 +7,6 @@ $(document).on('click', 'rect', function(){
   }
 });
 
-// Footerfix
-var height = $('footer').height() + 40;
-$('body').css({marginBottom: height});
-$(window).on('resize',function(){location.reload();});
-
-
 $('#mystartbutton').on('click', function(){
   $('#myformhide').addClass('d-none').removeClass('d-block');
   $('#mygamehide').addClass('d-block').removeClass('d-none');
@@ -22,3 +16,14 @@ $('#myquitbutton').on('click', function(){
   $('#myformhide').addClass('d-block').removeClass('d-none');
   $('#mygamehide').addClass('d-none').removeClass('d-block');
 })
+
+function footerFix(){
+  let height = $('footer').height() + 40;
+  $('body').css({marginBottom: height});
+}
+
+footerFix();
+
+$(window).on('resize',function(){
+  footerFix();
+});
