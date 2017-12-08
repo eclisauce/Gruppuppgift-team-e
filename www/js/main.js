@@ -1,6 +1,4 @@
-const game = new FourInALow();
-game.scale();
-$(window).resize(game.scale);
+
 
 $(document).on('click', 'rect', function(){
   const targetCircle = $(this).siblings('circle');

@@ -80,3 +80,7 @@ class FourInALow {
     }
   }
 }
+
+const game = new FourInALow();
+game.scale();
+$(window).resize(game.scale);
