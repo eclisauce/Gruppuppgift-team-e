@@ -51,14 +51,13 @@ class FourInALow {
 
   scale() {
     let orgW = 700, orgH = 600;
-    let w = $(window).width();
+    let w = $(window).width() - $("#board").offset().left;
     let h = $(window).height();
     w -= 20 * 2;
     h -= 20 * 2;
     const wScale = w / orgW;
     const hScale = h / orgH;
     let scaling = Math.min(wScale, hScale);
-    scaling = (scaling >= 1) ? 1 : scaling;
 
     $('#board').css('transform', `scale(${scaling})`);
     $('#board-holder').width(orgW * scaling);
