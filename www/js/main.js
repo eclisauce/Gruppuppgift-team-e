@@ -5,17 +5,20 @@ $(document).on('click', 'rect', function(){
     game.putDisc(targetCircle, color);
     game.changeTurn();
     game.checkWinner(color);
+    game.isFullBoard();
   }
 });
 
 $('#mystartbutton').on('click', function(){
   $('#myformhide').addClass('d-none').removeClass('d-block');
   $('#mygamehide').addClass('d-block').removeClass('d-none');
+  game.activate(true);
 })
 
 $('#myquitbutton').on('click', function(){
   $('#myformhide').addClass('d-block').removeClass('d-none');
   $('#mygamehide').addClass('d-none').removeClass('d-block');
+  game.activate(false);
 })
 
 function footerFix(){

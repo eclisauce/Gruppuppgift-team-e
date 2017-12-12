@@ -4,6 +4,11 @@ class FourInALow {
     this.render();
     this.scale();
     this.turn = 'yellow';
+    this.active = false;
+  }
+
+  activate(on) {
+    this.active = on;
   }
 
   discFactory() {
@@ -73,6 +78,10 @@ class FourInALow {
   }
 
   isClickable(element) {
+    if (!this.active) {
+      return false;
+    }
+
     if ($(element).hasClass('yellow') || $(element).hasClass('red')) {
       return false;
     } else {
@@ -169,6 +178,18 @@ class FourInALow {
       }
     }
     return false;
+  }
+
+  isFullBoard() {
+    for (let i = 0; i < 7; i++) {
+      for (let j = 0; j < 6; j++) {
+        if (this.places[i][j].color === 'white') {
+          return false;
+        }
+      }
+    }
+    this.activate(false);
+    return true;
   }
 
   }
