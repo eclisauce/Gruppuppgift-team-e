@@ -37,16 +37,16 @@ class FourInALow {
   }
 
   putDisc(element, color) {
-    let playColumn = $("[cx=" + element[0].cx.baseVal.value + "]");
-    for (let i = 0; i < 6; i++) {
-      if (playColumn[i].className.baseVal != "") {
-        $($("[cx=" + element[0].cx.baseVal.value + "][cy=" + (50 + (100 * (i - 1))) + "]")).addClass(`${color}`);
-        break;
-      } else if (i == 5) {
-        $($("[cx=" + element[0].cx.baseVal.value + "][cy=" + (50 + (100 * (i))) + "]")).addClass(`${color}`);
+    // playColumn is index
+    let playColumn = (element[0].cx.baseVal.value - 50) / 100;
+    for (let y = 5; y >= 0 ; y--) {
+      if (this.places[playColumn][y].color === 'white') {
+        this.places[playColumn][y].color = color;
+        $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy +"]").addClass(color);
         break;
       }
     }
+
   }
 
   scale() {
@@ -79,8 +79,99 @@ class FourInALow {
       return true;
     }
   }
-}
 
-const game = new FourInALow();
-game.scale();
-$(window).resize(game.scale);
+  checkWinner(color) {
+    return (
+      this.checkForInRow(color) ||
+      this.checkForInColumn(color) ||
+      this.checkForInDiagonal1(color) ||
+      this.checkForInDiagonal2(color)
+    );
+  }
+
+  checkForInRow(color) {
+    let count = 0;
+    for (let y = 0; y < 6; y++) {
+      for (let x = 0; x < 7; x++) {
+        if (this.places[x][y].color === color) {
+          count++;
+          if (count === 4) {
+            // todo:temporary implementation
+            window.alert('win!');
+            return true;
+          }
+        } else {
+          count = 0;
+        }
+      }
+    }
+    return false;
+  }
+
+  checkForInColumn(color) {
+    let count = 0;
+    for (let x = 0; x < 7; x++) {
+      for (let y = 0; y < 6; y++) {
+        if (this.places[x][y].color === color) {
+          count++;
+          if (count === 4) {
+            // todo:temporary implementation
+            window.alert('win!');
+            return true;
+          }
+        } else {
+          count = 0;
+        }
+      }
+    }
+    return false;
+  }
+
+  checkForInDiagonal1(color) {
+    let count = 0;
+    for (let originX = 0; originX < 4; originX++) {
+      for (let originY = 0; originY < 3; originY++) {
+        for (let i = 0; i < 4; i++) {
+          if (this.places[originX + i][originY + i].color === color) {
+            count++;
+            if (count === 4) {
+              // todo:temporary implementation
+              window.alert('win');
+              return true;
+            }
+          } else {
+            count = 0;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  checkForInDiagonal2(color) {
+    let count = 0;
+    for (let originX = 3; originX < 7; originX++) {
+      for (let originY = 0; originY < 3; originY++) {
+        for (let i = 0; i < 4; i++) {
+          if (this.places[originX - i][originY + i].color === color) {
+            count++;
+            if (count === 4) {
+              // todo:temporary implementation
+              window.alert('win!');
+              return true;
+            }
+          } else {
+            count = 0;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  }
+
+
+  const game = new FourInALow();
+  game.scale();
+  $(window).resize(game.scale);

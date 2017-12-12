@@ -1,6 +1,8 @@
 class Disc {
   constructor(cx, cy) {
     this.color = 'white';
+    this.cx = cx;
+    this.cy = cy;
     const r = 40;
     this.htmlTemplate = this.discHtmlTemplate(cx, cy, r);
   }

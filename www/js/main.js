@@ -4,6 +4,7 @@ $(document).on('click', 'rect', function(){
     const color = game.getCurrentTurn();
     game.putDisc(targetCircle, color);
     game.changeTurn();
+    game.checkWinner(color);
   }
 });
 
