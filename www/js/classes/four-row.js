@@ -131,6 +131,7 @@ class FourInALow {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
       for (let originY = 0; originY < 3; originY++) {
+        count = 0;
         for (let i = 0; i < 4; i++) {
           if (this.places[originX + i][originY + i].color === color) {
             count++;
@@ -140,7 +141,7 @@ class FourInALow {
               return true;
             }
           } else {
-            count = 0;
+            break;
           }
         }
       }
@@ -152,6 +153,7 @@ class FourInALow {
     let count = 0;
     for (let originX = 3; originX < 7; originX++) {
       for (let originY = 0; originY < 3; originY++) {
+        count = 0;
         for (let i = 0; i < 4; i++) {
           if (this.places[originX - i][originY + i].color === color) {
             count++;
@@ -161,7 +163,7 @@ class FourInALow {
               return true;
             }
           } else {
-            count = 0;
+            break;
           }
         }
       }
