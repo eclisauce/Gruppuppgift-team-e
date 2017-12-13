@@ -1,44 +1,16 @@
 {
   "scores": [
     {
-      "name": "Tin8",
+      "name": "Zlatan",
       "score": 4
     },
     {
-      "name": "Tin1",
-      "score": 6
-    },
-    {
-      "name": "Tin2",
-      "score": 6
-    },
-    {
-      "name": "Tin3",
-      "score": 6
-    },
-    {
-      "name": "Tin4",
-      "score": 6
-    },
-    {
-      "name": "Tin10",
-      "score": 6
-    },
-    {
       "name": "Tin",
-      "score": 8
+      "score": 6
     },
     {
-      "name": "Tin2",
-      "score": 8
-    },
-    {
-      "name": "Tin",
-      "score": 12
-    },
-    {
-      "name": "Tin9",
-      "score": 12
+      "name": "Kungen",
+      "score": 7
     }
   ]
 }
