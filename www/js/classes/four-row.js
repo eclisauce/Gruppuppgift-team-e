@@ -100,17 +100,20 @@ class FourInALow {
 
   checkForInRow(color) {
     let count = 0;
-    for (let y = 0; y < 6; y++) {
-      for (let x = 0; x < 7; x++) {
-        if (this.places[x][y].color === color) {
-          count++;
-          if (count === 4) {
-            // todo:temporary implementation
-            window.alert('win!');
-            return true;
+    for (let originX = 0; originX < 4; originX++) {
+      for (let originY = 0; originY < 6; originY++) {
+        count = 0;
+        for (let i = 0; i < 4; i++) {
+          if (this.places[originX + i][originY].color === color) {
+            count++;
+            if (count === 4) {
+              // todo:temporary implementation
+              window.alert('win row');
+              return true;
+            }
+          } else {
+            break;
           }
-        } else {
-          count = 0;
         }
       }
     }
@@ -119,17 +122,20 @@ class FourInALow {
 
   checkForInColumn(color) {
     let count = 0;
-    for (let x = 0; x < 7; x++) {
-      for (let y = 0; y < 6; y++) {
-        if (this.places[x][y].color === color) {
-          count++;
-          if (count === 4) {
-            // todo:temporary implementation
-            window.alert('win!');
-            return true;
+    for (let originX = 0; originX < 7; originX++) {
+      for (let originY = 0; originY < 3; originY++) {
+        count = 0;
+        for (let i = 0; i < 4; i++) {
+          if (this.places[originX][originY + i].color === color) {
+            count++;
+            if (count === 4) {
+              // todo:temporary implementation
+              window.alert('win column');
+              return true;
+            }
+          } else {
+            break;
           }
-        } else {
-          count = 0;
         }
       }
     }
@@ -146,7 +152,7 @@ class FourInALow {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win');
+              window.alert('win diagonal1');
               return true;
             }
           } else {
@@ -168,7 +174,7 @@ class FourInALow {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win!');
+              window.alert('win diagonal2');
               return true;
             }
           } else {
