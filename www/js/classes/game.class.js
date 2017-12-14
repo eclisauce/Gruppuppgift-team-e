@@ -13,19 +13,17 @@ class Game {
       <div id="myformhide"> <!-- this is the div that hides -->
         <div class="row playerone pt-5">
           <div class="col-12">
-              <div class="form-group">
-                <input type="text" class="form-control" id="usr" placeholder="Ange spelare 1">
-              </div>
-              <label class="checkbox-inline"><input type="checkbox" value="">Dator</label>
+            <div class="form-group">
+              <input type="text" class="form-control" id="player1" placeholder="Ange spelare 1">
+            </div>
           </div>
         </div>
 
         <div class="row playertwo">
           <div class="col-12">
             <div class="form-group">
-              <input type="text" class="form-control" id="usr" placeholder="Ange spelare 2">
+              <input type="text" class="form-control" id="player2" placeholder="Ange spelare 2">
             </div>
-            <label class="checkbox-inline"><input type="checkbox" value="">Dator</label>
           </div>
         </div>
 
@@ -41,6 +39,8 @@ class Game {
     myButtons(){
       let that = this;
       $('#startbutton').on('click', function(){
+        let player1 = $('#player1').val();
+        let player2 = $('#player2').val();
         $('main').html(`
           <div class="col-12">
             <div id="board-holder">
@@ -48,7 +48,7 @@ class Game {
             </div>
           </div>
           `);
-        that.startGameSession('Template1', 'Template2');
+        that.startGameSession(player1, player2);
         that.board.activate(true);
       })
     }
