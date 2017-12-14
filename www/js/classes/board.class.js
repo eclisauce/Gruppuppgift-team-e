@@ -1,4 +1,4 @@
-class FourInALow {
+class Board {
   constructor() {
     this.discFactory();
     this.render();
@@ -51,7 +51,6 @@ class FourInALow {
         break;
       }
     }
-
   }
 
   scale() {
@@ -201,6 +200,6 @@ class FourInALow {
   }
 
 
-  const game = new FourInALow();
+  const game = new Board();
   game.scale();
   $(window).resize(game.scale);
