@@ -54,7 +54,7 @@ class Board {
 
   scale() {
     let orgW = 700,
-      orgH = 600;
+    orgH = 600;
     let w = $(window).width() - $("#board").offset().left;
     let h = $(window).height();
     w -= 20 * 2;
