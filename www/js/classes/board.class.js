@@ -36,8 +36,25 @@ class Board {
     ${discHtml.join("")}
     </svg>
     `
-    $('#board').html(board);
+    let boardEle = $('#board');
+    boardEle.html(board);
     this.scale();
+
+    //check if whole board is visible
+    if (!this.isFullyVisible(boardEle)) {
+      $('html, body').animate({
+        scrollTop: (boardEle.offset().top-20)
+      }, 500);
+    }
+  }
+
+  isFullyVisible(element){
+    return element.isOnScreen(function (ele) {
+      return ele.top >= this.height() &&
+        ele.bottom >= this.height() &&
+        ele.left >= this.width() &&
+        ele.right >= this.width()
+    });
   }
 
   putDisc(element, color) {
@@ -54,7 +71,9 @@ class Board {
         newCircle.attr('cy', 50)
         newCircle.addClass(color);
         newCircle.appendTo(circle.parent());
-        newCircle.animate({cy:this.places[playColumn][y].cy},500, function(){
+        newCircle.animate({
+          cy: this.places[playColumn][y].cy
+        }, 500, function () {
           circle.remove();
         });
         newCircle.attr('cy', this.places[playColumn][y].cy)
@@ -70,7 +89,7 @@ class Board {
 
   scale() {
     let orgW = 700,
-    orgH = 600;
+      orgH = 600;
     let w = $(window).width() - $("#board").offset().left;
     let h = $(window).height();
     w -= 20 * 2;
