@@ -1,24 +1,20 @@
-$(document).on('click', 'rect', function(){
-  const targetCircle = $(this).siblings('circle');
-  if (game.isClickable(targetCircle)) {
-    const color = game.getCurrentTurn();
-    game.putDisc(targetCircle, color);
-    game.changeTurn();
-    game.checkWinner(color);
-    game.isFullBoard();
-  }
-});
+
+  let game = new Game();
+
+  $(window).resize(game.board.scale);
+
+
 
 $('#mystartbutton').on('click', function(){
   $('#myformhide').addClass('d-none').removeClass('d-block');
   $('#mygamehide').addClass('d-block').removeClass('d-none');
-  game.activate(true);
+  game.board.activate(true);
 })
 
 $('#myquitbutton').on('click', function(){
   $('#myformhide').addClass('d-block').removeClass('d-none');
   $('#mygamehide').addClass('d-none').removeClass('d-block');
-  game.activate(false);
+  game.board.activate(false);
 })
 
 function footerFix(){

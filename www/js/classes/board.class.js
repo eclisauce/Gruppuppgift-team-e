@@ -1,8 +1,6 @@
 class Board {
   constructor() {
     this.discFactory();
-    this.render();
-    this.scale();
     this.turn = 'yellow';
     this.active = false;
   }
@@ -39,22 +37,24 @@ class Board {
     </svg>
     `
     $('#board').html(board);
+    this.scale();
   }
 
   putDisc(element, color) {
     // playColumn is index
     let playColumn = (element[0].cx.baseVal.value - 50) / 100;
-    for (let y = 5; y >= 0 ; y--) {
+    for (let y = 5; y >= 0; y--) {
       if (this.places[playColumn][y].color === 'white') {
         this.places[playColumn][y].color = color;
-        $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy +"]").addClass(color);
+        $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]").addClass(color);
         break;
       }
     }
   }
 
   scale() {
-    let orgW = 700, orgH = 600;
+    let orgW = 700,
+      orgH = 600;
     let w = $(window).width() - $("#board").offset().left;
     let h = $(window).height();
     w -= 20 * 2;
@@ -197,9 +197,4 @@ class Board {
     return true;
   }
 
-  }
-
-
-  const game = new Board();
-  game.scale();
-  $(window).resize(game.scale);
+}
