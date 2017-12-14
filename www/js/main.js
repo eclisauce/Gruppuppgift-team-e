@@ -1,7 +1,6 @@
+let game = new Game();
 
-  let game = new Game();
-
-  $(window).resize(game.board.scale);
+$(window).resize(game.board.scale);
 
 
 
@@ -16,14 +15,3 @@ $('#myquitbutton').on('click', function(){
   $('#mygamehide').addClass('d-none').removeClass('d-block');
   game.board.activate(false);
 })
-
-function footerFix(){
-  let height = $('footer').height() + 40;
-  $('body').css({marginBottom: height});
-}
-
-footerFix();
-
-$(window).on('resize',function(){
-  footerFix();
-});
