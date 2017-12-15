@@ -9,6 +9,7 @@ class Game {
 
     renderInputForms(){
       $('main').html(`
+      <h2>Spela 4 i Rad</h2>
       <div id="myformhide"> <!-- this is the div that hides -->
         <div class="row playerone pt-5">
           <div class="col-12">
