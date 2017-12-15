@@ -1,8 +1,16 @@
 class Board {
-  constructor() {
+  // Send the game into board so it knows it's creator.
+  constructor(game) {
     this.discFactory();
-    this.turn = 'yellow';
     this.active = false;
+    this.game = game;
+  }
+
+  // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
+  setupPlayers(){
+    this.player1 = this.game.player1;
+    this.player2 = this.game.player2;
+    this.turn = this.player1.color;
   }
 
   activate(on) {
@@ -103,8 +111,17 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
+  // Changed checking to this.player1.color and added +1 score each time.
+  // Also changed to big if-statement.
   changeTurn() {
-    this.turn = (this.turn === 'yellow') ? 'red' : 'yellow';
+    if (this.turn === this.player1.color) {
+        this.turn = this.player2.color;
+        this.player1.score++;
+    }
+    else {
+        this.turn = this.player1.color;
+        this.player2.score++;
+    }
   }
 
   getCurrentTurn() {

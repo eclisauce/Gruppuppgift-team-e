@@ -1,6 +1,6 @@
 class Game {
     constructor() {
-        this.board = new Board();
+        this.board = new Board(this);
         this.player1;
         this.player2;
         this.renderInputForms();
@@ -81,6 +81,7 @@ class Game {
         this.player1 = new Player(player1Name, 'yellow');
         this.player2 = new Player(player2Name, 'red');
         this.board.render();
+        this.board.setupPlayers();
         this.eventHandlers();
     }
 
