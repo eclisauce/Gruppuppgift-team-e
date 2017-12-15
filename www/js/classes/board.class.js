@@ -1,9 +1,11 @@
 class Board {
   // Send the game into board so it knows it's creator.
+  // Added highscore to be able to send score.
   constructor(game) {
     this.discFactory();
     this.active = false;
     this.game = game;
+    this.highscore = new Highscore;
   }
 
   // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
@@ -152,6 +154,8 @@ class Board {
   // Added one more if-statement to see if the player-color is the same as color.
   // Now sending two in-paremeters to showWinner, score and name.
   // Same changes in all checks
+  // To add into highscore-list just add this to each if-statement:
+  // this.highscore.checkNewScore(this.player1);
   checkForInRow(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
