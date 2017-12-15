@@ -68,7 +68,7 @@ class Game {
           </div>
           </div>
 
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-center">
           <div class="col-8 mt-4">
           <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
           </div>
