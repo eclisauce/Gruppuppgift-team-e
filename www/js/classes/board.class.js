@@ -142,7 +142,8 @@ class Board {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win row');
+              window.alert(`${color} is win (row)`);
+              this.activate(false);
               return true;
             }
           } else {
@@ -164,7 +165,8 @@ class Board {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win column');
+              window.alert(`${color} is win (column)`);
+              this.activate(false);
               return true;
             }
           } else {
@@ -186,7 +188,8 @@ class Board {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win diagonal1');
+              window.alert(`${color} is win (diagonal1)`);
+              this.activate(false);
               return true;
             }
           } else {
@@ -208,7 +211,8 @@ class Board {
             count++;
             if (count === 4) {
               // todo:temporary implementation
-              window.alert('win diagonal2');
+              window.alert(`${color} is win (diagonal2)`);
+              this.activate(false);
               return true;
             }
           } else {
