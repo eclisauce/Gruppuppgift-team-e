@@ -149,6 +149,9 @@ class Board {
     );
   }
 
+  // Added one more if-statement to see if the player-color is the same as color.
+  // Now sending two in-paremeters to showWinner, score and name.
+  // Same changes in all checks
   checkForInRow(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
@@ -157,8 +160,13 @@ class Board {
         for (let i = 0; i < 4; i++) {
           if (this.places[originX + i][originY].color === color) {
             count++;
-            if (count === 4) {
-              this.showWinner(color);
+            if (count === 4 && this.player1.color === color) {
+              this.showWinner(this.player1.name, this.player1.score);
+              this.activate(false);
+              return true;
+            }
+            else if (count === 4 && this.player2.color === color) {
+              this.showWinner(this.player2.name, this.player2.score);
               this.activate(false);
               return true;
             }
@@ -179,8 +187,13 @@ class Board {
         for (let i = 0; i < 4; i++) {
           if (this.places[originX][originY + i].color === color) {
             count++;
-            if (count === 4) {
-              this.showWinner(color);
+            if (count === 4 && this.player1.color === color) {
+              this.showWinner(this.player1.name, this.player1.score);
+              this.activate(false);
+              return true;
+            }
+            else if (count === 4 && this.player2.color === color) {
+              this.showWinner(this.player2.name, this.player2.score);
               this.activate(false);
               return true;
             }
@@ -201,8 +214,13 @@ class Board {
         for (let i = 0; i < 4; i++) {
           if (this.places[originX + i][originY + i].color === color) {
             count++;
-            if (count === 4) {
-              this.showWinner(color);
+            if (count === 4 && this.player1.color === color) {
+              this.showWinner(this.player1.name, this.player1.score);
+              this.activate(false);
+              return true;
+            }
+            else if (count === 4 && this.player2.color === color) {
+              this.showWinner(this.player2.name, this.player2.score);
               this.activate(false);
               return true;
             }
@@ -223,8 +241,13 @@ class Board {
         for (let i = 0; i < 4; i++) {
           if (this.places[originX - i][originY + i].color === color) {
             count++;
-            if (count === 4) {
-              this.showWinner(color);
+            if (count === 4 && this.player1.color === color) {
+              this.showWinner(this.player1.name, this.player1.score);
+              this.activate(false);
+              return true;
+            }
+            else if (count === 4 && this.player2.color === color) {
+              this.showWinner(this.player2.name, this.player2.score);
               this.activate(false);
               return true;
             }
@@ -237,7 +260,9 @@ class Board {
     return false;
   }
 
-  showWinner(color) {
+  // Changed variable color to name and added variable score.
+  // Writing out both name and score now.
+  showWinner(name, score) {
     $('main').append(`
   <!-- Modal -->
   <div class="modal fade" id="winnweModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -250,7 +275,8 @@ class Board {
           </button>
         </div>
         <div class="modal-body">
-          ${color}
+          Vinnare: ${name} <br>
+          Poäng: ${score}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary">Starta ett nytt spel</button>
