@@ -69,6 +69,12 @@ rect.btn {
   height: 600px;
   transform-origin: 0 0;
 }
+#board-holder #board svg g rect {
+  cursor: pointer;
+}
+#board-holder #board svg g image {
+  pointer-events: none;
+}
 circle {
   fill: white;
 }

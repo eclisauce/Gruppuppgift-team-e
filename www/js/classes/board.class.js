@@ -36,14 +36,19 @@ class Board {
 
   render() {
     let discHtml = [];
+    let boardImagesHtml = [];
     for (let i = 0; i < 7; i++) {
       for (let j = 0; j < 6; j++) {
         discHtml.push(this.places[i][j].htmlTemplate);
+        boardImagesHtml.push(this.places[i][j].imgTemplate);
       }
     }
     const board = `
     <svg class="bg-primary" xmlns="http://www.w3.org/2000/svg" version="1.1">
     ${discHtml.join("")}
+      <g id="boardImages">
+      ${boardImagesHtml.join("")}
+      </g>
     </svg>
     `
     let boardEle = $('#board');

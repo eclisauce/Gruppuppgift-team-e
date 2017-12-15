@@ -1,6 +1,8 @@
 //main: style.less
 // Box-sizing
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9,21 +11,19 @@
 html {
   position: relative;
   min-height: 100%;
-
 }
-
 
 body {
   font-family: 'Exo 2', sans-serif;
   color: #3f3f3f;
 }
 
-button{
+button {
   cursor: pointer;
-  a{
-    color:white;
-    &:hover{
-      color:white;
+  a {
+    color: white;
+    &:hover {
+      color: white;
       text-decoration: none;
     }
   }
@@ -38,10 +38,10 @@ button{
 }
 
 rect.btn {
-  stroke:#fff;
-  fill:#fff;
-  fill-opacity:0;
-  stroke-opacity:0;
+  stroke: #fff;
+  fill: #fff;
+  fill-opacity: 0;
+  stroke-opacity: 0;
 }
 
 #board-holder {
@@ -52,9 +52,17 @@ rect.btn {
     height: 600px;
     transform-origin: 0 0;
     svg {
-          width: 700px;
-          height: 600px;
-          transform-origin: 0 0;
+      width: 700px;
+      height: 600px;
+      transform-origin: 0 0;
+      g {
+        rect{
+          cursor:pointer;
+        }
+        image {
+          pointer-events: none;
+        }
+      }
     }
   }
 }
