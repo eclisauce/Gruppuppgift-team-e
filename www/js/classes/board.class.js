@@ -166,11 +166,15 @@ class Board {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.showWinner(this.player1.name, this.player1.score);
+              // Global function to enable it to keep the JSON.
+              // Otherwise new instance every time??
+              newScore(this.player1);
               this.activate(false);
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
+              newScore(this.player2);
               this.activate(false);
               return true;
             }
@@ -193,11 +197,15 @@ class Board {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.showWinner(this.player1.name, this.player1.score);
+              // Global function to enable it to keep the JSON.
+              // Otherwise new instance every time??
+              newScore(this.player1);
               this.activate(false);
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
+              newScore(this.player2);
               this.activate(false);
               return true;
             }
@@ -220,11 +228,15 @@ class Board {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.showWinner(this.player1.name, this.player1.score);
+              // Global function to enable it to keep the JSON.
+              // Otherwise new instance every time??
+              newScore(this.player1);
               this.activate(false);
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
+              newScore(this.player2);
               this.activate(false);
               return true;
             }
@@ -247,11 +259,15 @@ class Board {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.showWinner(this.player1.name, this.player1.score);
+              // Global function to enable it to keep the JSON.
+              // Otherwise new instance every time??
+              newScore(this.player1);
               this.activate(false);
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
+              newScore(this.player2);
               this.activate(false);
               return true;
             }
