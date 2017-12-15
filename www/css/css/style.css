@@ -74,6 +74,9 @@ circle.red {
 main .game-rule img {
   width: 250px;
 }
+.playerFont {
+  font-family: 'Bungee', cursive;
+}
 footer {
   position: absolute;
   bottom: 0;
