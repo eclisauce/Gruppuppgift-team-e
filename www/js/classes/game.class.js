@@ -42,10 +42,18 @@ class Game {
         let player1 = $('#player1').val();
         let player2 = $('#player2').val();
         $('main').html(`
+          <div class="row">
           <div class="col-12">
             <div id="board-holder">
               <div id="board"></div>
             </div>
+          </div>
+          </div>
+
+          <div class="row justify-content-md-center">
+          <div class="col-8 mt-4">
+          <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+          </div>
           </div>
           `);
         that.startGameSession(player1, player2);
