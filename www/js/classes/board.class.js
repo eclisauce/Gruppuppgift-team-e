@@ -236,8 +236,8 @@ class Board {
           ${color}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Nytt spel</button>
-          <a class="btn btn-large btn-info btn-danger" href="/highscore">Highscore</a>
+          <button type="button" class="btn btn-secondary">Starta ett nytt spel</button>
+          <a class="btn btn-large btn-info btn-danger" href="/highscore">Till Highscore</a>
         </div>
       </div>
     </div>
