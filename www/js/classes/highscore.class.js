@@ -19,6 +19,7 @@ class Highscore {
     //add the new score
     addScore(data) {
         this.scores.push(data);
+        delete data.color;
         this.sortScores();
         this.scores = this.scores.splice(0, this.maxScoreLength)
         this.saveJSON();
@@ -31,9 +32,9 @@ class Highscore {
     }
 
     async loadJSON(callbackFunc) {
-        //let that = this;
+        let that = this;
         //we can't go async on this, since we need it before rendering
-        /*$.ajaxSetup({
+        $.ajaxSetup({
             async: false
         });
         $.getJSON('/json/highscore.json', function (data) {
@@ -42,16 +43,15 @@ class Highscore {
         //turn it on again
         $.ajaxSetup({
             async: true
-        });*/
+        });
 
-
-        /*JSON._load('highscore').then((data) => {
+        JSON._load('highscore').then((data) => {
             this.scores = data.scores;
             callbackFunc && callbackFunc();
         }).
         catch((e)=>{
             // something went wrong
-        });*/
+        });
 
         this.scores = (await JSON._load('highscore')).scores;
     }
@@ -60,6 +60,8 @@ class Highscore {
         JSON._save('highscore', {
             scores: this.scores
         });
+        this.renderScore();
+
     }
 
     renderScore() {
@@ -79,6 +81,7 @@ class Highscore {
                 $("#hsScoreCol").append(`<p class="m-0">${this.scores[i].score}</p>`);
             }
         }
+
     }
 }
 const highscore = new Highscore();
@@ -89,11 +92,8 @@ async function loadAndRender() {
     highscore.renderScore();
 }
 
-function newScore(name, score) {
-    highscore.checkNewScore({
-        name: name,
-        score: score
-    })
+function newScore(object) {
+    highscore.checkNewScore(object)
     loadAndRender();
 }
 
