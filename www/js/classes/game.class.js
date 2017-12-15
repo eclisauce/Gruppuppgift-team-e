@@ -9,9 +9,8 @@ class Game {
 
     renderInputForms(){
       $('main').html(`
-      <h1>Spela 4 i Rad</h1>
-      <div id="myformhide">
-
+      <h2>Spela 4 i Rad</h2>
+      <div id="myformhide"> <!-- this is the div that hides -->
         <div class="row playerone pt-5">
           <h4 class="col-12">Spelare 1:</h4>
           <div class="form-group col-7 col-md-5 col-lg-4 pr-0">
@@ -61,10 +60,18 @@ class Game {
         let player1 = $('#player1').val();
         let player2 = $('#player2').val();
         $('main').html(`
+          <div class="row">
           <div class="col-12">
             <div id="board-holder">
               <div id="board"></div>
             </div>
+          </div>
+          </div>
+
+          <div class="row justify-content-md-center">
+          <div class="col-8 mt-4">
+          <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+          </div>
           </div>
           `);
         that.startGameSession(player1, player2);
@@ -93,3 +100,7 @@ class Game {
         });
     }
 }
+
+      <div id="myformhide">
+      $('main').html(`
+      <h1>Spela 4 i Rad</h1>

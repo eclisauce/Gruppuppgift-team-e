@@ -30,10 +30,10 @@ class Highscore {
         })
     }
 
-    loadJSON() {
-        let that = this;
+    async loadJSON(callbackFunc) {
+        //let that = this;
         //we can't go async on this, since we need it before rendering
-        $.ajaxSetup({
+        /*$.ajaxSetup({
             async: false
         });
         $.getJSON('/json/highscore.json', function (data) {
@@ -42,7 +42,18 @@ class Highscore {
         //turn it on again
         $.ajaxSetup({
             async: true
-        });
+        });*/
+
+
+        /*JSON._load('highscore').then((data) => {
+            this.scores = data.scores;
+            callbackFunc && callbackFunc();
+        }).
+        catch((e)=>{
+            // something went wrong
+        });*/
+
+        this.scores = (await JSON._load('highscore')).scores;
     }
 
     saveJSON() {
@@ -73,8 +84,8 @@ class Highscore {
 const highscore = new Highscore();
 
 //TEST AND DEBUG AREA
-function loadAndRender() {
-    highscore.loadJSON();
+async function loadAndRender() {
+    await highscore.loadJSON();
     highscore.renderScore();
 }
 
