@@ -33,6 +33,9 @@ body {
   font-family: 'Exo 2', sans-serif;
   color: #3f3f3f;
 }
+button {
+  cursor: pointer;
+}
 .btn {
   border-radius: 0px;
 }
