@@ -10,7 +10,6 @@ class Game {
     renderInputForms(){
       $('main').html(`
       <h2>Spela 4 i Rad</h2>
-      <div id="myformhide"> <!-- this is the div that hides -->
         <div class="row playerone pt-5">
           <h4 class="col-12">Spelare 1:</h4>
           <div class="form-group col-7 col-md-5 col-lg-4 pr-0">
@@ -28,7 +27,7 @@ class Game {
           </div>
         </div>
 
-        <div class="row playerone pt-5">
+        <div class="row playerone pt-2">
           <h4 class="col-12">Spelare 2:</h4>
           <div class="form-group col-7 col-md-5 col-lg-4 pr-0">
             <input type="text" class="form-control" id="player2" placeholder="Ange spelare 2">
@@ -38,19 +37,18 @@ class Game {
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Spelartyp
             </button>
-            <div class="dropdown-menu bg-danger">
-              <a class="dropdown-item bg-danger" href="#">Människa</a>
-              <a class="dropdown-item bg-danger" href="#">Dator</a>
+            <div class="dropdown-menu bg-danger text-white">
+              <a class="dropdown-item bg-danger text-white" href="#">Människa</a>
+              <a class="dropdown-item bg-danger text-white" href="#">Dator</a>
             </div>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-3 mb-5">
           <div class="col-12">
             <a id="startbutton" class="btn btn-success btn-lg" href="#l" role="button">Starta spel</a>
           </div>
         </div>
-      </div>
       `);
     }
 
