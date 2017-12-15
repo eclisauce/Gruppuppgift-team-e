@@ -278,12 +278,12 @@ class Board {
             <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body h1">
           Vinnare: ${name} <br>
           Poäng: ${score}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Starta ett nytt spel</button>
+          <a class="btn btn-secondary" href="/play">Starta ett nytt spel</>
           <a class="btn btn-large btn-info btn-danger" href="/highscore">Till Highscore</a>
         </div>
       </div>
