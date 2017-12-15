@@ -227,17 +227,17 @@ class Board {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Vinnaren är</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
           </button>
         </div>
         <div class="modal-body">
           ${color}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary">Nytt spel</button>
+          <a class="btn btn-large btn-info btn-danger" href="/highscore">Highscore</a>
         </div>
       </div>
     </div>
