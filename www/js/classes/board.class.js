@@ -53,7 +53,7 @@ class Board {
     //check if whole board is visible
     if (!this.isFullyVisible(boardEle)) {
       $('html, body').animate({
-        scrollTop: (boardEle.offset().top-20)
+        scrollTop: (boardEle.offset().top-20-`${$('.showplayersscale').height()}`)
       }, 500);
     }
   }
@@ -103,7 +103,7 @@ class Board {
     let w = $(window).width() - $("#board").offset().left;
     let h = $(window).height();
     w -= 20 * 2;
-    h -= 20 * 2;
+    h -= (20 * 2) + $('.showplayersscale').height() + $('.quitbuttonscale').height();
     const wScale = w / orgW;
     const hScale = h / orgH;
     let scaling = Math.min(wScale, hScale);

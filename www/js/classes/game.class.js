@@ -54,20 +54,20 @@ class Game {
 
     renderBase(){
       $('main').html(`
-        <div class="d-flex flex-column flex-lg-row justify-content-around col-12">
+        <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
           <h3 class="bg-warning py-3 text-white playerFont text-center mr-lg-5 col-lg-4">${this.player1.name}</h3>
           <h1 class="pt-2 playerFont text-center"> VS </h1>
           <h3 class="bg-danger py-3 text-white playerFont text-center ml-lg-5 col-lg-4">${this.player2.name}</h3>
         </div>
         <div class="row mt-3">
-        <div class="col-12">
-          <div id="board-holder">
-            <div id="board"></div>
+          <div class="col-12">
+            <div id="board-holder">
+              <div id="board"></div>
+            </div>
           </div>
         </div>
-        </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center quitbuttonscale">
         <div class="col-8 mt-4">
         <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
         </div>
