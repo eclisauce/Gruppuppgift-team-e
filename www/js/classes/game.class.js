@@ -100,7 +100,3 @@ class Game {
         });
     }
 }
-
-      <div id="myformhide">
-      $('main').html(`
-      <h1>Spela 4 i Rad</h1>
