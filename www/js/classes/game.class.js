@@ -5,7 +5,6 @@ class Game {
         this.player2;
         this.renderInputForms();
         this.myButtons();
-
     }
 
     renderInputForms(){
@@ -55,7 +54,7 @@ class Game {
 
     startGameSession(player1Name, player2Name) {
         this.player1 = new Player(player1Name, 'yellow');
-        this.player2 = new Player(player2Name, 'red')
+        this.player2 = new Player(player2Name, 'red');
         this.board.render();
         this.eventHandlers();
     }

@@ -1,8 +1,5 @@
 let game = new Game();
-
 $(window).resize(game.board.scale);
-
-
 
 $('#mystartbutton').on('click', function(){
   $('#myformhide').addClass('d-none').removeClass('d-block');
