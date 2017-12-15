@@ -36,6 +36,13 @@ body {
 button {
   cursor: pointer;
 }
+button a {
+  color: white;
+}
+button a:hover {
+  color: white;
+  text-decoration: none;
+}
 .btn {
   border-radius: 0px;
 }

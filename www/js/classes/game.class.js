@@ -69,7 +69,7 @@ class Game {
 
         <div class="row justify-content-center quitbuttonscale">
         <div class="col-8 mt-4">
-        <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+        <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block"><a href="/play">Avsluta spel</a></button>
         </div>
         </div>
         `);
@@ -78,8 +78,8 @@ class Game {
     myButtons(){
       let that = this;
       $('#startbutton').on('click', function(){
-        let player1 = $('#player1').val();
-        let player2 = $('#player2').val();
+        let player1 = $('#player1').val() ? $('#player1').val():"John Doe";
+        let player2 = $('#player2').val() ?  $('#player2').val():"John Doe";
         that.startGameSession(player1, player2);
         that.board.activate(true);
       })
