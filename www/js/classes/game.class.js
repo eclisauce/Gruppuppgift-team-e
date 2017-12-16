@@ -17,13 +17,11 @@ class Game {
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
-            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Spelartyp
-            </button>
-            <div class="dropdown-menu bg-warning">
-              <a class="dropdown-item bg-warning" href="#">Människa</a>
-              <a class="dropdown-item bg-warning" href="#">Dator</a>
-            </div>
+            <select class="custom-select bg-warning text-dark">
+              <option selected>Spelartyp</option>
+              <option value="1">Människa</option>
+              <option value="2">Dator</option>
+            </select>
           </div>
         </div>
 
@@ -34,13 +32,11 @@ class Game {
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Spelartyp
-            </button>
-            <div class="dropdown-menu bg-danger text-white">
-              <a class="dropdown-item bg-danger text-white" href="#">Människa</a>
-              <a class="dropdown-item bg-danger text-white" href="#">Dator</a>
-            </div>
+            <select class="custom-select bg-danger text-white">
+              <option selected>Spelartyp</option>
+              <option value="1">Människa</option>
+              <option value="2">Dator</option>
+            </select>
           </div>
         </div>
 
