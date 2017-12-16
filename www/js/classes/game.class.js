@@ -142,7 +142,7 @@ class Game {
         hoverCircle.addClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
       },
       mouseleave: function () {
-        hoverCircle.removeClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
+        hoverCircle.removeClass(("hoverYellow hoverRed"));
       }
     }, 'rect');
   }
