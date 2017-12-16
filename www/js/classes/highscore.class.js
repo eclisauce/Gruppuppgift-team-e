@@ -13,6 +13,7 @@ class Highscore {
         this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
         if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
             this.addScore(data);
+            return true;
         }
     }
 
