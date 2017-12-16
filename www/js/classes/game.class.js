@@ -86,7 +86,9 @@ class Game {
   }
 
   startGame(){
+    if (game.board.player1.type === 'cp'){
     $(`rect[x="${game.board.calculateX()}"][y="${10}"]`).trigger('click');
+    }
   }
 
   startGameSession(player1, player2) {
