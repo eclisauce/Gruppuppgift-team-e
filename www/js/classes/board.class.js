@@ -111,16 +111,42 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
+  // Method for randomly dropping one piece
+  calculateX(){
+    let rnd = Math.floor(Math.random() * 7);
+    rnd += "10";
+    rnd = parseInt(rnd);
+    return rnd;
+  }
+
+  randomTime(){
+    let rnd = Math.floor(Math.random() * 1500) + 200;
+    return rnd;
+  }
+
+
+
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement.
   changeTurn() {
+    let that = this;
+    function randomPlaceADisc(){
+      $(`rect[x="${that.calculateX()}"][y="${10}"]`).trigger('click');
+    }
+
     if (this.turn === this.player1.color) {
         this.turn = this.player2.color;
         this.player1.score++;
+        if (this.player2.type === 'cp') {
+          setTimeout(randomPlaceADisc, this.randomTime());
+        }
     }
     else {
         this.turn = this.player1.color;
         this.player2.score++;
+        if (this.player1.type === 'cp') {
+          setTimeout(randomPlaceADisc, this.randomTime());
+        }
     }
   }
 

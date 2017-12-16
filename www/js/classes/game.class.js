@@ -42,8 +42,6 @@ class Game {
           <div class="col-12">
             <a id="startbutton" class="btn btn-success btn-lg" href="#l" role="button">Starta spel</a>
           </div>
-          <a id="testbutton" class="btn btn-success btn-lg" href="#l" role="button">Test!</a>
-
         </div>
       `);
   }
@@ -90,20 +88,18 @@ class Game {
   startGameSession(player1, player2) {
     // Checking if human or cp
     if (player1.p1Type === 'human'){
-      this.player1 = new HumanPlayer(player1.p1Name, 'yellow');
+      this.player1 = new HumanPlayer(player1.p1Name, 'yellow', player1.p1Type);
     }
     else {
-      this.player1 = new ComputerPlayer(player1.p1Name, 'yellow');
+      this.player1 = new ComputerPlayer(player1.p1Name, 'yellow', player1.p1Type);
     }
 
     if (player2.p2Type === 'human'){
-      this.player2 = new HumanPlayer(player2.p2Name, 'red');
+      this.player2 = new HumanPlayer(player2.p2Name, 'red', player2.p2Type);
     }
     else {
-      this.player2 = new ComputerPlayer(player2.p2Name, 'red');
+      this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
-
-
     this.renderBase();
     this.board.render();
     this.board.setupPlayers();
