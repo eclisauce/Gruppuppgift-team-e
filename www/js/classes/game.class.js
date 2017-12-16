@@ -17,10 +17,9 @@ class Game {
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
-            <select class="custom-select bg-warning text-dark">
-              <option selected>Spelartyp</option>
-              <option value="1">Människa</option>
-              <option value="2">Dator</option>
+            <select id="p1type" class="custom-select bg-warning text-dark">
+              <option value="human" selected>Människa</option>
+              <option value="cp">Dator</option>
             </select>
           </div>
         </div>
@@ -32,10 +31,9 @@ class Game {
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
-            <select class="custom-select bg-danger text-white">
-              <option selected>Spelartyp</option>
-              <option value="1">Människa</option>
-              <option value="2">Dator</option>
+            <select id="p2type" class="custom-select bg-danger text-white">
+              <option value="human" selected>Människa</option>
+              <option value="cp">Dator</option>
             </select>
           </div>
         </div>
@@ -44,6 +42,8 @@ class Game {
           <div class="col-12">
             <a id="startbutton" class="btn btn-success btn-lg" href="#l" role="button">Starta spel</a>
           </div>
+          <a id="testbutton" class="btn btn-success btn-lg" href="#l" role="button">Test!</a>
+
         </div>
       `);
   }
@@ -74,16 +74,36 @@ class Game {
   myButtons() {
     let that = this;
     $('#startbutton').on('click', function () {
-      let player1 = $('#player1').val() ? $('#player1').val() : "John Doe";
-      let player2 = $('#player2').val() ? $('#player2').val() : "John Doe";
+      let p1Name = $('#player1').val() ? $('#player1').val() : "John Doe";
+      let p2Name = $('#player2').val() ? $('#player2').val() : "John Doe";
+      let p1Type = $('#p1type').val();
+      let p2Type = $('#p2type').val();
+
+      // Sending objects instead of double inparemters.
+      let player1 = {p1Name, p1Type};
+      let player2 = {p2Name, p2Type};
       that.startGameSession(player1, player2);
       that.board.activate(true);
     })
   }
 
-  startGameSession(player1Name, player2Name) {
-    this.player1 = new Player(player1Name, 'yellow');
-    this.player2 = new Player(player2Name, 'red');
+  startGameSession(player1, player2) {
+    // Checking if human or cp
+    if (player1.p1Type === 'human'){
+      this.player1 = new HumanPlayer(player1.p1Name, 'yellow');
+    }
+    else {
+      this.player1 = new ComputerPlayer(player1.p1Name, 'yellow');
+    }
+
+    if (player2.p2Type === 'human'){
+      this.player2 = new HumanPlayer(player2.p2Name, 'red');
+    }
+    else {
+      this.player2 = new ComputerPlayer(player2.p2Name, 'red');
+    }
+
+
     this.renderBase();
     this.board.render();
     this.board.setupPlayers();
