@@ -124,7 +124,6 @@ class Game {
         that.board.changeTurn();
         that.board.checkWinner(color);
         that.board.isFullBoard();
-
       }
     });
 

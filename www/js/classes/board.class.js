@@ -128,14 +128,26 @@ class Board {
   // Also changed to big if-statement.
   changeTurn() {
     let that = this;
+
+    // Checking if full column, then take another random until it's possible to
+    // put the disc somewhere
     function randomPlaceADisc(){
-      $(`rect[x="${that.calculateX()}"][y="${10}"]`).trigger('click');
+      let clickThis;
+      while(true){
+        clickThis = $(`rect[x="${that.calculateX()}"][y="${10}"]`);
+        if (that.isClickable(clickThis)) {
+          clickThis.trigger('click');
+          break;
+        }
+      }
+
     }
 
     if (this.turn === this.player1.color) {
         this.turn = this.player2.color;
         this.player1.score++;
         if (this.player2.type === 'cp') {
+
           setTimeout(randomPlaceADisc, this.randomTime());
         }
     }
