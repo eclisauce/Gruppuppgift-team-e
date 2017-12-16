@@ -134,7 +134,6 @@ class Board {
     function randomPlaceADisc(){
       let clickThis;
       while(true) {
-        console.log('hello');
         clickThis = $(`rect[x="${that.calculateX()}"][y="${10}"]`);
         let checkFull = clickThis.siblings('circle');
         if (that.isClickable(checkFull)) {
