@@ -85,6 +85,10 @@ class Game {
     })
   }
 
+  startGame(){
+    $(`rect[x="${game.board.calculateX()}"][y="${10}"]`).trigger('click');
+  }
+
   startGameSession(player1, player2) {
     // Checking if human or cp
     if (player1.p1Type === 'human'){
@@ -104,7 +108,9 @@ class Game {
     this.board.render();
     this.board.setupPlayers();
     this.eventHandlers();
-  }
+    // This should probably be a callback function instead!
+    setTimeout(this.startGame, 300);
+}
 
   eventHandlers() {
     let that = this;
@@ -116,6 +122,7 @@ class Game {
         that.board.changeTurn();
         that.board.checkWinner(color);
         that.board.isFullBoard();
+
       }
     });
 

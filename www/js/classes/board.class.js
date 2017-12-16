@@ -111,20 +111,18 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
-  // Method for randomly dropping one piece
+  // Method for random number on drop
   calculateX(){
     let rnd = Math.floor(Math.random() * 7);
     rnd += "10";
     rnd = parseInt(rnd);
     return rnd;
   }
-
+  // Method for random number time delay.
   randomTime(){
     let rnd = Math.floor(Math.random() * 1500) + 200;
     return rnd;
   }
-
-
 
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement.
