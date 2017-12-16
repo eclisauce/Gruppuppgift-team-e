@@ -6,6 +6,7 @@ class Board {
     this.active = false;
     this.game = game;
     this.highscore = new Highscore;
+    this.gameend = false;
   }
 
   // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
@@ -128,15 +129,22 @@ class Board {
   // Also changed to big if-statement.
   changeTurn() {
     let that = this;
-
-    // Checking if full column, then take another random until it's possible to
-    // put the disc somewhere
+      // Checking if full column, then take another random until it's possible to
+      // put the disc somewhere
     function randomPlaceADisc(){
       let clickThis;
-      while(true){
+      while(true) {
+        console.log('hello');
         clickThis = $(`rect[x="${that.calculateX()}"][y="${10}"]`);
-        if (that.isClickable(clickThis)) {
+        let checkFull = clickThis.siblings('circle');
+        if (that.isClickable(checkFull)) {
           clickThis.trigger('click');
+          break;
+        }
+        else if (that.isFullBoard()) {
+          break;
+        }
+        else if (that.gameend === true) {
           break;
         }
       }
@@ -147,7 +155,6 @@ class Board {
         this.turn = this.player2.color;
         this.player1.score++;
         if (this.player2.type === 'cp') {
-
           setTimeout(randomPlaceADisc, this.randomTime());
         }
     }
@@ -204,12 +211,14 @@ class Board {
               // Otherwise new instance every time??
               newScore(this.player1);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
           } else {
@@ -235,12 +244,14 @@ class Board {
               // Otherwise new instance every time??
               newScore(this.player1);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
           } else {
@@ -266,12 +277,14 @@ class Board {
               // Otherwise new instance every time??
               newScore(this.player1);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
           } else {
@@ -297,12 +310,14 @@ class Board {
               // Otherwise new instance every time??
               newScore(this.player1);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.activate(false);
+              this.gameend = true;
               return true;
             }
           } else {
