@@ -33,13 +33,16 @@ body {
   font-family: 'Exo 2', sans-serif;
   color: #3f3f3f;
 }
-button {
+button,
+select {
   cursor: pointer;
 }
-button a {
+button a,
+select a {
   color: white;
 }
-button a:hover {
+button a:hover,
+select a:hover {
   color: white;
   text-decoration: none;
 }
