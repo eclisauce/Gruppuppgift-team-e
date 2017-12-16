@@ -112,7 +112,6 @@ class Game {
     $(document).on({
       mouseenter: function () {
         let targetCircle = $(this).siblings('circle');
-        console.log(targetCircle[0]);
         let playColumn = (targetCircle[0].cx.baseVal.value - 50) / 100;
         for (let y = 5; y >= 0; y--) {
           if (that.board.places[playColumn][y].color === 'white') {
