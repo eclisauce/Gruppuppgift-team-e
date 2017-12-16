@@ -62,9 +62,9 @@ class Game {
         </div>
 
         <div class="row justify-content-center quitbuttonscale">
-        <div class="col-8 mt-4">
-        <button id="newGameBtn" type="button" class="btn btn-danger btn-lg btn-block"><a href="/play">Avsluta spel</a></button>
-        </div>
+          <div class="col-8 mt-4">
+            <a id="newGameBtn" class="btn btn-danger btn-lg btn-block" href="/play">Avsluta spel</a>
+          </div>
         </div>
         `);
   }
