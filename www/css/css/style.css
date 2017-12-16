@@ -84,6 +84,12 @@ circle.yellow {
 circle.red {
   fill: #fa5f39;
 }
+circle.hoverYellow {
+  fill: #ffff52;
+}
+circle.hoverRed {
+  fill: #ff916b;
+}
 main .game-rule img {
   width: 250px;
 }

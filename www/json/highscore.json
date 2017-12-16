@@ -1,20 +1,12 @@
 {
   "scores": [
     {
-      "name": "Zlatan",
-      "score": 1
-    },
-    {
-      "name": "Tin",
-      "score": 6
-    },
-    {
-      "name": "Kungen",
-      "score": 7
+      "name": "John Doe",
+      "score": 4
     },
     {
       "name": "John Doe",
-      "score": 14
+      "score": 9
     }
   ]
 }

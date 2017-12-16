@@ -1,14 +1,14 @@
 class Game {
-    constructor() {
-        this.board = new Board(this);
-        this.player1;
-        this.player2;
-        this.renderInputForms();
-        this.myButtons();
-    }
+  constructor() {
+    this.board = new Board(this);
+    this.player1;
+    this.player2;
+    this.renderInputForms();
+    this.myButtons();
+  }
 
-    renderInputForms(){
-      $('main').html(`
+  renderInputForms() {
+    $('main').html(`
       <h2>Spela 4 i Rad</h2>
         <div class="row playerone pt-5">
           <h4 class="col-12">Spelare 1:</h4>
@@ -50,10 +50,10 @@ class Game {
           </div>
         </div>
       `);
-    }
+  }
 
-    renderBase(){
-      $('main').html(`
+  renderBase() {
+    $('main').html(`
         <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
           <h3 class="bg-warning py-3 text-white playerFont text-center mr-lg-5 col-lg-4">${this.player1.name}</h3>
           <h1 class="pt-2 playerFont text-center"> VS </h1>
@@ -73,38 +73,58 @@ class Game {
         </div>
         </div>
         `);
-    }
+  }
 
-    myButtons(){
-      let that = this;
-      $('#startbutton').on('click', function(){
-        let player1 = $('#player1').val() ? $('#player1').val():"John Doe";
-        let player2 = $('#player2').val() ?  $('#player2').val():"John Doe";
-        that.startGameSession(player1, player2);
-        that.board.activate(true);
-      })
-    }
+  myButtons() {
+    let that = this;
+    $('#startbutton').on('click', function () {
+      let player1 = $('#player1').val() ? $('#player1').val() : "John Doe";
+      let player2 = $('#player2').val() ? $('#player2').val() : "John Doe";
+      that.startGameSession(player1, player2);
+      that.board.activate(true);
+    })
+  }
 
-    startGameSession(player1Name, player2Name) {
-        this.player1 = new Player(player1Name, 'yellow');
-        this.player2 = new Player(player2Name, 'red');
-        this.renderBase();
-        this.board.render();
-        this.board.setupPlayers();
-        this.eventHandlers();
-    }
+  startGameSession(player1Name, player2Name) {
+    this.player1 = new Player(player1Name, 'yellow');
+    this.player2 = new Player(player2Name, 'red');
+    this.renderBase();
+    this.board.render();
+    this.board.setupPlayers();
+    this.eventHandlers();
+  }
 
-    eventHandlers() {
-        let that = this;
-        $(document).on('click', 'rect', function () {
-            const targetCircle = $(this).siblings('circle');
-            if (that.board.isClickable(targetCircle)) {
-                const color = that.board.getCurrentTurn();
-                that.board.putDisc(targetCircle, color);
-                that.board.changeTurn();
-                that.board.checkWinner(color);
-                that.board.isFullBoard();
-            }
-        });
-    }
+  eventHandlers() {
+    let that = this;
+    $(document).on('click', 'rect', function () {
+      const targetCircle = $(this).siblings('circle');
+      if (that.board.isClickable(targetCircle)) {
+        const color = that.board.getCurrentTurn();
+        that.board.putDisc(targetCircle, color);
+        that.board.changeTurn();
+        that.board.checkWinner(color);
+        that.board.isFullBoard();
+      }
+    });
+
+    //hoovering disc effect
+    let hoverCircle;
+    $(document).on({
+      mouseenter: function () {
+        let targetCircle = $(this).siblings('circle');
+        console.log(targetCircle[0]);
+        let playColumn = (targetCircle[0].cx.baseVal.value - 50) / 100;
+        for (let y = 5; y >= 0; y--) {
+          if (that.board.places[playColumn][y].color === 'white') {
+            hoverCircle = $("circle[cx=" + that.board.places[playColumn][y].cx + "][cy=" + that.board.places[playColumn][y].cy + "]");
+            break;
+          }
+        }
+        hoverCircle.addClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
+      },
+      mouseleave: function () {
+        hoverCircle.removeClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
+      }
+    }, 'rect');
+  }
 }

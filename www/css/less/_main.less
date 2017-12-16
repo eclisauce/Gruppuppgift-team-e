@@ -56,8 +56,8 @@ rect.btn {
       height: 600px;
       transform-origin: 0 0;
       g {
-        rect{
-          cursor:pointer;
+        rect {
+          cursor: pointer;
         }
         image {
           pointer-events: none;
@@ -69,14 +69,18 @@ rect.btn {
 
 circle {
   fill: white;
-}
-
-circle.yellow {
-  fill: rgb(241, 228, 32);
-}
-
-circle.red {
-  fill: rgb(250, 95, 57);
+  &.yellow {
+    fill: @colorYellow;
+  }
+  &.red {
+    fill: @colorRed;
+  }
+  &.hoverYellow{
+    fill: @colorHoverYellow;
+  }
+  &.hoverRed{
+    fill: @colorHoverRed;
+  }
 }
 
 main {

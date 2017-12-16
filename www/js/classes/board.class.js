@@ -78,12 +78,10 @@ class Board {
     for (let y = 5; y >= 0; y--) {
       if (this.places[playColumn][y].color === 'white') {
         this.places[playColumn][y].color = color;
-
-        //ANIMATION CODE - this part is for animating the disk, dropping it down.
-        //just remove this code and use the "TIHOUT ANIATION" to not animate disc.
         let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
         let newCircle = circle.clone()
         newCircle.attr('cy', 50)
+        newCircle.removeClass();
         newCircle.addClass(color);
         newCircle.appendTo(circle.parent());
         newCircle.animate({
@@ -92,11 +90,6 @@ class Board {
           circle.remove();
         });
         newCircle.attr('cy', this.places[playColumn][y].cy)
-        //END OF ANIMATION
-
-        //WIHOUT ANIMATION - if we wanna remove the animation we use the below code instead.
-        //$("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]").addClass(color);
-
         break;
       }
     }
