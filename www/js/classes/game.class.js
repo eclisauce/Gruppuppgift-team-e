@@ -111,7 +111,7 @@ class Game {
     this.board.setupPlayers();
     this.eventHandlers();
     // This should probably be a callback function instead!
-    setTimeout(this.startGame, 300);
+    setTimeout(() => this.startGame());
 }
 
   eventHandlers() {
@@ -121,6 +121,7 @@ class Game {
       if (that.board.isClickable(targetCircle)) {
         const color = that.board.getCurrentTurn();
         that.board.putDisc(targetCircle, color);
+        that.board.activate(true);
         that.board.changeTurn();
         that.board.checkWinner(color);
         that.board.isFullBoard();

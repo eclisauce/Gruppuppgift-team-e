@@ -112,9 +112,6 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
-
-
-
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement.
   changeTurn() {
@@ -122,15 +119,16 @@ class Board {
         this.turn = this.player2.color;
         this.player1.score++;
         if (this.player2.type === 'cp') {
-
-          setTimeout(() => this.player1.randomPlaceADisc(), this.player2.randomTime());
+          this.activate(false);
+          setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
         }
     }
     else {
         this.turn = this.player1.color;
         this.player2.score++;
         if (this.player1.type === 'cp') {
-          setTimeout(() => this.player2.randomPlaceADisc(), this.player1.randomTime());
+          this.activate(false);
+          setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
         }
       }
   }
