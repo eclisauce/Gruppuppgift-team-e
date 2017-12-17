@@ -93,9 +93,6 @@ circle.hoverRed {
 main .game-rule img {
   width: 250px;
 }
-.playerFont {
-  font-family: 'Bungee', cursive;
-}
 .clickable {
   cursor: pointer;
 }
@@ -159,4 +156,35 @@ header .logoimg {
 }
 header .toplel {
   font-size: 24px;
+}
+.playerFont {
+  font-family: 'Bungee', cursive;
+}
+@media (max-width: 1200px) {
+  .playerFont h2 {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 992px) {
+  .playerFont h2 {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 768px) {
+  .playerFont h2 {
+    font-size: 2em;
+  }
+}
+@media (max-width: 540px) {
+  .playerFont h2 {
+    font-size: 1.3em;
+  }
+}
+@media (min-width: 1200px) {
+  .playerFont {
+    font-family: 'Bungee', cursive;
+  }
+  .playerFont h2 {
+    font-size: 2em;
+  }
 }

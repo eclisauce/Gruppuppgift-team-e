@@ -62,10 +62,16 @@ class Game {
     let player2Pic = this.decidePicture(this.player2.type);
 
     $('main').html(`
-      <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
-          <div class="bg-warning text-white playerFont text-center mr-lg-5 col-lg-5 pt-1"><img class="p-0 pr-3  img-fluid col-4 float-left" src="${player1Pic}"><h2 class="d-inline-block mt-5 col-8">${this.player1.name}</h2></div>
-        <h1 class="pt-5 playerFont text-center"> VS </h1>
-        <div class="bg-danger text-white playerFont text-center ml-lg-5 col-lg-5 pt-1"><img class="p-0 pr-3 img-fluid col-4 float-left" src="${player2Pic}"><h2 class="d-inline-block mt-5 col-8">${this.player2.name}</h2></div>
+      <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
+        <div class="bg-warning text-white playerFont text-center mr-md-5 col-md-5 pt-1">
+          <h2 class="d-inline-block col-8 mt-4 pl-0">${this.player1.name}</h2>
+          <img class="img-fluid col-4 float-left p-0 pr-3 mb-0 pb-0" src="${player1Pic}">
+        </div>
+        <h1 class="mt-3 mt-lg-4 playerFont text-center"> VS </h1>
+        <div class="bg-danger text-white playerFont text-center ml-md-5 col-md-5 pt-1">
+          <h2 class="d-inline-block col-8 mt-4 pl-0">${this.player2.name}</h2>
+          <img class="img-fluid col-4 float-left p-0 pr-3 mb-0 pb-0" src="${player2Pic}">
+        </div>
       </div>
       <div class="row mt-3">
         <div class="col-12">
