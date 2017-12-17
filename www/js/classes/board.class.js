@@ -328,7 +328,7 @@ class Board {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLabel">Vinst!</h2>
+          <h5 class="modal-title" id="exampleModalLabel">Vinnaren är</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
           </button>
@@ -357,7 +357,7 @@ class Board {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Oavgjort!</h2>
+                <h5 class="modal-title" id="exampleModalLabel">Oavgjort!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
                 </button>
