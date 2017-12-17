@@ -122,6 +122,7 @@ class Game {
         const color = that.board.getCurrentTurn();
         that.board.putDisc(targetCircle, color);
         that.board.activate(true);
+        that.board.changeCursors()
         that.board.changeTurn();
         that.board.checkWinner(color);
         that.board.isFullBoard();

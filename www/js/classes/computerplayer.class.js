@@ -26,7 +26,6 @@ class ComputerPlayer extends Player {
   randomPlaceADisc(){
     let clickThis;
     while(true) {
-      console.log('hello');
       clickThis = $(`rect[x="${this.calculateX()}"][y="${10}"]`);
       let checkFull = clickThis.siblings('circle');
       if (game.board.isFullBoard()) {

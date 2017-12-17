@@ -112,6 +112,15 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
+  changeCursors(){
+    if (this.active === true) {
+      $('rect').removeClass('unclickable').addClass('clickable');
+    }
+    else if (this.active === false) {
+      $('rect').removeClass('clickable').addClass('unclickable');
+    }
+  }
+
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement.
   changeTurn() {
@@ -120,6 +129,7 @@ class Board {
         this.player1.score++;
         if (this.player2.type === 'cp') {
           this.activate(false);
+          this.changeCursors()
           setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
         }
     }
@@ -128,6 +138,7 @@ class Board {
         this.player2.score++;
         if (this.player1.type === 'cp') {
           this.activate(false);
+          this.changeCursors()
           setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
         }
       }
