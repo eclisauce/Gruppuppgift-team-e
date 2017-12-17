@@ -13,7 +13,7 @@ class Game {
         <div class="row playerone pt-5">
           <h4 class="col-12">Spelare 1:</h4>
           <div class="form-group col-7 col-md-5 col-lg-4 pr-0">
-            <input type="text" class="form-control" id="player1" placeholder="Ange spelare 1">
+            <input type="text" maxlength="10" class="form-control" id="player1" placeholder="Ange spelare 1">
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
@@ -27,7 +27,7 @@ class Game {
         <div class="row playerone pt-2">
           <h4 class="col-12">Spelare 2:</h4>
           <div class="form-group col-7 col-md-5 col-lg-4 pr-0">
-            <input type="text" class="form-control" id="player2" placeholder="Ange spelare 2">
+            <input type="text" maxlength="10" class="form-control" id="player2" placeholder="Ange spelare 2">
           </div>
 
           <div class="col-5 col-md-3 col-lg-2 pr-1">
@@ -47,25 +47,41 @@ class Game {
   }
 
   renderBase() {
-    $('main').html(`
-        <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
-          <h3 class="bg-warning py-3 text-white playerFont text-center mr-lg-5 col-lg-4">${this.player1.name}</h3>
-          <h1 class="pt-2 playerFont text-center"> VS </h1>
-          <h3 class="bg-danger py-3 text-white playerFont text-center ml-lg-5 col-lg-4">${this.player2.name}</h3>
-        </div>
-        <div class="row mt-3">
-          <div class="col-12">
-            <div id="board-holder">
-              <div id="board"></div>
-            </div>
-          </div>
-        </div>
+    let player1Pic;
+    let player2Pic;
+    console.log(this.player1.type);
+    if (this.player1.type === 'human'){
+      player1Pic = '/imgs/players/human.png';
+    }
+    else {
+      player1Pic = '/imgs/players/cp.png';
+    }
+    if (this.player2.type === 'human'){
+      player2Pic = '/imgs/players/human.png';
+    }
+    else {
+      player2Pic = '/imgs/players/cp.png';
+    }
 
-        <div class="row justify-content-center quitbuttonscale">
-          <div class="col-8 mt-4">
-            <button id="newgamebtn" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+    $('main').html(`
+      <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
+          <div class="bg-warning text-white playerFont text-center mr-lg-5 col-lg-5 pt-1"><img class="p-0 pr-3  img-fluid col-4 float-left" src="${player1Pic}"><h2 class="d-inline-block mt-5 col-8">${this.player1.name}</h2></div>
+        <h1 class="pt-5 playerFont text-center"> VS </h1>
+        <div class="bg-danger text-white playerFont text-center ml-lg-5 col-lg-5 pt-1"><img class="p-0 pr-3 img-fluid col-4 float-left" src="${player2Pic}"><h2 class="d-inline-block mt-5 col-8">${this.player2.name}</h2></div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <div id="board-holder">
+            <div id="board"></div>
           </div>
         </div>
+      </div>
+
+      <div class="row justify-content-center quitbuttonscale">
+        <div class="col-8 mt-4">
+          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+        </div>
+      </div>
         `);
   }
 
