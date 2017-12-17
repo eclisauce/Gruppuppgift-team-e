@@ -63,7 +63,7 @@ class Game {
 
         <div class="row justify-content-center quitbuttonscale">
           <div class="col-8 mt-4">
-            <a id="newGameBtn" class="btn btn-danger btn-lg btn-block" href="/play">Avsluta spel</a>
+            <button id="newgamebtn" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
           </div>
         </div>
         `);
@@ -82,7 +82,11 @@ class Game {
       let player2 = {p2Name, p2Type};
       that.startGameSession(player1, player2);
       that.board.activate(true);
-    })
+    });
+
+    $('#newgamebtn').on('click', function () {
+      that.board.quitOrNot();
+    });
   }
 
   startGame(){
@@ -110,6 +114,7 @@ class Game {
     this.board.render();
     this.board.setupPlayers();
     this.eventHandlers();
+    this.myButtons();
     // This should probably be a callback function instead!
     setTimeout(() => this.startGame());
 }

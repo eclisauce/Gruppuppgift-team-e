@@ -1,5 +1,14 @@
 {
   "scores": [
-
+    {
+      "name": "John Doe",
+      "score": 4,
+      "type": "human"
+    },
+    {
+      "name": "John Doe",
+      "score": 4,
+      "type": "human"
+    }
   ]
 }

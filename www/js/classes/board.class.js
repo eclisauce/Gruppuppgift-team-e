@@ -306,6 +306,18 @@ class Board {
     return false;
   }
 
+  isFullBoard() {
+    for (let i = 0; i < 7; i++) {
+      for (let j = 0; j < 6; j++) {
+        if (this.places[i][j].color === 'white') {
+          return false;
+        }
+      }
+    }
+    this.activate(false);
+    return true;
+  }
+
   // Changed variable color to name and added variable score.
   // Writing out both name and score now.
   showWinner(name, score) {
@@ -336,16 +348,30 @@ class Board {
       $('#winnerModal').modal('show');
   }
 
-  isFullBoard() {
-    for (let i = 0; i < 7; i++) {
-      for (let j = 0; j < 6; j++) {
-        if (this.places[i][j].color === 'white') {
-          return false;
-        }
-      }
-    }
-    this.activate(false);
-    return true;
+  // Ask to quit
+  quitOrNot(){
+    $('main').append(`
+      <!-- Modal -->
+      <div class="modal fade" id="quitornot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Avsluta spel</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Är du säker på du vill avsluta pågående spel?
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-danger" href="/play">Avsluta</>
+              <a class="btn btn-success text-light" data-dismiss="modal" aria-label="Close">Tillbaka till spelet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        `);
+    $('#quitornot').modal('show');
   }
-
 }
