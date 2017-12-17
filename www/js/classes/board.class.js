@@ -333,7 +333,7 @@ class Board {
             <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
           </button>
         </div>
-        <div class="modal-body h1">
+        <div class="modal-body h2">
           Vinnare: ${name} <br>
           Poäng: ${score}
         </div>
