@@ -46,22 +46,20 @@ class Game {
       `);
   }
 
+  decidePicture(player){
+    let picLink;
+    if (player === 'human'){
+      picLink = '/imgs/players/human.png';
+    }
+    else {
+      picLink = '/imgs/players/cp.png';
+    }
+    return picLink
+  }
+
   renderBase() {
-    let player1Pic;
-    let player2Pic;
-    console.log(this.player1.type);
-    if (this.player1.type === 'human'){
-      player1Pic = '/imgs/players/human.png';
-    }
-    else {
-      player1Pic = '/imgs/players/cp.png';
-    }
-    if (this.player2.type === 'human'){
-      player2Pic = '/imgs/players/human.png';
-    }
-    else {
-      player2Pic = '/imgs/players/cp.png';
-    }
+    let player1Pic = this.decidePicture(this.player1.type);
+    let player2Pic = this.decidePicture(this.player2.type);
 
     $('main').html(`
       <div class="d-flex flex-column flex-lg-row justify-content-around col-12 showplayersscale">
