@@ -89,11 +89,18 @@ class Game {
         `);
   }
 
+  randomName(){
+    let nameArr = ["John Doe", "Sgt Nuke", "Skywalker", "Groot", "Batman", "John Doe", "The Dude", "James Bond", "Gandalf", "Terminator", "Yoda", "E.T", "Wolverine"];
+    let rndNum = Math.floor(Math.random() * nameArr.length);
+    let name = nameArr[rndNum];
+    return name;
+  }
+
   myButtons() {
     let that = this;
     $('#startbutton').on('click', function () {
-      let p1Name = $('#player1').val() ? $('#player1').val() : "John Doe";
-      let p2Name = $('#player2').val() ? $('#player2').val() : "John Doe";
+      let p1Name = $('#player1').val() ? $('#player1').val() : that.randomName();
+      let p2Name = $('#player2').val() ? $('#player2').val() : that.randomName();
       let p1Type = $('#p1type').val();
       let p2Type = $('#p2type').val();
 
