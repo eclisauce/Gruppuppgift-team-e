@@ -87,7 +87,7 @@ class Game {
 
   startGame(){
     if (game.board.player1.type === 'cp'){
-    $(`rect[x="${game.board.calculateX()}"][y="${10}"]`).trigger('click');
+      $(`rect[x="${game.board.player1.calculateX()}"][y="${10}"]`).trigger('click');
     }
   }
 

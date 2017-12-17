@@ -112,58 +112,27 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
-  // Method for random number on drop
-  calculateX(){
-    let rnd = Math.floor(Math.random() * 7);
-    rnd += "10";
-    rnd = parseInt(rnd);
-    return rnd;
-  }
-  // Method for random number time delay.
-  randomTime(){
-    let rnd = Math.floor(Math.random() * 1500) + 200;
-    return rnd;
-  }
+
+
 
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement.
   changeTurn() {
-    let that = this;
-      // Checking if full column, then take another random until it's possible to
-      // put the disc somewhere
-    function randomPlaceADisc(){
-      let clickThis;
-      while(true) {
-        clickThis = $(`rect[x="${that.calculateX()}"][y="${10}"]`);
-        let checkFull = clickThis.siblings('circle');
-        if (that.isClickable(checkFull)) {
-          clickThis.trigger('click');
-          break;
-        }
-        else if (that.isFullBoard()) {
-          break;
-        }
-        else if (that.gameend === true) {
-          break;
-        }
-      }
-
-    }
-
     if (this.turn === this.player1.color) {
         this.turn = this.player2.color;
         this.player1.score++;
         if (this.player2.type === 'cp') {
-          setTimeout(randomPlaceADisc, this.randomTime());
+
+          setTimeout(() => this.player1.randomPlaceADisc(), this.player2.randomTime());
         }
     }
     else {
         this.turn = this.player1.color;
         this.player2.score++;
         if (this.player1.type === 'cp') {
-          setTimeout(randomPlaceADisc, this.randomTime());
+          setTimeout(() => this.player2.randomPlaceADisc(), this.player1.randomTime());
         }
-    }
+      }
   }
 
   getCurrentTurn() {
