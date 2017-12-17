@@ -9,6 +9,41 @@
       "name": "John Doe",
       "score": 4,
       "type": "human"
+    },
+    {
+      "name": "Yoda",
+      "score": 4,
+      "type": "human"
+    },
+    {
+      "name": "Terminator",
+      "score": 6,
+      "type": "human"
+    },
+    {
+      "name": "Gandalf",
+      "score": 6,
+      "type": "cp"
+    },
+    {
+      "name": "Skywalker",
+      "score": 11,
+      "type": "cp"
+    },
+    {
+      "name": "Gandalf",
+      "score": 14,
+      "type": "human"
+    },
+    {
+      "name": "The Dude",
+      "score": 14,
+      "type": "human"
+    },
+    {
+      "name": "Sgt Nuke",
+      "score": 21,
+      "type": "human"
     }
   ]
 }

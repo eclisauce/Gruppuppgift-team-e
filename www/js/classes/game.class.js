@@ -157,7 +157,7 @@ class Game {
         that.board.changeCursors()
         that.board.changeTurn();
         that.board.checkWinner(color);
-        that.board.isFullBoard();
+        that.board.checkDraw();
       }
     });
 

@@ -315,6 +315,7 @@ class Board {
       }
     }
     this.activate(false);
+    this.gameend = true;
     return true;
   }
 
@@ -346,6 +347,35 @@ class Board {
     `);
 
       $('#winnerModal').modal('show');
+  }
+
+  checkDraw() {
+    if (this.isFullBoard()){
+      $('main').append(`
+        <!-- Modal -->
+        <div class="modal fade" id="drawModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Oavgjort!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+              </div>
+              <div class="modal-body h3">
+                Ni spelade slut på alla brickor. <br> Det blev oavgjort!
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-secondary" href="/play">Starta ett nytt spel</>
+                <a class="btn btn-large btn-info btn-danger" href="/highscore">Till Highscore</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    `);
+
+      $('#drawModal').modal('show');
+    }
   }
 
   // Ask to quit
