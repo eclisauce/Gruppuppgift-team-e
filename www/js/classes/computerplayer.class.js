@@ -31,7 +31,7 @@ class ComputerPlayer extends Player {
       if (game.board.isFullBoard()) {
         break;
       }
-      else if (game.board.gameend === true) {
+      else if (game.board.gameOver === true) {
         break;
       }
       else if (this.isClickableComputer(checkFull)) {

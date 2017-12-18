@@ -132,7 +132,7 @@ class Board {
     if (this.turn === this.player1.color) {
         this.turn = this.player2.color;
         this.player1.score++;
-        if (this.player2.type === 'cp') {
+        if (this.player2 instanceof ComputerPlayer) {
           this.activate(false);
           this.changeCursors()
           setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
@@ -141,7 +141,7 @@ class Board {
     else {
         this.turn = this.player1.color;
         this.player2.score++;
-        if (this.player1.type === 'cp') {
+        if (this.player1 instanceof ComputerPlayer) {
           this.activate(false);
           this.changeCursors()
           setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());

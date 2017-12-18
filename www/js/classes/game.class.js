@@ -9,7 +9,7 @@ class Game {
 
   decidePicture(player){
     let picLink;
-    if (player === 'human'){
+    if (player instanceof HumanPlayer){
       picLink = '/imgs/players/human.png';
     }
     else {
@@ -46,7 +46,7 @@ class Game {
   }
 
   startGame(){
-    if (game.board.player1.type === 'cp'){
+    if (game.board.player1 instanceof ComputerPlayer){
       $(`rect[x="${game.board.player1.calculateX()}"][y="${10}"]`).trigger('click');
     }
   }
@@ -111,8 +111,8 @@ class Game {
   }
 
   renderBase() {
-    let player1Pic = this.decidePicture(this.player1.type);
-    let player2Pic = this.decidePicture(this.player2.type);
+    let player1Pic = this.decidePicture(this.player1);
+    let player2Pic = this.decidePicture(this.player2);
 
     $('main').html(`
       <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
