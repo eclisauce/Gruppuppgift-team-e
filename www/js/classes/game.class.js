@@ -18,8 +18,6 @@ class Game {
     return picLink
   }
 
-
-
   randomName(){
     let nameArr = ["John Doe", "Sgt Nuke", "Skywalker", "Groot", "Batman", "John Doe", "The Dude", "James Bond", "Gandalf", "Terminator", "Yoda", "E.T", "Wolverine"];
     let rndNum = Math.floor(Math.random() * nameArr.length);

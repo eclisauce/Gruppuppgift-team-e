@@ -6,7 +6,7 @@ class Board {
     this.active = false;
     this.game = game;
     this.highscore = new Highscore;
-    this.gameend = false;
+    this.gameOver = false;
   }
 
   // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
@@ -18,6 +18,11 @@ class Board {
 
   activate(on) {
     this.active = on;
+  }
+
+  endOfGame(){
+    this.activate(false);
+    this.gameOver = true;
   }
 
   discFactory() {
@@ -187,15 +192,13 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
           } else {
@@ -220,15 +223,13 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
           } else {
@@ -253,15 +254,13 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
           } else {
@@ -286,15 +285,13 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
             else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.activate(false);
-              this.gameend = true;
+              this.endOfGame();
               return true;
             }
           } else {
@@ -314,8 +311,7 @@ class Board {
         }
       }
     }
-    this.activate(false);
-    this.gameend = true;
+    this.endOfGame();
     return true;
   }
 
