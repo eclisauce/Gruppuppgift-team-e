@@ -49,6 +49,8 @@ class Game extends Base {
     // This should probably be a callback function instead!
     if (game.board.player1 instanceof ComputerPlayer) {
       game.board.player1.makeMove();
+    }else{
+      this.board.toggleActiveBoard(true);
     }
   }
 
@@ -70,7 +72,6 @@ class Game extends Base {
         p2Type
       };
       that.startGameSession(player1, player2);
-      that.board.toggleActiveBoard(true);
     });
 
 
