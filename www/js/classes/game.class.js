@@ -89,6 +89,9 @@ class Game extends Base {
       } else{
         window.location.replace(clickedElement);
       }
+      $(window).bind('beforeunload', function(){
+        return 'Are you sure you want to leave?';
+      });
     });
 
     let hoverCircle;
