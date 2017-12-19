@@ -2,7 +2,7 @@ class Board {
   // Send the game into board so it knows it's creator.
   // Added highscore to be able to send score.
   constructor(game) {
-    this.discFactory();
+    this.createBoard();
     this.active = false;
     this.game = game;
     this.highscore = new Highscore;
@@ -28,7 +28,7 @@ class Board {
     this.gameOver = true;
   }
 
-  discFactory() {
+  createBoard() {
     this.places = new Array(7);
     for (let i = 0; i < 7; i++) {
       this.places[i] = new Array(6);
