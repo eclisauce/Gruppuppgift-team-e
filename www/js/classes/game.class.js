@@ -7,23 +7,22 @@ class Game {
     this.myButtons();
   }
 
-  decidePicture(player){
+  decidePicture(player) {
     let picLink;
-    if (player instanceof HumanPlayer){
+    if (player instanceof HumanPlayer) {
       picLink = '/imgs/players/human.png';
-    }
-    else {
+    } else {
       picLink = '/imgs/players/cp.png';
     }
     return picLink
   }
 
-  randomName(type){
+  randomName(type) {
     let nameArr = [];
-    if(type == "human"){
-    nameArr = ["John Doe", "Sgt Nuke", "Skywalker", "Groot", "Batman", "John Doe", "The Dude", "James Bond", "Gandalf", "Yoda", "E.T", "Wolverine"];
-    }else{
-    nameArr =["C-3PO","R2-D2","T-800","Skynet","Ro-Man","Roy Batty","Gort","The Tin Man","Data","The Borg","Marvin","Ultron","Fembots"];
+    if (type == "human") {
+      nameArr = ["John Doe", "Sgt Nuke", "Skywalker", "Groot", "Batman", "John Doe", "The Dude", "James Bond", "Gandalf", "Yoda", "E.T", "Wolverine"];
+    } else {
+      nameArr = ["C-3PO", "R2-D2", "T-800", "Skynet", "Ro-Man", "Roy Batty", "Gort", "The Tin Man", "Data", "The Borg", "Marvin", "Ultron", "Fembots"];
     }
     let rndNum = Math.floor(Math.random() * nameArr.length);
     let name = nameArr[rndNum];
@@ -39,8 +38,14 @@ class Game {
       let p2Name = $('#player2').val() ? $('#player2').val() : that.randomName(p2Type);
 
       // Sending objects instead of double inparemters.
-      let player1 = {p1Name, p1Type};
-      let player2 = {p2Name, p2Type};
+      let player1 = {
+        p1Name,
+        p1Type
+      };
+      let player2 = {
+        p2Name,
+        p2Type
+      };
       that.startGameSession(player1, player2);
       that.board.toggleActiveBoard(true);
     });
@@ -50,25 +55,23 @@ class Game {
     });
   }
 
-  startGame(){
-    if (game.board.player1 instanceof ComputerPlayer){
+  startGame() {
+    if (game.board.player1 instanceof ComputerPlayer) {
       $(`rect[x="${game.board.player1.calculateX()}"][y="${10}"]`).trigger('click');
     }
   }
 
   startGameSession(player1, player2) {
     // Checking if human or cp
-    if (player1.p1Type === 'human'){
+    if (player1.p1Type === 'human') {
       this.player1 = new HumanPlayer(player1.p1Name, 'yellow', player1.p1Type);
-    }
-    else {
+    } else {
       this.player1 = new ComputerPlayer(player1.p1Name, 'yellow', player1.p1Type);
     }
 
-    if (player2.p2Type === 'human'){
+    if (player2.p2Type === 'human') {
       this.player2 = new HumanPlayer(player2.p2Name, 'red', player2.p2Type);
-    }
-    else {
+    } else {
       this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
     this.renderBase();
@@ -78,20 +81,22 @@ class Game {
     this.myButtons();
     // This should probably be a callback function instead!
     setTimeout(() => this.startGame());
-}
+  }
 
   eventHandlers() {
     let that = this;
     $(document).on('click', 'rect', function () {
-      const targetCircle = $(this).siblings('circle');
-      if (that.board.isClickable(targetCircle)) {
-        const color = that.board.turn;
-        that.board.placeDisc(targetCircle, color);
-        that.board.toggleActiveBoard(true);
-        that.board.changeCursors()
-        that.board.changeTurn();
-        that.board.checkWinner(color);
-        that.board.checkDraw();
+      if (that.board.active) {
+        const targetCircle = $(this).siblings('circle');
+        if (that.board.isClickable(targetCircle)) {
+          const color = that.board.turn;
+          that.board.placeDisc(targetCircle, color);
+          that.board.toggleActiveBoard(true);
+          // that.board.changeCursors()
+          that.board.changeTurn();
+          that.board.checkWinner(color);
+          that.board.checkDraw();
+        }
       }
     });
 
@@ -99,18 +104,22 @@ class Game {
     let hoverCircle;
     $(document).on({
       mouseenter: function () {
-        let targetCircle = $(this).siblings('circle');
-        let playColumn = (targetCircle[0].cx.baseVal.value - 50) / 100;
-        for (let y = 5; y >= 0; y--) {
-          if (that.board.places[playColumn][y].color === 'white') {
-            hoverCircle = $("circle[cx=" + that.board.places[playColumn][y].cx + "][cy=" + that.board.places[playColumn][y].cy + "]");
-            break;
+        if (that.board.active) {
+          let targetCircle = $(this).siblings('circle');
+          let playColumn = (targetCircle[0].cx.baseVal.value - 50) / 100;
+          for (let y = 5; y >= 0; y--) {
+            if (that.board.places[playColumn][y].color === 'white') {
+              hoverCircle = $("circle[cx=" + that.board.places[playColumn][y].cx + "][cy=" + that.board.places[playColumn][y].cy + "]");
+              break;
+            }
           }
+          hoverCircle.addClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
         }
-        hoverCircle.addClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
       },
       mouseleave: function () {
-        hoverCircle.removeClass(("hoverYellow hoverRed"));
+        if (that.board.active) {
+          hoverCircle.removeClass(("hoverYellow hoverRed"));
+        }
       }
     }, 'rect');
   }
@@ -184,7 +193,6 @@ class Game {
             <a id="startbutton" class="btn btn-success btn-lg" href="#l" role="button">Starta spel</a>
           </div>
         </div>
-      `
-    );
+      `);
   }
 }
