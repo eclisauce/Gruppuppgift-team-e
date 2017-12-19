@@ -4,7 +4,7 @@ class Game extends Base {
     this.board = new Board(this);
     this.player1;
     this.player2;
-    this.htmlTemplateInputForms();
+    this.htmlInputForms();
     this.eventHandlers();
   }
 
@@ -43,7 +43,7 @@ class Game extends Base {
     } else {
       this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
-    this.htmlTemplateBase();
+    this.htmlBase();
     this.board.renderBoard();
     this.board.setupPlayers();
     // This should probably be a callback function instead!
@@ -149,12 +149,11 @@ class Game extends Base {
     }
   }
 
-  renderBase() {
+  htmlBase() {
     let player1Pic = this.decidePlayerPicture(this.player1);
     let player2Pic = this.decidePlayerPicture(this.player2);
 
-    $('main').html(`
-
+    this.renderHTML(`
       <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
         <div class="bg-warning text-white playerFont text-center p-0 pt-1 mr-md-5 col-md-5 d-flex flex-row-reverse flex-md-row">
           <div class="d-flex col-9 p-0 justify-content-center"><h2 class="align-self-center mr-3 ml-md-3 ml-lg-5">${this.player1.name}</h2></div>
@@ -183,7 +182,7 @@ class Game extends Base {
         `);
   }
 
-  htmlTemplateInputForms() {
+  htmlInputForms() {
     this.renderHTML(`
       <h1>Spela 4 i Rad</h1>
         <div class="row playerone pt-5">
