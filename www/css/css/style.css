@@ -93,13 +93,6 @@ circle.hoverRed {
 main .game-rule img {
   width: 250px;
 }
-.clickable {
-  cursor: pointer;
-}
-.unclickable {
-  pointer-events: none;
-  cursor: none;
-}
 footer {
   position: absolute;
   bottom: 0;

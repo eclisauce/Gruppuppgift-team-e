@@ -19,8 +19,17 @@ class Board {
     this.turn = this.player1.color;
   }
 
+  changeCursors() {
+    if (this.active === true) {
+      $('rect').css('cursor', 'pointer');
+    } else if (this.active === false) {
+      $('rect').css('cursor', 'default');
+    }
+  }
+  
   toggleActiveBoard(on) {
     this.active = on;
+    this.changeCursors();
   }
 
   setGameOver() {
@@ -121,15 +130,9 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
-  /*
-  changeCursors() {
-    if (this.active === true) {
-      $('rect').removeClass('unclickable').addClass('clickable');
-    } else if (this.active === false) {
-      $('rect').removeClass('clickable').addClass('unclickable');
-    }
-  }
-*/
+
+
+
   // Changed checking to this.player1.color and added +1 score each time.
   // Also changed to big if-statement
 
