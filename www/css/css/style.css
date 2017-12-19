@@ -153,6 +153,14 @@ header .toplel {
 .playerFont {
   font-family: 'Bungee', cursive;
 }
+@media (min-width: 1200px) {
+  .playerFont {
+    font-family: 'Bungee', cursive;
+  }
+  .playerFont h2 {
+    font-size: 2em;
+  }
+}
 @media (max-width: 1200px) {
   .playerFont h2 {
     font-size: 1.5em;
@@ -171,14 +179,6 @@ header .toplel {
 @media (max-width: 540px) {
   .playerFont h2 {
     font-size: 1.3em;
-  }
-}
-@media (min-width: 1200px) {
-  .playerFont {
-    font-family: 'Bungee', cursive;
-  }
-  .playerFont h2 {
-    font-size: 2em;
   }
 }
 .player2pic {
