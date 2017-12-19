@@ -7,7 +7,7 @@ class Game {
     this.myButtons();
   }
 
-  decidePicture(player) {
+  decidePlayerPicture(player) {
     let picLink;
     if (player instanceof HumanPlayer) {
       picLink = '/imgs/players/human.png';
@@ -145,8 +145,8 @@ class Game {
   }
 
   renderBase() {
-    let player1Pic = this.decidePicture(this.player1);
-    let player2Pic = this.decidePicture(this.player2);
+    let player1Pic = this.decidePlayerPicture(this.player1);
+    let player2Pic = this.decidePlayerPicture(this.player2);
 
     $('main').html(`
       <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
