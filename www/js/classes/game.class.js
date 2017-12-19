@@ -80,7 +80,7 @@ class Game extends Base {
     $(document).on('click','.checkMeBeforeLeave', function () {
       let theLink = ($(this).attr('whereto'));
       if (that.board.player1) {
-        that.board.quitOrNot(theLink);
+        that.board.htmlQuitOrNot(theLink);
       }
       else {
         window.location.href = theLink;
