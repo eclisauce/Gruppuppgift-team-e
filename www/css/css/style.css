@@ -181,3 +181,6 @@ header .toplel {
     font-size: 2em;
   }
 }
+.player2pic {
+  transform: scaleX(-1);
+}
