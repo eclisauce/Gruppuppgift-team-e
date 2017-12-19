@@ -65,14 +65,14 @@ class Board {
     this.scale();
 
     //check if whole board is visible
-    if (!this.isFullyVisible(boardEle)) {
+    if (!this.isBoardFullyVisible(boardEle)) {
       $('html, body').animate({
         scrollTop: (boardEle.offset().top - 20 - `${$('.showplayersscale').height()}`)
       }, 500);
     }
   }
 
-  isFullyVisible(element) {
+  isBoardFullyVisible(element) {
     return element.isOnScreen(function (ele) {
       return ele.top >= this.height() &&
         ele.bottom >= this.height() &&
