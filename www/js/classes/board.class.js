@@ -91,26 +91,26 @@ class Board {
   }
 
   placeDisc(element, color) {
-      // playColumn is index
-      let playColumn = (element[0].cx.baseVal.value - 50) / 100;
-      for (let y = 5; y >= 0; y--) {
-        if (this.places[playColumn][y].color === 'white') {
-          this.places[playColumn][y].color = color;
-          let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
-          let newCircle = circle.clone()
-          newCircle.attr('cy', 50)
-          newCircle.removeClass();
-          newCircle.addClass(color);
-          newCircle.appendTo(circle.parent());
-          newCircle.animate({
-            cy: this.places[playColumn][y].cy
-          }, 500, function () {
-            circle.remove();
-          });
-          newCircle.attr('cy', this.places[playColumn][y].cy)
-          break;
-        }
+    // playColumn is index
+    let playColumn = (element[0].cx.baseVal.value - 50) / 100;
+    for (let y = 5; y >= 0; y--) {
+      if (this.places[playColumn][y].color === 'white') {
+        this.places[playColumn][y].color = color;
+        let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
+        let newCircle = circle.clone()
+        newCircle.attr('cy', 50)
+        newCircle.removeClass();
+        newCircle.addClass(color);
+        newCircle.appendTo(circle.parent());
+        newCircle.animate({
+          cy: this.places[playColumn][y].cy
+        }, (this.places[playColumn][y].cy - 50), function () {
+          circle.remove();
+        });
+        newCircle.attr('cy', this.places[playColumn][y].cy)
+        break;
       }
+    }
 
   }
 

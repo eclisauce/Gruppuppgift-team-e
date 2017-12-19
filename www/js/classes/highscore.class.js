@@ -82,7 +82,7 @@ const highscore = new Highscore();
 //TEST AND DEBUG AREA
 function loadAndRender() {
     highscore.loadJSON();
-    highscore.renderScore();
+    highscore.renderHighscore();
 }
 
 function newScore(object) {
