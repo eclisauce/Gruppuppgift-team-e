@@ -72,8 +72,19 @@ class Game extends Base {
       that.startGameSession(player1, player2);
       that.board.toggleActiveBoard(true);
     });
+
     $(document).on('click', '#newgamebtn', function () {
       that.board.htmlQuitOrNot();
+    });
+
+    $(document).on('click','.checkMeBeforeLeave', function () {
+      let theLink = ($(this).attr('whereto'));
+      if (that.board.player1) {
+        that.board.quitOrNot(theLink);
+      }
+      else {
+        window.location.href = theLink;
+      }
     });
 
     let hoverCircle;
@@ -155,7 +166,7 @@ class Game extends Base {
       </div>
       <div class="row justify-content-center quitbuttonscale">
         <div class="col-8 mt-4">
-          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block">Avsluta spel</button>
+          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block checkMeBeforeLeave whereto="/play"">Avsluta spel</button>
         </div>
       </div>
         `);

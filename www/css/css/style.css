@@ -184,3 +184,6 @@ header .toplel {
 .player2pic {
   transform: scaleX(-1);
 }
+.navbar-nav .nav-item {
+  cursor: pointer;
+}

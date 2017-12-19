@@ -349,7 +349,7 @@ class Board extends Base {
   }
 
   // Ask to quit
-  htmlQuitOrNot() {
+  htmlQuitOrNot(clickedLink) {
     this.renderHTML(`
       <!-- Modal -->
       <div class="modal fade" id="quitOrNotModal" tabindex="-1" role="dialog" aria-labelledby="quitOrNotModalLabel" aria-hidden="true">
@@ -365,7 +365,7 @@ class Board extends Base {
               Är du säker på du vill avsluta pågående spel?
             </div>
             <div class="modal-footer">
-              <a class="btn btn-danger" href="/play">Avsluta</>
+              <a class="btn btn-danger" href="${clickedLink}">Avsluta</>
               <a class="btn btn-success text-light" data-dismiss="modal" aria-label="Close">Tillbaka till spelet</a>
             </div>
           </div>
