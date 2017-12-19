@@ -10,7 +10,7 @@ class Board {
   }
 
   // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
-  setupPlayers(){
+  setupPlayers() {
     this.player1 = this.game.player1;
     this.player2 = this.game.player2;
     this.turn = this.player1.color;
@@ -20,7 +20,7 @@ class Board {
     this.active = on;
   }
 
-  endOfGame(){
+  endOfGame() {
     this.activate(false);
     this.gameOver = true;
   }
@@ -64,12 +64,12 @@ class Board {
     //check if whole board is visible
     if (!this.isFullyVisible(boardEle)) {
       $('html, body').animate({
-        scrollTop: (boardEle.offset().top-20-`${$('.showplayersscale').height()}`)
+        scrollTop: (boardEle.offset().top - 20 - `${$('.showplayersscale').height()}`)
       }, 500);
     }
   }
 
-  isFullyVisible(element){
+  isFullyVisible(element) {
     return element.isOnScreen(function (ele) {
       return ele.top >= this.height() &&
         ele.bottom >= this.height() &&
@@ -79,25 +79,29 @@ class Board {
   }
 
   putDisc(element, color) {
-    // playColumn is index
-    let playColumn = (element[0].cx.baseVal.value - 50) / 100;
-    for (let y = 5; y >= 0; y--) {
-      if (this.places[playColumn][y].color === 'white') {
-        this.places[playColumn][y].color = color;
-        let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
-        let newCircle = circle.clone()
-        newCircle.attr('cy', 50)
-        newCircle.removeClass();
-        newCircle.addClass(color);
-        newCircle.appendTo(circle.parent());
-        newCircle.animate({
-          cy: this.places[playColumn][y].cy
-        }, 500, function () {
-          circle.remove();
-        });
-        newCircle.attr('cy', this.places[playColumn][y].cy)
-        break;
+    if ($('hoverYellow hoverRed')) {
+      // playColumn is index
+      let playColumn = (element[0].cx.baseVal.value - 50) / 100;
+      for (let y = 5; y >= 0; y--) {
+        if (this.places[playColumn][y].color === 'white') {
+          this.places[playColumn][y].color = color;
+          let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
+          let newCircle = circle.clone()
+          newCircle.attr('cy', 50)
+          newCircle.removeClass();
+          newCircle.addClass(color);
+          newCircle.appendTo(circle.parent());
+          newCircle.animate({
+            cy: this.places[playColumn][y].cy
+          }, 500, function () {
+            circle.remove();
+          });
+          newCircle.attr('cy', this.places[playColumn][y].cy)
+          break;
+        }
       }
+    }else{
+      $('hoverYellow hoverRed').addClass(color);
     }
   }
 
@@ -117,11 +121,10 @@ class Board {
     $('#board-holder').height(orgH * scaling);
   }
 
-  changeCursors(){
+  changeCursors() {
     if (this.active === true) {
       $('rect').removeClass('unclickable').addClass('clickable');
-    }
-    else if (this.active === false) {
+    } else if (this.active === false) {
       $('rect').removeClass('clickable').addClass('unclickable');
     }
   }
@@ -130,23 +133,22 @@ class Board {
   // Also changed to big if-statement.
   changeTurn() {
     if (this.turn === this.player1.color) {
-        this.turn = this.player2.color;
-        this.player1.score++;
-        if (this.player2 instanceof ComputerPlayer) {
-          this.activate(false);
-          this.changeCursors()
-          setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
-        }
-    }
-    else {
-        this.turn = this.player1.color;
-        this.player2.score++;
-        if (this.player1 instanceof ComputerPlayer) {
-          this.activate(false);
-          this.changeCursors()
-          setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
-        }
+      this.turn = this.player2.color;
+      this.player1.score++;
+      if (this.player2 instanceof ComputerPlayer) {
+        this.activate(false);
+        this.changeCursors()
+        setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
       }
+    } else {
+      this.turn = this.player1.color;
+      this.player2.score++;
+      if (this.player1 instanceof ComputerPlayer) {
+        this.activate(false);
+        this.changeCursors()
+        setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
+      }
+    }
   }
 
   getCurrentTurn() {
@@ -194,8 +196,7 @@ class Board {
               newScore(this.player1);
               this.endOfGame();
               return true;
-            }
-            else if (count === 4 && this.player2.color === color) {
+            } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.endOfGame();
@@ -225,8 +226,7 @@ class Board {
               newScore(this.player1);
               this.endOfGame();
               return true;
-            }
-            else if (count === 4 && this.player2.color === color) {
+            } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.endOfGame();
@@ -256,8 +256,7 @@ class Board {
               newScore(this.player1);
               this.endOfGame();
               return true;
-            }
-            else if (count === 4 && this.player2.color === color) {
+            } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.endOfGame();
@@ -287,8 +286,7 @@ class Board {
               newScore(this.player1);
               this.endOfGame();
               return true;
-            }
-            else if (count === 4 && this.player2.color === color) {
+            } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
               this.endOfGame();
@@ -342,11 +340,11 @@ class Board {
   </div>
     `);
 
-      $('#winnerModal').modal('show');
+    $('#winnerModal').modal('show');
   }
 
   checkDraw() {
-    if (this.isFullBoard()){
+    if (this.isFullBoard()) {
       $('main').append(`
         <!-- Modal -->
         <div class="modal fade" id="drawModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -375,7 +373,7 @@ class Board {
   }
 
   // Ask to quit
-  quitOrNot(){
+  quitOrNot() {
     $('main').append(`
       <!-- Modal -->
       <div class="modal fade" id="quitornot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
