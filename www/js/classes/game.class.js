@@ -74,15 +74,21 @@ class Game extends Base {
       that.startGameSession(player1, player2);
     });
 
-
-
     $(document).on('click','.checkMeBeforeLeave', function () {
-      let theLink = ($(this).attr('whereto'));
-      if (that.board.player1) {
-        that.board.htmlQuitOrNot(theLink);
-      }
-      else {
-        window.location.href = theLink;
+      // Removes everything from the modal div. To be able to append again.
+      $('#rendermodalhere').empty();
+      let clickedElement = ($(this).attr('getHref'));
+      // Checks if board is initiated
+      if (that.board.player1){
+        if (clickedElement === '/gamerules') {
+          that.board.showGameRules();
+        } else if (clickedElement === '/highscore') {
+          that.board.showHighscore();
+        } else {
+        that.board.htmlQuitOrNot(clickedElement);
+        }
+      } else{
+        window.location.replace(clickedElement);
       }
     });
 
@@ -143,8 +149,12 @@ class Game extends Base {
     }
   }
 
-  htmlTemplateBase() {
-    this.renderHTML(`
+  renderBase() {
+    let player1Pic = this.decidePlayerPicture(this.player1);
+    let player2Pic = this.decidePlayerPicture(this.player2);
+
+    $('main').html(`
+
       <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
         <div class="bg-warning text-white playerFont text-center p-0 pt-1 mr-md-5 col-md-5 d-flex flex-row-reverse flex-md-row">
           <div class="d-flex col-9 p-0 justify-content-center"><h2 class="align-self-center mr-3 ml-md-3 ml-lg-5">${this.player1.name}</h2></div>
@@ -165,9 +175,11 @@ class Game extends Base {
       </div>
       <div class="row justify-content-center quitbuttonscale">
         <div class="col-8 mt-4">
-          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block checkMeBeforeLeave" whereto="/play">Avsluta spel</button>
+          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block checkMeBeforeLeave whereto="/play"">Avsluta spel</button>
         </div>
       </div>
+
+      <div id="rendermodalhere"></div>
         `);
   }
 

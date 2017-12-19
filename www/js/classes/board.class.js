@@ -374,4 +374,70 @@ class Board extends Base {
         `, 'modal');
     $('#quitOrNotModal').modal('show');
   }
+
+  showGameRules(){
+      $('#rendermodalhere').append(`
+        <!-- Modal -->
+        <div class="modal fade" id="gamerules" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Spelregler</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <h5 class="font-weight-bold">För vem?</h5>
+                  <p>Spel för 2 spelare</p>
+                  <h5 class="mt-2 font-weight-bold">Vem kan vinna?</h5>
+                  <p>Den som först får fyra av sina brickor i rad vinner.
+                    Du får placera dina brickor vertikalt, horisontellt eller diagonalt!</p>
+                  <h5 class="mt-2 font-weight-bold">Hur spelar man?</h5>
+                  <ul>
+                    <li>Välj en färg av de två färgerna (gul och röd).</li>
+                    <li>Varannan omgång lägger deltagarna en bricka i spelbrädet.</li>
+                    <li>Lägg i första bricka i vilken öppning som helst på spelbrädet.</li>
+                    <li>Spelarna turas om att placera en bricka per drag.</li>
+                    <li>Första spelaren som placerar fyra brickor i rad vinner.</li>
+                  </ul>
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-success text-light" data-dismiss="modal" aria-label="Close">Tillbaka till spelet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+          `);
+      $('#gamerules').modal('show');
+    }
+
+    showHighscore(){
+      $('#rendermodalhere').append(`
+        <!-- Modal -->
+        <div class="modal fade" id="highscoremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Highscore</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <section class="container">
+                  <div id="highscore" class="row">
+                  </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-success text-light" data-dismiss="modal" aria-label="Close">Tillbaka till spelet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+          `);
+        this.highscore.loadAndRenderHighscore()
+      $('#highscoremodal').modal('show');
+    }
 }
