@@ -354,7 +354,7 @@ class Board {
   }
 
   // Ask to quit
-  quitOrNot() {
+  quitOrNot(clickedLink) {
     $('main').append(`
       <!-- Modal -->
       <div class="modal fade" id="quitornot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -370,7 +370,7 @@ class Board {
               Är du säker på du vill avsluta pågående spel?
             </div>
             <div class="modal-footer">
-              <a class="btn btn-danger" href="/play">Avsluta</>
+              <a class="btn btn-danger" href="${clickedLink}">Avsluta</>
               <a class="btn btn-success text-light" data-dismiss="modal" aria-label="Close">Tillbaka till spelet</a>
             </div>
           </div>
