@@ -82,7 +82,6 @@ class Board {
   }
 
   putDisc(element, color) {
-    if ($('hoverYellow hoverRed')) {
       // playColumn is index
       let playColumn = (element[0].cx.baseVal.value - 50) / 100;
       for (let y = 5; y >= 0; y--) {
@@ -103,9 +102,7 @@ class Board {
           break;
         }
       }
-    }else{
-      $('hoverYellow hoverRed').addClass(color);
-    }
+    
   }
 
   scale() {
