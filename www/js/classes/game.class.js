@@ -97,6 +97,8 @@ class Game extends Base {
             that.board.toggleActiveBoard(true);
             // that.board.changeCursors()
             that.changeTurn();
+            that.board.checkWinner(color);
+            that.board.htmlShowDraw();
           }
         }
       },
@@ -122,8 +124,6 @@ class Game extends Base {
   }
 
   changeTurn() {
-    this.board.checkWinner(this.board.turn);
-    this.board.htmlShowDraw();
     if (this.board.turn === this.player1.color) {
       this.board.turn = this.player2.color;
       this.player1.score++;
