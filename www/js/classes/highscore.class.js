@@ -12,13 +12,13 @@ class Highscore {
         let worstScore = 0
         this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
         if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
-            this.addScore(data);
+            this.addNewScore(data);
             return true;
         }
     }
 
     //add the new score
-    addScore(data) {
+    addNewScore(data) {
         this.scores.push(data);
         delete data.color;
         this.sortScores();
