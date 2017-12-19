@@ -408,12 +408,12 @@ class Board extends Base {
             </div>
           </div>
         </div>
-          `);
+          `, 'modal');
       $('#gamerules').modal('show');
     }
 
     showHighscore(){
-      this.renderHTML.append(`
+      this.renderHTML(`
         <!-- Modal -->
         <div class="modal fade" id="highscoremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -436,7 +436,7 @@ class Board extends Base {
             </div>
           </div>
         </div>
-          `);
+          `, 'modal');
         this.highscore.loadAndRenderHighscore()
       $('#highscoremodal').modal('show');
     }
