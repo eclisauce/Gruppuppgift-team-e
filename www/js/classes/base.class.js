@@ -2,7 +2,7 @@ class Base {
 
     renderHTML(html, type) {
         if (type == "modal") {
-            $('main').append(html)
+            $('#rendermodalhere').html(html)
         } else if (type == 'board') {
             $('#board').html(html)
         } else {

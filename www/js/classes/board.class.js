@@ -376,7 +376,7 @@ class Board extends Base {
   }
 
   showGameRules(){
-      $('#rendermodalhere').append(`
+      this.renderHTML(`
         <!-- Modal -->
         <div class="modal fade" id="gamerules" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -413,7 +413,7 @@ class Board extends Base {
     }
 
     showHighscore(){
-      $('#rendermodalhere').append(`
+      this.renderHTML.append(`
         <!-- Modal -->
         <div class="modal fade" id="highscoremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
