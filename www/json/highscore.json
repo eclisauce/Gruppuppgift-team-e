@@ -1,83 +1,18 @@
 {
   "scores": [
     {
-      "name": "John Doe",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "Yoda",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "Wolverine",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "John Doe",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "Gandalf",
-      "score": 6,
-      "type": "cp"
-    },
-    {
-      "name": "Terminator",
-      "score": 6,
-      "type": "human"
-    },
-    {
-      "name": "Gort",
-      "score": 6,
-      "type": "cp"
-    },
-    {
-      "name": "Roy Batty",
-      "score": 6,
-      "type": "cp"
-    },
-    {
-      "name": "Batman",
-      "score": 8,
-      "type": "cp"
-    },
-    {
-      "name": "Skywalker",
-      "score": 11,
-      "type": "cp"
-    },
-    {
-      "name": "John Doe",
-      "score": 13,
-      "type": "cp"
-    },
-    {
       "name": "The Dude",
-      "score": 14,
+      "score": 4,
       "type": "human"
     },
     {
-      "name": "Gandalf",
-      "score": 14,
-      "type": "cp"
-    },
-    {
-      "name": "Gandalf",
-      "score": 14,
+      "name": "dsa2",
+      "score": 4,
       "type": "human"
     },
     {
-      "name": "Yoda",
-      "score": 19,
-      "type": "cp"
-    },
-    {
-      "name": "Sgt Nuke",
-      "score": 21,
+      "name": "321",
+      "score": 4,
       "type": "human"
     }
   ]

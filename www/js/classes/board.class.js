@@ -5,7 +5,7 @@ class Board {
     this.createBoard();
     this.active = false;
     this.game = game;
-    this.highscore = new Highscore;
+    this.highscore = new Highscore();
     this.gameOver = false;
     this.players1;
     this.players2;
@@ -26,7 +26,7 @@ class Board {
       $('rect').css('cursor', 'default');
     }
   }
-  
+
   toggleActiveBoard(on) {
     this.active = on;
     this.changeCursors();
@@ -174,12 +174,12 @@ class Board {
               this.showWinner(this.player1.name, this.player1.score);
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
-              newScore(this.player1);
+              this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
-              newScore(this.player2);
+              this.highscore.checkIfNewHighscore(this.player2);
               this.setGameOver();
               return true;
             }
@@ -204,12 +204,12 @@ class Board {
               this.showWinner(this.player1.name, this.player1.score);
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
-              newScore(this.player1);
+              this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
-              newScore(this.player2);
+              this.highscore.checkIfNewHighscore(this.player2);
               this.setGameOver();
               return true;
             }
@@ -234,12 +234,12 @@ class Board {
               this.showWinner(this.player1.name, this.player1.score);
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
-              newScore(this.player1);
+              this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
-              newScore(this.player2);
+              this.highscore.checkIfNewHighscore(this.player2);
               this.setGameOver();
               return true;
             }
@@ -264,12 +264,12 @@ class Board {
               this.showWinner(this.player1.name, this.player1.score);
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
-              newScore(this.player1);
+              this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
-              newScore(this.player2);
+              this.highscore.checkIfNewHighscore(this.player2);
               this.setGameOver();
               return true;
             }

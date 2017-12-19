@@ -9,6 +9,7 @@ class Highscore {
     //expects a object $.name and $.score like {name: "", score 0}
     //check if the new score can be added
     checkIfNewHighscore(data) {
+      this.loadJSON();
         let worstScore = 0
         this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
         if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
@@ -32,7 +33,7 @@ class Highscore {
         })
     }
 
-    async loadJSON(callbackFunc) {
+    loadJSON(callbackFunc) {
         let that = this;
         //we can't go async on this, since we need it before rendering
         $.ajaxSetup({
@@ -46,15 +47,6 @@ class Highscore {
             async: true
         });
 
-        JSON._load('highscore').then((data) => {
-            this.scores = data.scores;
-            callbackFunc && callbackFunc();
-        }).
-        catch((e)=>{
-            // something went wrong
-        });
-
-        this.scores = (await JSON._load('highscore')).scores;
     }
 
     saveJSON() {
@@ -88,9 +80,9 @@ class Highscore {
 const highscore = new Highscore();
 
 //TEST AND DEBUG AREA
-async function loadAndRender() {
-    await highscore.loadJSON();
-    highscore.renderHighscore();
+function loadAndRender() {
+    highscore.loadJSON();
+    highscore.renderScore();
 }
 
 function newScore(object) {
