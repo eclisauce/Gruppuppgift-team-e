@@ -17,7 +17,7 @@ class Game {
     return picLink
   }
 
-  randomName(type) {
+  decidedecideRandomName(type) {
     let nameArr = [];
     if (type == "human") {
       nameArr = ["John Doe", "Sgt Nuke", "Skywalker", "Groot", "Batman", "John Doe", "The Dude", "James Bond", "Gandalf", "Yoda", "E.T", "Wolverine"];
@@ -34,8 +34,8 @@ class Game {
     $('#startbutton').on('click', function () {
       let p1Type = $('#p1type').val();
       let p2Type = $('#p2type').val();
-      let p1Name = $('#player1').val() ? $('#player1').val() : that.randomName(p1Type);
-      let p2Name = $('#player2').val() ? $('#player2').val() : that.randomName(p2Type);
+      let p1Name = $('#player1').val() ? $('#player1').val() : that.decidedecideRandomName(p1Type);
+      let p2Name = $('#player2').val() ? $('#player2').val() : that.decidedecideRandomName(p2Type);
 
       // Sending objects instead of double inparemters.
       let player1 = {
