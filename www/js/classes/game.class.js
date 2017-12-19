@@ -9,10 +9,14 @@ class Game {
 
   decidePlayerPicture(player) {
     let picLink;
-    if (player instanceof HumanPlayer) {
-      picLink = '/imgs/players/human.png';
-    } else {
-      picLink = '/imgs/players/cp.png';
+    if (player instanceof HumanPlayer && player.color === 'yellow') {
+      picLink = '/imgs/players/human_left.png';
+    } else if (player instanceof HumanPlayer && player.color === 'red') {
+      picLink = '/imgs/players/human_right.png';
+    } else if (player instanceof ComputerPlayer && player.color === 'yellow') {
+      picLink = '/imgs/players/cp_left.png';
+    } else if (player instanceof ComputerPlayer && player.color === 'red'){
+      picLink = '/imgs/players/cp_right.png';
     }
     return picLink
   }
@@ -140,16 +144,16 @@ class Game {
     let player2Pic = this.decidePlayerPicture(this.player2);
 
     $('main').html(`
-      <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
-        <div class="bg-warning text-white playerFont text-center mr-md-5 col-md-5">
-          <h2 class="d-inline col-8 pl-0 align-middle">${this.player1.name}</h2>
-          <div class="col-2 col-md-4 float-left p-0 pr-2 mb-0 pb-0"><img class="img-fluid" src="${player1Pic}"></div>
 
+      <div class="d-flex flex-column flex-md-row justify-content-around col-12 showplayersscale">
+        <div class="bg-warning text-white playerFont text-center p-0 pt-1 mr-md-5 col-md-5 d-flex flex-row-reverse flex-md-row">
+          <div class="d-flex col-9 p-0 justify-content-center"><h2 class="align-self-center mr-3 ml-md-3 ml-lg-5">${this.player1.name}</h2></div>
+          <div class="align-self-end col-3 mr-auto"><img class="img-fluid" src="${player1Pic}"></div>
         </div>
-        <h1 class="d-none d-md-inline-block mt-3 mt-lg-4 playerFont text-center"> VS </h1>
-        <div class="bg-danger text-white playerFont text-center ml-md-5 col-md-5">
-          <h2 class="d-inline col-8 pl-0 align-middle">${this.player2.name}</h2>
-          <div class="col-2 col-md-4 float-left p-0 pr-2 mb-0 pb-0"><img class="img-fluid" src="${player2Pic}"></div>
+        <h1 class="d-none d-md-inline-block align-self-center playerFont">VS</h1>
+        <div class="bg-danger text-white playerFont text-center p-0 pt-1 ml-md-5 col-md-5 d-flex flex-row flex-md-row-reverse">
+          <div class="d-flex col-9 p-0 justify-content-center"><h2 class="align-self-center ml-3 mr-lg-5">${this.player2.name}</h2></div>
+          <div class="align-self-end col-3 ml-auto"><img class="img-fluid" src="${player2Pic}"></div>
         </div>
       </div>
       <div class="row mt-3">

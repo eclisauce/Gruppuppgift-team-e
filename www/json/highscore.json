@@ -14,6 +14,11 @@
       "name": "321",
       "score": 4,
       "type": "human"
+    },
+    {
+      "name": "Data",
+      "score": 10,
+      "type": "cp"
     }
   ]
 }
