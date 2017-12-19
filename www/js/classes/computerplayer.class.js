@@ -28,7 +28,7 @@ class ComputerPlayer extends Player {
     while(true) {
       clickThis = $(`rect[x="${this.calculateX()}"][y="${10}"]`);
       let checkFull = clickThis.siblings('circle');
-      if (game.board.isFullBoard()) {
+      if (game.board.isBoardFull()) {
         break;
       }
       else if (game.board.gameOver === true) {

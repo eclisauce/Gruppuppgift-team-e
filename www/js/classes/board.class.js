@@ -282,7 +282,7 @@ class Board {
     return false;
   }
 
-  isFullBoard() {
+  isBoardFull() {
     for (let i = 0; i < 7; i++) {
       for (let j = 0; j < 6; j++) {
         if (this.places[i][j].color === 'white') {
@@ -325,7 +325,7 @@ class Board {
   }
 
   checkDraw() {
-    if (this.isFullBoard()) {
+    if (this.isBoardFull()) {
       $('main').append(`
         <!-- Modal -->
         <div class="modal fade" id="drawModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
