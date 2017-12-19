@@ -21,6 +21,10 @@ class ComputerPlayer extends Player {
       return true;
     }
   }
+
+  makeMove() {
+    setTimeout(() => this.randomPlaceADisc(), this.randomTime());
+  }
   // Checking if full column, then take another random until it's possible to
   // put the disc somewhere
   randomPlaceADisc(){

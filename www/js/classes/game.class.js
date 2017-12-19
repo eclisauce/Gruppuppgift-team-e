@@ -29,12 +29,6 @@ class Game {
     return name;
   }
 
-  startGame() {
-    if (game.board.player1 instanceof ComputerPlayer) {
-      $(`rect[x="${game.board.player1.calculateX()}"][y="${10}"]`).trigger('click');
-    }
-  }
-
   startGameSession(player1, player2) {
     // Checking if human or cp
     if (player1.p1Type === 'human') {
@@ -52,7 +46,9 @@ class Game {
     this.board.renderBoard();
     this.board.setupPlayers();
     // This should probably be a callback function instead!
-    setTimeout(() => this.startGame());
+    if (game.board.player1 instanceof ComputerPlayer) {
+      game.board.player1.makeMove();
+    }
   }
 
   eventHandlers() {
@@ -126,7 +122,7 @@ class Game {
       if (this.player2 instanceof ComputerPlayer) {
         this.board.toggleActiveBoard(false);
        // this.changeCursors()
-        setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
+        this.player2.makeMove();
       }
     } else {
       this.board.turn = this.player1.color;
@@ -134,7 +130,7 @@ class Game {
       if (this.player1 instanceof ComputerPlayer) {
         this.board.toggleActiveBoard(false);
        // this.changeCursors()
-        setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
+        this.player1.makeMove();
       }
     }
   }
