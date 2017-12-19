@@ -30,7 +30,15 @@ class Game extends Base {
     return name;
   }
 
+  // Method disabling refreshbutton f5
+  disableF5(){
+    function disableF5(e) {if ((e.which || e.keyCode) == 116) e.preventDefault();};
+    $(window).on("keydown", disableF5);
+  }
+
   startGameSession(player1, player2) {
+    // Actually disabling f5 here. Just before board is loaded.
+    this.disableF5();
     // Checking if human or cp
     if (player1.p1Type === 'human') {
       this.player1 = new HumanPlayer(player1.p1Name, 'yellow', player1.p1Type);
@@ -74,10 +82,11 @@ class Game extends Base {
       that.startGameSession(player1, player2);
     });
 
+
+
     $(document).on('click','.checkMeBeforeLeave', function () {
       // Removes everything from the modal div. To be able to append again.
       let clickedElement = ($(this).attr('getHref'));
-      console.log(clickedElement);
       // Checks if board is initiated
       if (that.board.player1){
         if (clickedElement === '/gamerules') {
