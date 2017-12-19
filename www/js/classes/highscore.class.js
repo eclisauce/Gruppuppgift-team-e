@@ -3,7 +3,7 @@ class Highscore {
         this.scores = [];
         //temp values for length of highscore and rendering
         this.maxScoreLength = 20;
-        this.maxRenderScoreLength = 30;
+        this.maxrenderHighscoreLength = 30;
     }
 
     //expects a object $.name and $.score like {name: "", score 0}
@@ -61,11 +61,11 @@ class Highscore {
         JSON._save('highscore', {
             scores: this.scores
         });
-        this.renderScore();
+        this.renderHighscore();
 
     }
 
-    renderScore() {
+    renderHighscore() {
         let highscoreArea = $("#highscore");
         let html = "";
         highscoreArea.empty();
@@ -74,7 +74,7 @@ class Highscore {
         highscoreArea.append('<div id="hsBlankCol" class="col-1 p-0"><p class="m-0">&nbsp;</p></div>')
         highscoreArea.append('<div id="hsNameCol" class="col-6 p-0"><p class="m-0">Name</p></div>')
         highscoreArea.append('<div id="hsScoreCol" class="col-3 p-0"><p class="m-0">Score</p></div>')
-        for (let i = 0; i < this.maxRenderScoreLength; i++) {
+        for (let i = 0; i < this.maxrenderHighscoreLength; i++) {
             if (typeof this.scores[i] != 'undefined') {
                 $("#hsPosCol").append(`<p class="text-right m-0">${i+1}</p>`);
                 $("#hsBlankCol").append('<p class="m-0">&nbsp;</p>');
@@ -90,7 +90,7 @@ const highscore = new Highscore();
 //TEST AND DEBUG AREA
 async function loadAndRender() {
     await highscore.loadJSON();
-    highscore.renderScore();
+    highscore.renderHighscore();
 }
 
 function newScore(object) {
