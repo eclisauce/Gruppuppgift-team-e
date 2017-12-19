@@ -9,13 +9,14 @@ class Highscore {
     //expects a object $.name and $.score like {name: "", score 0}
     //check if the new score can be added
     checkIfNewHighscore(data) {
-      this.loadJSON();
-        let worstScore = 0
-        this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
-        if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
-            this.addNewScore(data);
-            return true;
-        }
+        this.loadJSON(() => {
+            let worstScore = 0
+            this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
+            if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
+                this.addNewScore(data);
+                return true;
+            }
+        });
     }
 
     //add the new score
@@ -34,19 +35,13 @@ class Highscore {
     }
 
     loadJSON(callbackFunc) {
-        let that = this;
-        //we can't go async on this, since we need it before rendering
-        $.ajaxSetup({
-            async: false
+        JSON._load('highscore').then((data) => {
+            this.scores = data.scores;
+            callbackFunc && callbackFunc();
+        }).
+        catch((e) => {
+            console.log("No JSON Highscore data");
         });
-        $.getJSON('/json/highscore.json', function (data) {
-            that.scores = data.scores;
-        });
-        //turn it on again
-        $.ajaxSetup({
-            async: true
-        });
-
     }
 
     saveJSON() {
@@ -55,6 +50,10 @@ class Highscore {
         });
         this.renderHighscore();
 
+    }
+
+    loadAndRenderHighscore() {
+        this.loadJSON(() => this.renderHighscore())
     }
 
     renderHighscore() {
@@ -77,17 +76,9 @@ class Highscore {
 
     }
 }
-const highscore = new Highscore();
 
-//TEST AND DEBUG AREA
-function loadAndRender() {
-    highscore.loadJSON();
-    highscore.renderHighscore();
+if (location.pathname === '/highscore/') {
+    console.log("Initiating highscore class")
+    const highscore = new Highscore();
+    highscore.loadAndRenderHighscore();
 }
-
-function newScore(object) {
-    highscore.checkIfNewHighscore(object)
-    loadAndRender();
-}
-
-loadAndRender();
