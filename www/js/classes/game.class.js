@@ -88,7 +88,7 @@ class Game {
     $(document).on('click', 'rect', function () {
       if (that.board.active) {
         const targetCircle = $(this).siblings('circle');
-        if (that.board.isClickable(targetCircle)) {
+        if (that.board.isBoardClickable(targetCircle)) {
           const color = that.board.turn;
           that.board.placeDisc(targetCircle, color);
           that.board.toggleActiveBoard(true);

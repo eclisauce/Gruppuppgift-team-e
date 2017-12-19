@@ -152,7 +152,7 @@ class Board {
     }
   }
 
-  isClickable(element) {
+  isBoardClickable(element) {
     if (!this.active) {
       return false;
     }

@@ -14,7 +14,7 @@ class ComputerPlayer extends Player {
     return rnd;
   }
 
-  isClickableComputer(element){
+  isBoardClickableComputer(element){
     if ($(element).hasClass('yellow') || $(element).hasClass('red')) {
       return false;
     } else {
@@ -34,7 +34,7 @@ class ComputerPlayer extends Player {
       else if (game.board.gameOver === true) {
         break;
       }
-      else if (this.isClickableComputer(checkFull)) {
+      else if (this.isBoardClickableComputer(checkFull)) {
         game.board.toggleActiveBoard(true);
         clickThis.trigger('click');
         break;
