@@ -62,7 +62,7 @@ class Board {
     `
     let boardEle = $('#board');
     boardEle.html(board);
-    this.scale();
+    this.scaleBoard();
 
     //check if whole board is visible
     if (!this.isBoardFullyVisible(boardEle)) {
