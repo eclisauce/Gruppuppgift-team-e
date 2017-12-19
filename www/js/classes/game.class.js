@@ -93,7 +93,7 @@ class Game {
           that.board.placeDisc(targetCircle, color);
           that.board.toggleActiveBoard(true);
           // that.board.changeCursors()
-          that.board.changeTurn();
+          that.changeTurn();
           that.board.checkWinner(color);
           that.board.checkDraw();
         }
@@ -122,6 +122,26 @@ class Game {
         }
       }
     }, 'rect');
+  }
+
+  changeTurn() {
+    if (this.board.turn === this.player1.color) {
+      this.board.turn = this.player2.color;
+      this.player1.score++;
+      if (this.player2 instanceof ComputerPlayer) {
+        this.board.toggleActiveBoard(false);
+       // this.changeCursors()
+        setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
+      }
+    } else {
+      this.board.turn = this.player1.color;
+      this.player2.score++;
+      if (this.player1 instanceof ComputerPlayer) {
+        this.board.toggleActiveBoard(false);
+       // this.changeCursors()
+        setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
+      }
+    }
   }
 
   renderBase() {

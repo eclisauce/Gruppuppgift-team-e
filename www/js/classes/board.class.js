@@ -102,7 +102,7 @@ class Board {
           break;
         }
       }
-    
+
   }
 
   scaleBoard() {
@@ -131,26 +131,7 @@ class Board {
   }
 */
   // Changed checking to this.player1.color and added +1 score each time.
-  // Also changed to big if-statement.
-  changeTurn() {
-    if (this.turn === this.player1.color) {
-      this.turn = this.player2.color;
-      this.player1.score++;
-      if (this.player2 instanceof ComputerPlayer) {
-        this.toggleActiveBoard(false);
-       // this.changeCursors()
-        setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
-      }
-    } else {
-      this.turn = this.player1.color;
-      this.player2.score++;
-      if (this.player1 instanceof ComputerPlayer) {
-        this.toggleActiveBoard(false);
-       // this.changeCursors()
-        setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
-      }
-    }
-  }
+  // Also changed to big if-statement
 
   isBoardClickable(element) {
     if (!this.active) {
