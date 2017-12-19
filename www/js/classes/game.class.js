@@ -4,7 +4,7 @@ class Game {
     this.player1;
     this.player2;
     this.renderInputForms();
-    this.myButtons();
+    this.eventHandlers();
   }
 
   decidePlayerPicture(player) {
@@ -29,32 +29,6 @@ class Game {
     return name;
   }
 
-  myButtons() {
-    let that = this;
-    $('#startbutton').on('click', function () {
-      let p1Type = $('#p1type').val();
-      let p2Type = $('#p2type').val();
-      let p1Name = $('#player1').val() ? $('#player1').val() : that.decideRandomName(p1Type);
-      let p2Name = $('#player2').val() ? $('#player2').val() : that.decideRandomName(p2Type);
-
-      // Sending objects instead of double inparemters.
-      let player1 = {
-        p1Name,
-        p1Type
-      };
-      let player2 = {
-        p2Name,
-        p2Type
-      };
-      that.startGameSession(player1, player2);
-      that.board.toggleActiveBoard(true);
-    });
-
-    $('#newgamebtn').on('click', function () {
-      that.board.quitOrNot();
-    });
-  }
-
   startGame() {
     if (game.board.player1 instanceof ComputerPlayer) {
       $(`rect[x="${game.board.player1.calculateX()}"][y="${10}"]`).trigger('click');
@@ -77,14 +51,35 @@ class Game {
     this.renderBase();
     this.board.renderBoard();
     this.board.setupPlayers();
-    this.eventHandlers();
-    this.myButtons();
     // This should probably be a callback function instead!
     setTimeout(() => this.startGame());
   }
 
   eventHandlers() {
     let that = this;
+    $(document).on('click','#startbutton', function () {
+      let p1Type = $('#p1type').val();
+      let p2Type = $('#p2type').val();
+      let p1Name = $('#player1').val() ? $('#player1').val() : that.decideRandomName(p1Type);
+      let p2Name = $('#player2').val() ? $('#player2').val() : that.decideRandomName(p2Type);
+
+      // Sending objects instead of double inparemters.
+      let player1 = {
+        p1Name,
+        p1Type
+      };
+      let player2 = {
+        p2Name,
+        p2Type
+      };
+      that.startGameSession(player1, player2);
+      that.board.toggleActiveBoard(true);
+    });
+
+    $(document).on('click','#newgamebtn', function () {
+      that.board.quitOrNot();
+    });
+
     $(document).on('click', 'rect', function () {
       if (that.board.active) {
         const targetCircle = $(this).siblings('circle');
