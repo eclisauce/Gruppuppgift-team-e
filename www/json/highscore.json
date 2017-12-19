@@ -6,14 +6,24 @@
       "type": "human"
     },
     {
+      "name": "John Doe",
+      "score": 4,
+      "type": "human"
+    },
+    {
       "name": "Yoda",
       "score": 4,
       "type": "human"
     },
     {
-      "name": "John Doe",
+      "name": "Wolverine",
       "score": 4,
       "type": "human"
+    },
+    {
+      "name": "Gandalf",
+      "score": 6,
+      "type": "cp"
     },
     {
       "name": "Terminator",
@@ -21,7 +31,7 @@
       "type": "human"
     },
     {
-      "name": "Gandalf",
+      "name": "Gort",
       "score": 6,
       "type": "cp"
     },

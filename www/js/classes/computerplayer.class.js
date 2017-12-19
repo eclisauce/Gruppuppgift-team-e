@@ -35,7 +35,7 @@ class ComputerPlayer extends Player {
         break;
       }
       else if (this.isClickableComputer(checkFull)) {
-        game.board.activate(true);
+        game.board.toggleActiveBoard(true);
         clickThis.trigger('click');
         break;
       }

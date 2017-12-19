@@ -172,7 +172,7 @@ header .toplel {
 }
 @media (max-width: 768px) {
   .playerFont h2 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 @media (max-width: 540px) {

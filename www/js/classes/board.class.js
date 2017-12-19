@@ -7,6 +7,9 @@ class Board {
     this.game = game;
     this.highscore = new Highscore;
     this.gameOver = false;
+    this.players1;
+    this.players2;
+    this.turn;
   }
 
   // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
@@ -16,12 +19,12 @@ class Board {
     this.turn = this.player1.color;
   }
 
-  activate(on) {
+  toggleActiveBoard(on) {
     this.active = on;
   }
 
   endOfGame() {
-    this.activate(false);
+    this.toggleActiveBoard(false);
     this.gameOver = true;
   }
 
@@ -136,7 +139,7 @@ class Board {
       this.turn = this.player2.color;
       this.player1.score++;
       if (this.player2 instanceof ComputerPlayer) {
-        this.activate(false);
+        this.toggleActiveBoard(false);
         this.changeCursors()
         setTimeout(() => this.player2.randomPlaceADisc(), this.player2.randomTime());
       }
@@ -144,15 +147,11 @@ class Board {
       this.turn = this.player1.color;
       this.player2.score++;
       if (this.player1 instanceof ComputerPlayer) {
-        this.activate(false);
+        this.toggleActiveBoard(false);
         this.changeCursors()
         setTimeout(() => this.player1.randomPlaceADisc(), this.player1.randomTime());
       }
     }
-  }
-
-  getCurrentTurn() {
-    return this.turn;
   }
 
   isClickable(element) {
