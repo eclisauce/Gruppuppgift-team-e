@@ -23,7 +23,7 @@ class Board {
     this.active = on;
   }
 
-  endOfGame() {
+  setGameOver() {
     this.toggleActiveBoard(false);
     this.gameOver = true;
   }
@@ -190,12 +190,12 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             }
           } else {
@@ -220,12 +220,12 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             }
           } else {
@@ -250,12 +250,12 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             }
           } else {
@@ -280,12 +280,12 @@ class Board {
               // Global function to enable it to keep the JSON.
               // Otherwise new instance every time??
               newScore(this.player1);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             } else if (count === 4 && this.player2.color === color) {
               this.showWinner(this.player2.name, this.player2.score);
               newScore(this.player2);
-              this.endOfGame();
+              this.setGameOver();
               return true;
             }
           } else {
@@ -305,7 +305,7 @@ class Board {
         }
       }
     }
-    this.endOfGame();
+    this.setGameOver();
     return true;
   }
 
