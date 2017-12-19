@@ -8,7 +8,7 @@ class Highscore {
 
     //expects a object $.name and $.score like {name: "", score 0}
     //check if the new score can be added
-    checkNewScore(data) {
+    checkIfNewHighscore(data) {
         let worstScore = 0
         this.scores.length != 0 ? worstScore = this.scores[this.scores.length - 1].score : null;
         if (worstScore > data.score || this.scores.length < this.maxScoreLength) {
@@ -94,7 +94,7 @@ async function loadAndRender() {
 }
 
 function newScore(object) {
-    highscore.checkNewScore(object)
+    highscore.checkIfNewHighscore(object)
     loadAndRender();
 }
 

@@ -161,7 +161,7 @@ class Board {
   // Now sending two in-paremeters to showWinner, score and name.
   // Same changes in all checks
   // To add into highscore-list just add this to each if-statement:
-  // this.highscore.checkNewScore(this.player1);
+  // this.highscore.checkIfNewHighscore(this.player1);
   checkForInRow(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
