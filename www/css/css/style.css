@@ -1,13 +1,6 @@
 #highscore p:nth-child(even) {
-  background-color: #cf2d2d;
+  background-color: #ff0000;
   color: white;
-}
-.logoimg {
-  height: 10%;
-  width: 30%;
-}
-.toplel {
-  font-size: 24px;
 }
 .jumbotron {
   background-color: white;
@@ -29,69 +22,69 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
+html body {
   font-family: 'Exo 2', sans-serif;
   color: #3f3f3f;
 }
-button,
-select {
+html body main .game-rule img {
+  width: 250px;
+}
+html body main button,
+html body main select {
   cursor: pointer;
 }
-button a,
-select a {
-  color: white;
+html body main button a,
+html body main select a {
+  color: #fff;
 }
-button a:hover,
-select a:hover {
-  color: white;
+html body main button a:hover,
+html body main select a:hover {
+  color: #fff;
   text-decoration: none;
 }
-.btn {
+html body main .btn {
   border-radius: 0px;
 }
-.card {
+html body main .card {
   border-radius: 0px;
 }
-rect.btn {
+html body main rect.btn {
   stroke: #fff;
   fill: #fff;
   fill-opacity: 0;
   stroke-opacity: 0;
 }
-#board-holder {
+html body main #board-holder {
   overflow: hidden;
   margin: 0 auto;
 }
-#board-holder #board {
+html body main #board-holder #board {
   width: 700px;
   height: 600px;
   transform-origin: 0 0;
 }
-#board-holder #board svg {
+html body main #board-holder #board svg {
   width: 700px;
   height: 600px;
   transform-origin: 0 0;
 }
-#board-holder #board svg g image {
+html body main #board-holder #board svg g image {
   pointer-events: none;
 }
-circle {
+html body main circle {
   fill: white;
 }
-circle.yellow {
+html body main circle.yellow {
   fill: #f1e420;
 }
-circle.red {
+html body main circle.red {
   fill: #fa5f39;
 }
-circle.hoverYellow {
+html body main circle.hoverYellow {
   fill: #ffff52;
 }
-circle.hoverRed {
+html body main circle.hoverRed {
   fill: #ff916b;
-}
-main .game-rule img {
-  width: 250px;
 }
 footer {
   position: absolute;
@@ -113,7 +106,7 @@ footer p {
   margin-bottom: 0;
   color: #3f3f3f;
 }
-footer .fa {
+footer p .fa {
   line-height: 30px;
   font-size: 20px;
   width: 30px;
@@ -121,18 +114,18 @@ footer .fa {
   text-align: center;
   text-decoration: none;
 }
-footer .fa-facebook {
+footer p .fa-facebook {
   background: #3B5998;
   color: white;
 }
-footer .fa-envelope,
-footer .fa-address-card,
-footer .fa-phone {
+footer p .fa-envelope,
+footer p .fa-address-card,
+footer p .fa-phone {
   background: black;
   color: white;
 }
-footer a,
-footer a:hover {
+footer p a,
+footer p a:hover {
   color: #3f3f3f;
 }
 footer .myheight {
