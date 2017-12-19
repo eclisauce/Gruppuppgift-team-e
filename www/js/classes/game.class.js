@@ -72,7 +72,7 @@ class Game {
       this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
     this.renderBase();
-    this.board.render();
+    this.board.renderBoard();
     this.board.setupPlayers();
     this.eventHandlers();
     this.myButtons();
