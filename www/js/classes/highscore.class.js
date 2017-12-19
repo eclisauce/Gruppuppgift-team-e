@@ -1,13 +1,10 @@
 class Highscore {
     constructor() {
         this.scores = [];
-        //temp values for length of highscore and rendering
         this.maxScoreLength = 20;
         this.maxrenderHighscoreLength = 30;
     }
 
-    //expects a object $.name and $.score like {name: "", score 0}
-    //check if the new score can be added
     checkIfNewHighscore(data) {
         this.loadJSON(() => {
             let worstScore = 0
@@ -19,7 +16,6 @@ class Highscore {
         });
     }
 
-    //add the new score
     addNewScore(data) {
         this.scores.push(data);
         delete data.color;
@@ -49,7 +45,6 @@ class Highscore {
             scores: this.scores
         });
         this.renderHighscore();
-
     }
 
     loadAndRenderHighscore() {
@@ -58,9 +53,7 @@ class Highscore {
 
     renderHighscore() {
         let highscoreArea = $("#highscore");
-        let html = "";
         highscoreArea.empty();
-        //create "columns"
         highscoreArea.append('<div id="hsPosCol" class="col-2 p-0"><p class="text-right m-0">Position</p></div>')
         highscoreArea.append('<div id="hsBlankCol" class="col-1 p-0"><p class="m-0">&nbsp;</p></div>')
         highscoreArea.append('<div id="hsNameCol" class="col-6 p-0"><p class="m-0">Name</p></div>')
@@ -73,12 +66,9 @@ class Highscore {
                 $("#hsScoreCol").append(`<p class="m-0">${this.scores[i].score}</p>`);
             }
         }
-
     }
 }
-
 if (location.pathname === '/highscore/') {
-    console.log("Initiating highscore class")
     const highscore = new Highscore();
     highscore.loadAndRenderHighscore();
 }
