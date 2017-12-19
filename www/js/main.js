@@ -1,2 +1,2 @@
 let game = new Game();
-$(window).resize(game.board.scale);
+$(window).resize(game.board.scaleBoard);
