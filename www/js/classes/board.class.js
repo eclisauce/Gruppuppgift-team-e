@@ -81,7 +81,7 @@ class Board {
     });
   }
 
-  putDisc(element, color) {
+  placeDisc(element, color) {
       // playColumn is index
       let playColumn = (element[0].cx.baseVal.value - 50) / 100;
       for (let y = 5; y >= 0; y--) {

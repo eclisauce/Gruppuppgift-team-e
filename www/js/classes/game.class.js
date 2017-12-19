@@ -86,7 +86,7 @@ class Game {
       const targetCircle = $(this).siblings('circle');
       if (that.board.isClickable(targetCircle)) {
         const color = that.board.turn;
-        that.board.putDisc(targetCircle, color);
+        that.board.placeDisc(targetCircle, color);
         that.board.toggleActiveBoard(true);
         that.board.changeCursors()
         that.board.changeTurn();
