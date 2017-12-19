@@ -77,6 +77,7 @@ class Game extends Base {
     $(document).on('click','.checkMeBeforeLeave', function () {
       // Removes everything from the modal div. To be able to append again.
       let clickedElement = ($(this).attr('getHref'));
+      console.log(clickedElement);
       // Checks if board is initiated
       if (that.board.player1){
         if (clickedElement === '/gamerules') {
@@ -89,9 +90,6 @@ class Game extends Base {
       } else{
         window.location.replace(clickedElement);
       }
-      $(window).bind('beforeunload', function(){
-        return 'Are you sure you want to leave?';
-      });
     });
 
     let hoverCircle;
@@ -176,7 +174,7 @@ class Game extends Base {
       </div>
       <div class="row justify-content-center quitbuttonscale">
         <div class="col-8 mt-4">
-          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block checkMeBeforeLeave whereto="/play"">Avsluta spel</button>
+          <button id="newgamebtn" class="btn btn-danger btn-lg btn-block checkMeBeforeLeave" getHref="/play">Avsluta spel</button>
         </div>
       </div>
 
