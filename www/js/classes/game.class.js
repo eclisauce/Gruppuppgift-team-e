@@ -89,14 +89,12 @@ class Game extends Base {
     $(document).on('click','.checkMeBeforeLeave', function () {
       // Removes everything from the modal div. To be able to append again.
       let clickedElement = ($(this).attr('getHref'));
-      console.log(clickedElement);
-
       // Checks if board is initiated
       if (that.board.gameOver === false) {
         if (clickedElement === '/gamerules') {
-          that.board.showGameRules();
+          that.board.htmlshowGameRules();
         } else if (clickedElement === '/highscore') {
-          that.board.showHighscore();
+          that.board.htmlshowHighscore();
         } else {
           that.board.htmlQuitOrNot(clickedElement);
         }
