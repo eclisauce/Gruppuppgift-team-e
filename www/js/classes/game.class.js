@@ -92,9 +92,9 @@ class Game extends Base {
       // Checks if board is initiated
       if (that.board.gameOver === false) {
         if (clickedElement === '/gamerules') {
-          that.board.htmlshowGameRules();
+          that.board.htmlShowGameRules();
         } else if (clickedElement === '/highscore') {
-          that.board.htmlshowHighscore();
+          that.board.htmlShowHighscore();
         } else {
           that.board.htmlQuitOrNot(clickedElement);
         }
