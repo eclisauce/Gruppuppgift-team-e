@@ -7,7 +7,7 @@ class Board extends Base {
     this.active = false;
     this.game = game;
     this.highscore = new Highscore();
-    this.gameOver = false;
+    this.gameOver;
     this.players1;
     this.players2;
     this.turn;

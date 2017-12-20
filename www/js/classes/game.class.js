@@ -52,6 +52,8 @@ class Game extends Base {
       this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
     this.htmlBase();
+    // Sets gameOver to false
+    this.board.gameOver = false;
     this.board.renderBoard();
     this.board.setupPlayers();
     // This should probably be a callback function instead!
@@ -87,8 +89,10 @@ class Game extends Base {
     $(document).on('click','.checkMeBeforeLeave', function () {
       // Removes everything from the modal div. To be able to append again.
       let clickedElement = ($(this).attr('getHref'));
+      console.log(clickedElement);
+
       // Checks if board is initiated
-      if (that.board.player1){
+      if (that.board.gameOver === false) {
         if (clickedElement === '/gamerules') {
           that.board.showGameRules();
         } else if (clickedElement === '/highscore') {
@@ -96,7 +100,7 @@ class Game extends Base {
         } else {
           that.board.htmlQuitOrNot(clickedElement);
         }
-      } else{
+      } else {
         window.location.replace(clickedElement);
       }
     });
