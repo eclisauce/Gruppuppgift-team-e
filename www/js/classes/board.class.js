@@ -1,6 +1,4 @@
 class Board extends Base {
-  // Send the game into board so it knows it's creator.
-  // Added highscore to be able to send score.
   constructor(game) {
     super();
     this.createBoard();
@@ -13,7 +11,6 @@ class Board extends Base {
     this.turn;
   }
 
-  // Read players from game and set it to this.player1. Set this.turn to "yellow" by player1.
   setupPlayers() {
     this.player1 = this.game.player1;
     this.player2 = this.game.player2;
@@ -70,10 +67,9 @@ class Board extends Base {
       </g>
     </svg>
     `
-    this.renderHTML(board,'board');
+    this.renderHTML(board, 'board');
     this.scaleBoard();
 
-    //check if whole board is visible
     if (!this.isBoardFullyVisible($('#board'))) {
       $('html, body').animate({
         scrollTop: ($('#board').offset().top - 20 - `${$('.showplayersscale').height()}`)
@@ -82,7 +78,7 @@ class Board extends Base {
   }
 
   isBoardFullyVisible(element) {
-    return element.isOnScreen(function (ele) {
+    return element.isOnScreen(function(ele) {
       return ele.top >= this.height() &&
         ele.bottom >= this.height() &&
         ele.left >= this.width() &&
@@ -91,7 +87,6 @@ class Board extends Base {
   }
 
   placeDisc(element, color) {
-    // playColumn is index
     let playColumn = (element[0].cx.baseVal.value - 50) / 100;
     for (let y = 5; y >= 0; y--) {
       if (this.places[playColumn][y].color === 'white') {
@@ -104,7 +99,7 @@ class Board extends Base {
         newCircle.appendTo(circle.parent());
         newCircle.animate({
           cy: this.places[playColumn][y].cy
-        }, (this.places[playColumn][y].cy - 50), function () {
+        }, (this.places[playColumn][y].cy - 50), function() {
           circle.remove();
         });
         newCircle.attr('cy', this.places[playColumn][y].cy)
@@ -130,8 +125,6 @@ class Board extends Base {
     $('#board-holder').height(orgH * scaling);
   }
 
-  // Changed checking to this.player1.color and added +1 score each time.
-  // Also changed to big if-statement
   isBoardClickable(element) {
     if (!this.active) {
       return false;
@@ -153,11 +146,6 @@ class Board extends Base {
     );
   }
 
-  // Added one more if-statement to see if the player-color is the same as color.
-  // Now sending two in-paremeters to htmlShowWinner, score and name.
-  // Same changes in all checks
-  // To add into highscore-list just add this to each if-statement:
-  // this.highscore.checkIfNewHighscore(this.player1);
   checkForInRow(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
@@ -168,8 +156,6 @@ class Board extends Base {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.htmlShowWinner(this.player1.name, this.player1.score);
-              // Global function to enable it to keep the JSON.
-              // Otherwise new instance every time??
               this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
@@ -198,8 +184,6 @@ class Board extends Base {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.htmlShowWinner(this.player1.name, this.player1.score);
-              // Global function to enable it to keep the JSON.
-              // Otherwise new instance every time??
               this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
@@ -228,8 +212,6 @@ class Board extends Base {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.htmlShowWinner(this.player1.name, this.player1.score);
-              // Global function to enable it to keep the JSON.
-              // Otherwise new instance every time??
               this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
@@ -258,8 +240,6 @@ class Board extends Base {
             count++;
             if (count === 4 && this.player1.color === color) {
               this.htmlShowWinner(this.player1.name, this.player1.score);
-              // Global function to enable it to keep the JSON.
-              // Otherwise new instance every time??
               this.highscore.checkIfNewHighscore(this.player1);
               this.setGameOver();
               return true;
@@ -290,8 +270,6 @@ class Board extends Base {
     return true;
   }
 
-  // Changed variable color to name and added variable score.
-  // Writing out both name and score now.
   htmlShowWinner(name, score) {
     this.renderHTML(`
       <!-- Modal -->
@@ -348,7 +326,6 @@ class Board extends Base {
     }
   }
 
-  // Ask to quit
   htmlQuitOrNot(clickedLink) {
     this.renderHTML(`
       <!-- Modal -->
@@ -375,8 +352,8 @@ class Board extends Base {
     $('#quitOrNotModal').modal('show');
   }
 
-  htmlShowGameRules(){
-      this.renderHTML(`
+  htmlShowGameRules() {
+    this.renderHTML(`
         <!-- Modal -->
         <div class="modal fade" id="gamerules" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -409,11 +386,11 @@ class Board extends Base {
           </div>
         </div>
           `, 'modal');
-      $('#gamerules').modal('show');
-    }
+    $('#gamerules').modal('show');
+  }
 
-    htmlShowHighscore(){
-      this.renderHTML(`
+  htmlShowHighscore() {
+    this.renderHTML(`
         <!-- Modal -->
         <div class="modal fade" id="highscoremodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -437,7 +414,7 @@ class Board extends Base {
           </div>
         </div>
           `, 'modal');
-        this.highscore.loadAndRenderHighscore()
-      $('#highscoremodal').modal('show');
-    }
+    this.highscore.loadAndRenderHighscore()
+    $('#highscoremodal').modal('show');
+  }
 }
