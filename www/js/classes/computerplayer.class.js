@@ -118,7 +118,10 @@ class ComputerPlayer extends Player {
       returnCol = (returnCol - 10) / 100
 
     while (!this.canPlay(returnCol)) {
-      returnCol = (this.calculateX() - 10) / 100;
+      if (this.board.isBoardFull())
+        break;
+      else
+        returnCol = (this.calculateX() - 10) / 100;
     }
 
     return returnCol;
