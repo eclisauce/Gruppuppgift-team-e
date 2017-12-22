@@ -67,10 +67,11 @@ class ComputerPlayer extends Player {
     let rowPoints = new Array(7).fill(0);
 
     for (let i = 0; i < 7; i++) {
-      this.board.colHeight[i]++;
+      
       if (this.canPlay(i)) {
         tempDisc = this.getPlayDisc(i);
         tempDisc.color = thisColor;
+        this.board.colHeight[i]++;
 
         if (this.isWinningMove(i, thisColor)) {
           rowPoints[i] += 5
@@ -82,10 +83,11 @@ class ComputerPlayer extends Player {
           rowPoints[i] += 4
         }
         for (let x = 0; x < 7; x++) {
-          this.board.colHeight[x]++;
+          
           if (this.canPlay(x)) {
             tempDisc2 = this.getPlayDisc(x);
             tempDisc2.color = thisColor;
+            this.board.colHeight[x]++;
 
             if (this.isWinningMove(i, thisColor)) {
               rowPoints[x] += 5
@@ -94,15 +96,15 @@ class ComputerPlayer extends Player {
             if (this.isWinningMove(i, otherColor)) {
               rowPoints[x] += 4
             }
-
+            this.board.colHeight[x]--;
             tempDisc2.color = 'white';
           }
-          this.board.colHeight[x]--;
+          
         }
-
+        this.board.colHeight[i]--;
         tempDisc.color = 'white';
       }
-      this.board.colHeight[i]--;
+      
     }
 
 
