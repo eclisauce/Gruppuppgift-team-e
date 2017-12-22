@@ -169,7 +169,38 @@ header .toplel {
     font-size: 1.5em;
   }
 }
-@media (max-width: 540px) {
+@media (min-width: 640px) and (max-width: 736px) {
+  main.play {
+    position: relative;
+  }
+  main.play .showplayersscale {
+    width: 220px;
+    position: absolute;
+    left: 15px;
+    top: 60px;
+  }
+  main.play .showplayersscale h1.d-none {
+    display: block;
+  }
+  main.play .showplayersscale .playerFont h2 {
+    font-size: 1.2em;
+  }
+  main.play .showplayersscale .img-fluid {
+    max-width: 200%;
+  }
+  main.play #board-holder {
+    float: right;
+  }
+  main.play .quitbuttonscale {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  main.play .quitbuttonscale #newgamebtn {
+    width: 150px;
+  }
+}
+@media (max-width: 640px) {
   .playerFont h2 {
     font-size: 1.3em;
   }

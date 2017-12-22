@@ -31,7 +31,40 @@
     }
   }
 }
-@media (max-width: 540px) {
+@media (min-width: 640px) and (max-width: 736px) {
+  main.play{
+    position: relative;
+    .showplayersscale{
+      width: 220px;
+      position: absolute;
+      left: 15px;
+      top: 60px;
+      h1.d-none{
+        display: block;
+      }
+      .playerFont{
+        h2 {
+          font-size: 1.2em;
+        }
+      }
+      .img-fluid{
+        max-width: 200%;
+      }
+    }
+    #board-holder {
+      float: right;
+    }
+    .quitbuttonscale {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      #newgamebtn {
+        width: 150px;
+      }
+    }
+  }
+}
+@media (max-width: 640px) {
   .playerFont{
     h2 {
       font-size: 1.3em;
