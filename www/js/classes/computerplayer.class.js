@@ -40,7 +40,6 @@ class ComputerPlayer extends Player {
       playCol = (playCol - 10) / 100
 
 
-    console.log("randomPlaceADisc play col: " + playCol)
 /*    this.board.toggleActiveBoard(true);
     $(`rect[x="${(playCol*100)+10}"][y="${10}"]`).trigger('click');
 */
@@ -115,9 +114,9 @@ class ComputerPlayer extends Player {
         tempDisc.color = 'white';
       }
     }
-    console.log(rowPoints);
+ 
     if (rowPoints.every((val, i, arr) => val === arr[0])) {
-      console.log("TRUE)")
+
       return this.calculateX();
     } else {
       let col = rowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
@@ -129,7 +128,7 @@ class ComputerPlayer extends Player {
   getPlayDisc(col) {
     for (let y = 5; y >= 0; y--) {
       if (this.board.places[col][y].color === 'white' && this.canPlay(col)) {
-        console.log("return y: " + y)
+
         return this.board.places[col][y];
         break;
       }
