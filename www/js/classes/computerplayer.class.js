@@ -34,9 +34,6 @@ class ComputerPlayer extends Player {
   randomPlaceADisc() {
     let playCol = this.decideRow();
 
-    if (playCol > 7)
-      playCol = (playCol - 10) / 100
-
     let clickThis;
     while (true) {
       clickThis = $(`rect[x="${(playCol*100)+10}"][y="${10}"]`);
@@ -74,8 +71,6 @@ class ComputerPlayer extends Player {
       if (this.canPlay(i)) {
         tempDisc = this.getPlayDisc(i);
         tempDisc.color = thisColor;
-        
-
 
         if (this.isWinningMove(i, thisColor)) {
           rowPoints[i] += 5
@@ -91,7 +86,7 @@ class ComputerPlayer extends Player {
           if (this.canPlay(x)) {
             tempDisc2 = this.getPlayDisc(x);
             tempDisc2.color = thisColor;
-            
+
             if (this.isWinningMove(i, thisColor)) {
               rowPoints[x] += 5
             }
@@ -99,24 +94,34 @@ class ComputerPlayer extends Player {
             if (this.isWinningMove(i, otherColor)) {
               rowPoints[x] += 4
             }
-            
+
             tempDisc2.color = 'white';
           }
           this.board.colHeight[x]--;
         }
-        
+
         tempDisc.color = 'white';
       }
       this.board.colHeight[i]--;
     }
 
-    if (rowPoints.every((val, i, arr) => val === arr[0])) {
 
-      return this.calculateX();
+    let returnCol;
+
+    if (rowPoints.every((val, i, arr) => val === arr[0])) {
+      returnCol = this.calculateX();
     } else {
-      let col = rowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
-      return col;
+      returnCol = rowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
     }
+
+    if (returnCol > 7)
+      returnCol = (returnCol - 10) / 100
+
+    while (!this.canPlay(returnCol)) {
+      returnCol = (this.calculateX() - 10) / 100;
+    }
+
+    return returnCol;
   }
 
 
