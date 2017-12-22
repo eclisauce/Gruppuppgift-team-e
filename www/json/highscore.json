@@ -1,6 +1,11 @@
 {
   "scores": [
     {
+      "name": "Zlatan",
+      "score": 1,
+      "type": "human"
+    },
+    {
       "name": "The Dude",
       "score": 4,
       "type": "human"
