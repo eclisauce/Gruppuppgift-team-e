@@ -283,8 +283,8 @@ class Board extends Base {
               </button>
             </div>
             <div class="modal-body h2">
-              Vinnare: ${name} <br>
-              Poäng: ${score}
+            <p>Vinnare: ${name}</p>
+              <p>Poäng: ${score}</p>
             </div>
             <div class="modal-footer">
               <a class="btn btn-secondary" href="/play">Starta ett nytt spel</>
@@ -312,7 +312,8 @@ class Board extends Base {
                 </button>
               </div>
               <div class="modal-body h3">
-                Ni spelade slut på alla brickor. <br> Det blev oavgjort!
+                <p>Ni spelade slut på alla brickor.</p>
+                <p>Det blev oavgjort!</p>
               </div>
               <div class="modal-footer">
                 <a class="btn btn-secondary" href="/play">Starta ett nytt spel</>
@@ -339,7 +340,7 @@ class Board extends Base {
               </button>
             </div>
             <div class="modal-body">
-              Är du säker på du vill avsluta pågående spel?
+              <p>Är du säker på du vill avsluta pågående spel?</p>
             </div>
             <div class="modal-footer">
               <a class="btn btn-danger" href="${clickedLink}">Avsluta</>
