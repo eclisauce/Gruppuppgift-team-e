@@ -42,13 +42,13 @@ class Game extends Base {
     if (player1.p1Type === 'human') {
       this.player1 = new HumanPlayer(player1.p1Name, 'yellow', player1.p1Type);
     } else {
-      this.player1 = new ComputerPlayer(player1.p1Name, 'yellow', player1.p1Type);
+      this.player1 = new ComputerPlayer(player1.p1Name, 'yellow', player1.p1Type, this.board);
     }
 
     if (player2.p2Type === 'human') {
       this.player2 = new HumanPlayer(player2.p2Name, 'red', player2.p2Type);
     } else {
-      this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
+      this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type, this.board);
     }
     this.htmlBase();
     this.board.gameOver = false;

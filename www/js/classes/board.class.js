@@ -9,6 +9,7 @@ class Board extends Base {
     this.players1;
     this.players2;
     this.turn;
+    this.colHeight = new Array(7).fill(0);
   }
 
   setupPlayers() {
@@ -93,6 +94,7 @@ class Board extends Base {
         this.places[playColumn][y].color = color;
         let circle = $("circle[cx=" + this.places[playColumn][y].cx + "][cy=" + this.places[playColumn][y].cy + "]");
         let newCircle = circle.clone()
+        this.colHeight[playColumn]++;
         newCircle.attr('cy', 50)
         newCircle.removeClass();
         newCircle.addClass(color);
