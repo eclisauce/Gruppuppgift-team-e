@@ -34,31 +34,30 @@ class ComputerPlayer extends Player {
   randomPlaceADisc() {
     let playCol = this.decideRow();
 
-    
-
-    if(playCol > 7)
-      playCol = (playCol-10 )/100
 
 
-      console.log("randomPlaceADisc play col: "+playCol)
-    this.board.toggleActiveBoard(true);
+    if (playCol > 7)
+      playCol = (playCol - 10) / 100
+
+
+    console.log("randomPlaceADisc play col: " + playCol)
+/*    this.board.toggleActiveBoard(true);
     $(`rect[x="${(playCol*100)+10}"][y="${10}"]`).trigger('click');
-
-    /*
+*/
         let clickThis;
         while (true) {
-          clickThis = $(`rect[x="${this.calculateX()}"][y="${10}"]`);
+          clickThis = $(`rect[x="${(playCol*100)+10}"][y="${10}"]`);
           let checkFull = clickThis.siblings('circle');
           if (game.board.isBoardFull()) {
             break;
           } else if (game.board.gameOver === true) {
             break;
           } else if (this.isBoardClickableComputer(checkFull)) {
-            
+            this.board.toggleActiveBoard(true);
             clickThis.trigger('click');
             break;
           }
-        }*/
+        }
   }
 
   canPlay(col) {
@@ -117,8 +116,8 @@ class ComputerPlayer extends Player {
       }
     }
     console.log(rowPoints);
-    if (rowPoints.every( (val, i, arr) => val === arr[0] )) {
-        console.log("TRUE)")
+    if (rowPoints.every((val, i, arr) => val === arr[0])) {
+      console.log("TRUE)")
       return this.calculateX();
     } else {
       let col = rowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
@@ -130,7 +129,7 @@ class ComputerPlayer extends Player {
   getPlayDisc(col) {
     for (let y = 5; y >= 0; y--) {
       if (this.board.places[col][y].color === 'white' && this.canPlay(col)) {
-        console.log("return y: "+y)
+        console.log("return y: " + y)
         return this.board.places[col][y];
         break;
       }
