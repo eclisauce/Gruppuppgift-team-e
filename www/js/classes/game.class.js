@@ -30,16 +30,15 @@ class Game extends Base {
     return name;
   }
 
-  // Method disabling refreshbutton f5
-  disableF5(){
-    function disableF5(e) {if ((e.which || e.keyCode) == 116) e.preventDefault();};
+  disableF5() {
+    function disableF5(e) {
+      if ((e.which || e.keyCode) == 116) e.preventDefault();
+    };
     $(window).on("keydown", disableF5);
   }
 
   startGameSession(player1, player2) {
-    // Actually disabling f5 here. Just before board is loaded.
     this.disableF5();
-    // Checking if human or cp
     if (player1.p1Type === 'human') {
       this.player1 = new HumanPlayer(player1.p1Name, 'yellow', player1.p1Type);
     } else {
@@ -52,27 +51,24 @@ class Game extends Base {
       this.player2 = new ComputerPlayer(player2.p2Name, 'red', player2.p2Type);
     }
     this.htmlBase();
-    // Sets gameOver to false
     this.board.gameOver = false;
     this.board.renderBoard();
     this.board.setupPlayers();
-    // This should probably be a callback function instead!
     if (game.board.player1 instanceof ComputerPlayer) {
       game.board.player1.makeMove();
-    }else{
+    } else {
       this.board.toggleActiveBoard(true);
     }
   }
 
   eventHandlers() {
     let that = this;
-    $(document).on('click', '#startbutton', function () {
+    $(document).on('click', '#startbutton', function() {
       let p1Type = $('#p1type').val();
       let p2Type = $('#p2type').val();
       let p1Name = $('#player1').val() ? $('#player1').val() : that.decideRandomName(p1Type);
       let p2Name = $('#player2').val() ? $('#player2').val() : that.decideRandomName(p2Type);
 
-      // Sending objects instead of double inparemters.
       let player1 = {
         p1Name,
         p1Type
@@ -86,10 +82,8 @@ class Game extends Base {
 
 
 
-    $(document).on('click','.checkMeBeforeLeave', function () {
-      // Removes everything from the modal div. To be able to append again.
+    $(document).on('click', '.checkMeBeforeLeave', function() {
       let clickedElement = ($(this).attr('getHref'));
-      // Checks if board is initiated
       if (that.board.gameOver === false) {
         if (clickedElement === '/gamerules') {
           that.board.htmlShowGameRules();
@@ -105,21 +99,20 @@ class Game extends Base {
 
     let hoverCircle;
     $(document).on({
-      click: function () {
+      click: function() {
         if (that.board.active) {
           const targetCircle = $(this).siblings('circle');
           if (that.board.isBoardClickable(targetCircle)) {
             const color = that.board.turn;
             that.board.placeDisc(targetCircle, color);
             that.board.toggleActiveBoard(true);
-            // that.board.changeCursors()
             that.changeTurn();
             that.board.checkWinner(color);
             that.board.htmlShowDraw();
           }
         }
       },
-      mouseenter: function () {
+      mouseenter: function() {
         if (that.board.active) {
           let targetCircle = $(this).siblings('circle');
           let playColumn = (targetCircle[0].cx.baseVal.value - 50) / 100;
@@ -132,7 +125,7 @@ class Game extends Base {
           hoverCircle.addClass((that.board.turn == "yellow" ? "hoverYellow" : "hoverRed"));
         }
       },
-      mouseleave: function () {
+      mouseleave: function() {
         if (that.board.active) {
           hoverCircle.removeClass(("hoverYellow hoverRed"));
         }
@@ -146,7 +139,6 @@ class Game extends Base {
       this.player1.score++;
       if (this.player2 instanceof ComputerPlayer) {
         this.board.toggleActiveBoard(false);
-        // this.changeCursors()
         this.player2.makeMove();
       }
     } else {
@@ -154,7 +146,6 @@ class Game extends Base {
       this.player2.score++;
       if (this.player1 instanceof ComputerPlayer) {
         this.board.toggleActiveBoard(false);
-        // this.changeCursors()
         this.player1.makeMove();
       }
     }
