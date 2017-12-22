@@ -34,29 +34,23 @@ class ComputerPlayer extends Player {
   randomPlaceADisc() {
     let playCol = this.decideRow();
 
-
-
     if (playCol > 7)
       playCol = (playCol - 10) / 100
 
-
-/*    this.board.toggleActiveBoard(true);
-    $(`rect[x="${(playCol*100)+10}"][y="${10}"]`).trigger('click');
-*/
-        let clickThis;
-        while (true) {
-          clickThis = $(`rect[x="${(playCol*100)+10}"][y="${10}"]`);
-          let checkFull = clickThis.siblings('circle');
-          if (game.board.isBoardFull()) {
-            break;
-          } else if (game.board.gameOver === true) {
-            break;
-          } else if (this.isBoardClickableComputer(checkFull)) {
-            this.board.toggleActiveBoard(true);
-            clickThis.trigger('click');
-            break;
-          }
-        }
+    let clickThis;
+    while (true) {
+      clickThis = $(`rect[x="${(playCol*100)+10}"][y="${10}"]`);
+      let checkFull = clickThis.siblings('circle');
+      if (game.board.isBoardFull()) {
+        break;
+      } else if (game.board.gameOver === true) {
+        break;
+      } else if (this.isBoardClickableComputer(checkFull)) {
+        this.board.toggleActiveBoard(true);
+        clickThis.trigger('click');
+        break;
+      }
+    }
   }
 
   canPlay(col) {
@@ -70,19 +64,17 @@ class ComputerPlayer extends Player {
 
     otherColor = thisColor == 'red' ? otherColor = 'yellow' : otherColor = 'red';
 
-
-
     let found = false;
     let tempDisc;
     let tempDisc2;
     let rowPoints = new Array(7).fill(0);
 
-
     for (let i = 0; i < 7; i++) {
+      this.board.colHeight[i]++;
       if (this.canPlay(i)) {
         tempDisc = this.getPlayDisc(i);
         tempDisc.color = thisColor;
-        this.board.colHeight[i]++;
+        
 
 
         if (this.isWinningMove(i, thisColor)) {
@@ -95,10 +87,11 @@ class ComputerPlayer extends Player {
           rowPoints[i] += 4
         }
         for (let x = 0; x < 7; x++) {
+          this.board.colHeight[x]++;
           if (this.canPlay(x)) {
             tempDisc2 = this.getPlayDisc(x);
             tempDisc2.color = thisColor;
-            this.board.colHeight[x]++;
+            
             if (this.isWinningMove(i, thisColor)) {
               rowPoints[x] += 5
             }
@@ -106,15 +99,17 @@ class ComputerPlayer extends Player {
             if (this.isWinningMove(i, otherColor)) {
               rowPoints[x] += 4
             }
-            this.board.colHeight[x]--;
+            
             tempDisc2.color = 'white';
           }
+          this.board.colHeight[x]--;
         }
-        this.board.colHeight[i]--;
+        
         tempDisc.color = 'white';
       }
+      this.board.colHeight[i]--;
     }
- 
+
     if (rowPoints.every((val, i, arr) => val === arr[0])) {
 
       return this.calculateX();
@@ -128,7 +123,6 @@ class ComputerPlayer extends Player {
   getPlayDisc(col) {
     for (let y = 5; y >= 0; y--) {
       if (this.board.places[col][y].color === 'white' && this.canPlay(col)) {
-
         return this.board.places[col][y];
         break;
       }
