@@ -11,174 +11,24 @@
       "type": "human"
     },
     {
-      "name": "dsa2",
-      "score": 4,
+      "name": "The Dude",
+      "score": 5,
       "type": "human"
     },
     {
-      "name": "321",
-      "score": 4,
+      "name": "John Doe",
+      "score": 6,
       "type": "human"
     },
     {
-      "name": "dsa",
-      "score": 7,
+      "name": "Wolverine",
+      "score": 13,
       "type": "human"
     },
     {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "Data",
-      "score": 10,
+      "name": "Skynet",
+      "score": 18,
       "type": "cp"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
-    },
-    {
-      "name": "dsa2",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "321",
-      "score": 4,
-      "type": "human"
-    },
-    {
-      "name": "dsa",
-      "score": 7,
-      "type": "human"
     }
   ]
 }
