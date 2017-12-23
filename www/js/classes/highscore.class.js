@@ -17,7 +17,11 @@ class Highscore {
     }
 
     addNewScore(data) {
-        this.scores.push(data);
+        this.scores.push({
+            name: data.name,
+            score: data.score,
+            type: data.type
+        });
         delete data.color;
         this.sortScores();
         this.scores = this.scores.splice(0, this.maxScoreLength)

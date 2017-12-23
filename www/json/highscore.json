@@ -6,9 +6,9 @@
       "type": "human"
     },
     {
-      "name": "Skynet",
+      "name": "John Doe",
       "score": 20,
-      "type": "cp"
+      "type": "human"
     }
   ]
 }
