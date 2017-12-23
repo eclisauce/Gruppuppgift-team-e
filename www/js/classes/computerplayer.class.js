@@ -1,9 +1,6 @@
 class ComputerPlayer extends Player {
   constructor(name, color, type, board) {
-    super();
-    this.name = name;
-    this.color = color;
-    this.type = type;
+    super(name,color,type);
     this.board = board;
   }
 
@@ -108,7 +105,6 @@ class ComputerPlayer extends Player {
       else
         bestColumn = (this.calculateX() - 10) / 100;
     }
-    console.log('firstRowPoints', firstRowPoints);
     return bestColumn;
   }
 
