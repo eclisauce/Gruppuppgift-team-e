@@ -126,7 +126,7 @@ class Game extends Base {
         }
       },
       mouseleave: function() {
-        if (that.board.active) {
+        if (that.board.active && hoverCircle) {
           hoverCircle.removeClass(("hoverYellow hoverRed"));
         }
       }

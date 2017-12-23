@@ -79,7 +79,7 @@ class Board extends Base {
   }
 
   isBoardFullyVisible(element) {
-    return element.isOnScreen(function(ele) {
+    return element.isOnScreen(function (ele) {
       return ele.top >= this.height() &&
         ele.bottom >= this.height() &&
         ele.left >= this.width() &&
@@ -101,7 +101,7 @@ class Board extends Base {
         newCircle.appendTo(circle.parent());
         newCircle.animate({
           cy: this.places[playColumn][y].cy
-        }, (this.places[playColumn][y].cy - 50), function() {
+        }, (this.places[playColumn][y].cy - 50), function () {
           circle.remove();
         });
         newCircle.attr('cy', this.places[playColumn][y].cy)
@@ -262,10 +262,8 @@ class Board extends Base {
 
   isBoardFull() {
     for (let i = 0; i < 7; i++) {
-      for (let j = 0; j < 6; j++) {
-        if (this.places[i][j].color === 'white') {
-          return false;
-        }
+      if (this.places[i][0].color == 'white') {
+        return false;
       }
     }
     this.setGameOver();
