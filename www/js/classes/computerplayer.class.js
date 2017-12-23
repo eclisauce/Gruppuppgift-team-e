@@ -76,20 +76,20 @@ class ComputerPlayer extends Player {
         firstPlayDisc.color = currentColor;
         this.board.colHeight[i]++;
         if (this.isWinningMove(i, currentColor))
-          firstRowPoints[i] += 5
+          firstRowPoints[i] += 10
         firstPlayDisc.color = secondColor;
         if (this.isWinningMove(i, secondColor))
-          firstRowPoints[i] += 3
+          firstRowPoints[i] += 10
         for (let x = 0; x < 7; x++) {
           if (this.canPlay(x)) {
             secondPlayDisc = this.getPlayDisc(x);
             secondPlayDisc.color = secondColor;
             this.board.colHeight[x]++;
-            if (this.isWinningMove(i, currentColor))
-              firstRowPoints[x] += 2
+            if (this.isWinningMove(x, currentColor))
+              firstRowPoints[x] += 3
             secondPlayDisc.color = secondColor;
-            if (this.isWinningMove(i, secondColor))
-              firstRowPoints[x] += 1
+            if (this.isWinningMove(x, secondColor))
+              firstRowPoints[x] += -1
             this.board.colHeight[x]--;
             secondPlayDisc.color = 'white';
           }
@@ -111,6 +111,7 @@ class ComputerPlayer extends Player {
       else
         bestColumn = (this.calculateX() - 10) / 100;
     }
+    console.log(firstRowPoints);
     return bestColumn;
   }
 
