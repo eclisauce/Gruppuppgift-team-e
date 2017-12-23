@@ -59,7 +59,6 @@ class ComputerPlayer extends Player {
     let currentColor = this.board.turn;
     let secondColor; 
     secondColor = currentColor == 'red' ? secondColor = 'yellow' : secondColor = 'red';
-    console.log(secondColor)
 
     let found = false;
     let firstPlayDisc;
