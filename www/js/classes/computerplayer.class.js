@@ -1,6 +1,6 @@
 class ComputerPlayer extends Player {
   constructor(name, color, type, board) {
-    super(name,color,type);
+    super(name, color, type);
     this.board = board;
   }
 
@@ -36,7 +36,6 @@ class ComputerPlayer extends Player {
 
   randomPlaceADisc() {
     let playCol = this.decideBestColumn();
-
     let clickThis;
     while (true) {
       clickThis = $(`rect[x="${(playCol*100)+10}"][y="${10}"]`);
@@ -56,7 +55,6 @@ class ComputerPlayer extends Player {
   canPlay(col) {
     return this.board.colHeight[col] < 6
   }
-
 
   decideBestColumn() {
     let currentColor = this.board.turn;
@@ -119,7 +117,6 @@ class ComputerPlayer extends Player {
     return rnd;
   }
 
-
   getPlayDisc(col) {
     for (let y = 5; y >= 0; y--) {
       if (this.board.places[col][y].color === 'white' && this.canPlay(col)) {
@@ -136,7 +133,6 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
-
 
   checkWinner(color) {
     return (
@@ -168,6 +164,7 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
+
   checkForInColumn(color) {
     let count = 0;
     for (let originX = 0; originX < 7; originX++) {
@@ -189,6 +186,7 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
+
   checkForInDiagonal1(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
@@ -210,6 +208,7 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
+
   checkForInDiagonal2(color) {
     let count = 0;
     for (let originX = 3; originX < 7; originX++) {
