@@ -76,20 +76,20 @@ class ComputerPlayer extends Player {
         firstPlayDisc.color = currentColor;
         this.board.colHeight[i]++;
         if (this.isWinningMove(i, currentColor))
-          firstRowPoints[i] += 10
+          firstRowPoints[i] += 20;
         firstPlayDisc.color = secondColor;
         if (this.isWinningMove(i, secondColor))
-          firstRowPoints[i] += 10
+          firstRowPoints[i] += 20;
         for (let x = 0; x < 7; x++) {
           if (this.canPlay(x)) {
             secondPlayDisc = this.getPlayDisc(x);
             secondPlayDisc.color = secondColor;
             this.board.colHeight[x]++;
             if (this.isWinningMove(x, currentColor))
-              firstRowPoints[x] += 3
+              firstRowPoints[x] += 6;
             secondPlayDisc.color = secondColor;
             if (this.isWinningMove(x, secondColor))
-              firstRowPoints[x] += -1
+              firstRowPoints[x] += -2;
             this.board.colHeight[x]--;
             secondPlayDisc.color = 'white';
           }
@@ -98,12 +98,9 @@ class ComputerPlayer extends Player {
         firstPlayDisc.color = 'white';
       }
     }
-    if (firstRowPoints.every((val, i, arr) => val === arr[0]))
-      bestColumn = this.calculateX();
-    else
-      bestColumn = firstRowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
-    if (bestColumn > 7)
-      bestColumn = (bestColumn - 10) / 100
+
+    bestColumn = firstRowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+    bestColumn = this.getRandomWhenSameIndex(firstRowPoints, firstRowPoints[bestColumn]);
 
     while (!this.canPlay(bestColumn)) {
       if (this.board.isBoardFull())
@@ -111,8 +108,19 @@ class ComputerPlayer extends Player {
       else
         bestColumn = (this.calculateX() - 10) / 100;
     }
-    console.log(firstRowPoints);
+    console.log('firstRowPoints', firstRowPoints);
     return bestColumn;
+  }
+
+  getRandomWhenSameIndex(array, value) {
+    let indexes = []
+    let i = -1;
+    while ((i = array.indexOf(value, i + 1)) != -1) {
+      indexes.push(i);
+    }
+    let rnd = Math.floor(Math.random() * indexes.length);
+    rnd = indexes[rnd];
+    return rnd;
   }
 
 
