@@ -27,6 +27,12 @@ class ComputerPlayer extends Player {
     }
   }
 
+  playSeq(string) {
+    for (let i = 0; i < string.length; i++) {
+      $(`rect[x="${((string[i]-1)*100)+10}"][y="${10}"]`).trigger('click');
+    }
+  }
+
   makeMove() {
     setTimeout(() => this.randomPlaceADisc(), this.randomTime());
   }
@@ -57,38 +63,33 @@ class ComputerPlayer extends Player {
 
   decideBestColumn() {
     let currentColor = this.board.turn;
-    let secondColor; 
+    let secondColor;
     secondColor = currentColor == 'red' ? secondColor = 'yellow' : secondColor = 'red';
-
-    let found = false;
+    let bestColumn;
     let firstPlayDisc;
     let secondPlayDisc;
-    let rowPoints = new Array(7).fill(0);
+    let firstRowPoints = new Array(7).fill(0);
 
     for (let i = 0; i < 7; i++) {
       if (this.canPlay(i)) {
         firstPlayDisc = this.getPlayDisc(i);
         firstPlayDisc.color = currentColor;
         this.board.colHeight[i]++;
-
         if (this.isWinningMove(i, currentColor))
-          rowPoints[i] += 5
+          firstRowPoints[i] += 5
         firstPlayDisc.color = secondColor;
         if (this.isWinningMove(i, secondColor))
-          rowPoints[i] += -4
+          firstRowPoints[i] += 3
         for (let x = 0; x < 7; x++) {
           if (this.canPlay(x)) {
             secondPlayDisc = this.getPlayDisc(x);
             secondPlayDisc.color = secondColor;
             this.board.colHeight[x]++;
-
-            if (this.isWinningMove(i, currentColor)) {
-              rowPoints[x] += 5
-            }
+            if (this.isWinningMove(i, currentColor))
+              firstRowPoints[x] += 2
             secondPlayDisc.color = secondColor;
-            if (this.isWinningMove(i, secondColor)) {
-              rowPoints[x] += -4
-            }
+            if (this.isWinningMove(i, secondColor))
+              firstRowPoints[x] += 1
             this.board.colHeight[x]--;
             secondPlayDisc.color = 'white';
           }
@@ -96,28 +97,21 @@ class ComputerPlayer extends Player {
         this.board.colHeight[i]--;
         firstPlayDisc.color = 'white';
       }
-
     }
+    if (firstRowPoints.every((val, i, arr) => val === arr[0]))
+      bestColumn = this.calculateX();
+    else
+      bestColumn = firstRowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+    if (bestColumn > 7)
+      bestColumn = (bestColumn - 10) / 100
 
-
-    let returnCol;
-
-    if (rowPoints.every((val, i, arr) => val === arr[0])) {
-      returnCol = this.calculateX();
-    } else {
-      returnCol = rowPoints.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
-    }
-
-    if (returnCol > 7)
-      returnCol = (returnCol - 10) / 100
-
-    while (!this.canPlay(returnCol)) {
+    while (!this.canPlay(bestColumn)) {
       if (this.board.isBoardFull())
         break;
       else
-        returnCol = (this.calculateX() - 10) / 100;
+        bestColumn = (this.calculateX() - 10) / 100;
     }
-    return returnCol;
+    return bestColumn;
   }
 
 
@@ -169,7 +163,6 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
-
   checkForInColumn(color) {
     let count = 0;
     for (let originX = 0; originX < 7; originX++) {
@@ -191,7 +184,6 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
-
   checkForInDiagonal1(color) {
     let count = 0;
     for (let originX = 0; originX < 4; originX++) {
@@ -213,7 +205,6 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
-
   checkForInDiagonal2(color) {
     let count = 0;
     for (let originX = 3; originX < 7; originX++) {
@@ -235,5 +226,4 @@ class ComputerPlayer extends Player {
     }
     return false;
   }
-
 }
