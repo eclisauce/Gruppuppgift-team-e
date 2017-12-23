@@ -54,8 +54,8 @@ class Game extends Base {
     this.board.gameOver = false;
     this.board.renderBoard();
     this.board.setupPlayers();
-    if (game.board.player1 instanceof ComputerPlayer) {
-      game.board.player1.makeMove();
+    if (this.board.player1 instanceof ComputerPlayer) {
+      this.board.player1.makeMove();
     } else {
       this.board.toggleActiveBoard(true);
     }
@@ -134,6 +134,9 @@ class Game extends Base {
   }
 
   changeTurn() {
+
+
+
     if (this.board.turn === this.player1.color) {
       this.board.turn = this.player2.color;
       this.player1.score++;
