@@ -31,7 +31,11 @@ class Board extends Base {
     this.changeCursors();
   }
 
-  setGameOver() {
+  setGameOver(player) {
+    if(player){
+    this.htmlShowWinner(player.name, player.score);
+    this.highscore.checkIfNewHighscore(player);
+    }
     this.toggleActiveBoard(false);
     this.gameOver = true;
   }
@@ -157,14 +161,10 @@ class Board extends Base {
           if (this.places[originX + i][originY].color === color) {
             count++;
             if (count === 4 && this.player1.color === color) {
-              this.htmlShowWinner(this.player1.name, this.player1.score);
-              this.highscore.checkIfNewHighscore(this.player1);
-              this.setGameOver();
+              this.setGameOver(this.player1);
               return true;
             } else if (count === 4 && this.player2.color === color) {
-              this.htmlShowWinner(this.player2.name, this.player2.score);
-              this.highscore.checkIfNewHighscore(this.player2);
-              this.setGameOver();
+              this.setGameOver(this.player2);
               return true;
             }
           } else {
@@ -185,14 +185,10 @@ class Board extends Base {
           if (this.places[originX][originY + i].color === color) {
             count++;
             if (count === 4 && this.player1.color === color) {
-              this.htmlShowWinner(this.player1.name, this.player1.score);
-              this.highscore.checkIfNewHighscore(this.player1);
-              this.setGameOver();
+              this.setGameOver(this.player1);
               return true;
             } else if (count === 4 && this.player2.color === color) {
-              this.htmlShowWinner(this.player2.name, this.player2.score);
-              this.highscore.checkIfNewHighscore(this.player2);
-              this.setGameOver();
+              this.setGameOver(this.player2);
               return true;
             }
           } else {
@@ -213,14 +209,10 @@ class Board extends Base {
           if (this.places[originX + i][originY + i].color === color) {
             count++;
             if (count === 4 && this.player1.color === color) {
-              this.htmlShowWinner(this.player1.name, this.player1.score);
-              this.highscore.checkIfNewHighscore(this.player1);
-              this.setGameOver();
+              this.setGameOver(this.player1);
               return true;
             } else if (count === 4 && this.player2.color === color) {
-              this.htmlShowWinner(this.player2.name, this.player2.score);
-              this.highscore.checkIfNewHighscore(this.player2);
-              this.setGameOver();
+              this.setGameOver(this.player2);
               return true;
             }
           } else {
@@ -241,14 +233,10 @@ class Board extends Base {
           if (this.places[originX - i][originY + i].color === color) {
             count++;
             if (count === 4 && this.player1.color === color) {
-              this.htmlShowWinner(this.player1.name, this.player1.score);
-              this.highscore.checkIfNewHighscore(this.player1);
-              this.setGameOver();
+              this.setGameOver(this.player1);
               return true;
             } else if (count === 4 && this.player2.color === color) {
-              this.htmlShowWinner(this.player2.name, this.player2.score);
-              this.highscore.checkIfNewHighscore(this.player2);
-              this.setGameOver();
+              this.setGameOver(this.player2);
               return true;
             }
           } else {
